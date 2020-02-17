@@ -65,6 +65,14 @@ TEST_F(IdLookupTest, lookupEffectById)
     EXPECT_EQ(lookupEffectById(0x1c), effects::FUZZ_TOUCH_WAH);
     EXPECT_EQ(lookupEffectById(0x88), effects::SIMPLE_COMP);
     EXPECT_EQ(lookupEffectById(0x07), effects::COMPRESSOR);
+    
+    EXPECT_EQ(lookupEffectById(0x03), effects::RANGE_BOOST);
+    EXPECT_EQ(lookupEffectById(0xba), effects::GREEN_BOX);
+    EXPECT_EQ(lookupEffectById(0x10), effects::ORANGE_BOX);
+    EXPECT_EQ(lookupEffectById(0x11), effects::BLACK_BOX);
+    EXPECT_EQ(lookupEffectById(0x0f), effects::BIG_FUZZ);
+    
+    
     EXPECT_EQ(lookupEffectById(0x12), effects::SINE_CHORUS);
     EXPECT_EQ(lookupEffectById(0x13), effects::TRIANGLE_CHORUS);
     EXPECT_EQ(lookupEffectById(0x18), effects::SINE_FLANGER);

@@ -394,29 +394,45 @@ namespace plug
                 setTitleTexts(fx_slot + 1, "Fuzz Touch Wah");
                 break;
 
-            case effects::SIMPLE_COMP:
-                setTitleTexts(fx_slot + 1, "Simple Compressor");
-                break;
+	    case effects::SIMPLE_COMP:
+		setTitleTexts(fx_slot + 1, "Simple Compressor");
+		break;
 
-            case effects::COMPRESSOR:
-                setTitleTexts(fx_slot + 1, "Compressor");
-                break;
+	    case effects::COMPRESSOR:
+		setTitleTexts(fx_slot + 1, "Compressor");
+		break;
 
-            case effects::SINE_CHORUS:
-                setTitleTexts(fx_slot + 1, "Sine Chorus");
-                break;
+	    case effects::RANGE_BOOST:
+		setTitleTexts(fx_slot + 1, "Range Boost");
+		break;
+	    case effects::GREEN_BOX:
+		setTitleTexts(fx_slot + 1, "Green Box");
+		break;
+	    case effects::ORANGE_BOX:
+		setTitleTexts(fx_slot + 1, "Orange Box");
+		break;
+	    case effects::BLACK_BOX:
+		setTitleTexts(fx_slot + 1, "Black Box");
+		break;
+	    case effects::BIG_FUZZ:
+		setTitleTexts(fx_slot + 1, "Big Fuzz");
+		break;
 
-            case effects::TRIANGLE_CHORUS:
-                setTitleTexts(fx_slot + 1, "Triangle Chorus");
-                break;
+	    case effects::SINE_CHORUS:
+		setTitleTexts(fx_slot + 1, "Sine Chorus");
+		break;
 
-            case effects::SINE_FLANGER:
-                setTitleTexts(fx_slot + 1, "Sine Flanger");
-                break;
+	    case effects::TRIANGLE_CHORUS:
+		setTitleTexts(fx_slot + 1, "Triangle Chorus");
+		break;
 
-            case effects::TRIANGLE_FLANGER:
-                setTitleTexts(fx_slot + 1, "Triangle Flanger");
-                break;
+	    case effects::SINE_FLANGER:
+		setTitleTexts(fx_slot + 1, "Sine Flanger");
+		break;
+
+	    case effects::TRIANGLE_FLANGER:
+		setTitleTexts(fx_slot + 1, "Triangle Flanger");
+		break;
 
             case effects::VIBRATONE:
                 setTitleTexts(fx_slot + 1, "Vibratone");
@@ -838,6 +854,203 @@ namespace plug
                              tr("Disabled box"),
                              tr("This box is disabled in this effect")});
                 break;
+	    case effects::RANGE_BOOST:
+	                setTexts(ui.get(),
+                         UIText{
+                             tr("&Level"),
+                             tr("Effect's %1 \"Level\" dial").arg(fx_slot + 1),
+                             tr("Allows you to set \"Level\" parameter of this effect"),
+                             tr("Effect's %1 \"Level\" box").arg(fx_slot + 1),
+                             tr("Allows you to precisely set \"Level\" parameter of this effect")},
+                         UIText{
+                             tr("&Gain"),
+                             tr("Effect's %1 \"Gain\" dial").arg(fx_slot + 1),
+                             tr("Allows you to set \"Gain\" parameter of this effect"),
+                             tr("Effect's %1 \"Gain\" box").arg(fx_slot + 1),
+                             tr("Allows you to precisely set \"Gain\" parameter of this effect")},
+                         UIText{
+                             tr("&Lo-Cut"),
+                             tr("Effect's %1 \"Lo-Cut\" dial").arg(fx_slot + 1),
+                             tr("Allows you to set \"Lo-Cut\" parameter of this effect"),
+                             tr("Effect's %1 \"Lo-Cut\" box").arg(fx_slot + 1),
+                             tr("Allows you to precisely set \"Lo-Cut\" parameter of this effect")},
+                         UIText{
+                             tr("Atta&ck"),
+                             tr("Effect's %1 \"Bright\" dial").arg(fx_slot + 1),
+                             tr("Allows you to set \"Bright\" parameter of this effect"),
+                             tr("Effect's %1 \"Bright\" box").arg(fx_slot + 1),
+                             tr("Allows you to precisely set \"Bright\" parameter of this effect")},
+                         UIText{
+                             tr(""),
+                             tr("Disabled dial"),
+                             tr("This dial is disabled in this effect"),
+                             tr("Disabled box"),
+                             tr("This box is disabled in this effect")},
+                         UIText{
+                             tr(""),
+                             tr("Disabled dial"),
+                             tr("This dial is disabled in this effect"),
+                             tr("Disabled box"),
+                             tr("This box is disabled in this effect")});	
+			     break;
+	    case effects::GREEN_BOX:
+	                setTexts(ui.get(),
+                         UIText{
+                             tr("&Level"),
+                             tr("Effect's %1 \"Level\" dial").arg(fx_slot + 1),
+                             tr("Allows you to set \"Level\" parameter of this effect"),
+                             tr("Effect's %1 \"Level\" box").arg(fx_slot + 1),
+                             tr("Allows you to precisely set \"Level\" parameter of this effect")},
+                         UIText{
+                             tr("&Gain"),
+                             tr("Effect's %1 \"Gain\" dial").arg(fx_slot + 1),
+                             tr("Allows you to set \"Gain\" parameter of this effect"),
+                             tr("Effect's %1 \"Gain\" box").arg(fx_slot + 1),
+                             tr("Allows you to precisely set \"Gain\" parameter of this effect")},
+                         UIText{
+                             tr("&Tone"),
+                             tr("Effect's %1 \"Tone\" dial").arg(fx_slot + 1),
+                             tr("Allows you to set \"Tone\" parameter of this effect"),
+                             tr("Effect's %1 \"Tone\" box").arg(fx_slot + 1),
+                             tr("Allows you to precisely set \"Tone\" parameter of this effect")},
+                         UIText{
+                             tr("&Blend"),
+                             tr("Effect's %1 \"Blend\" dial").arg(fx_slot + 1),
+                             tr("Allows you to set \"Blend\" parameter of this effect"),
+                             tr("Effect's %1 \"Blend\" box").arg(fx_slot + 1),
+                             tr("Allows you to precisely set \"Blend\" parameter of this effect")},
+                         UIText{
+                             tr(""),
+                             tr("Disabled dial"),
+                             tr("This dial is disabled in this effect"),
+                             tr("Disabled box"),
+                             tr("This box is disabled in this effect")},
+                         UIText{
+                             tr(""),
+                             tr("Disabled dial"),
+                             tr("This dial is disabled in this effect"),
+                             tr("Disabled box"),
+                             tr("This box is disabled in this effect")});			
+			break;
+	    case effects::ORANGE_BOX:
+	                setTexts(ui.get(),
+                         UIText{
+                             tr("&Level"),
+                             tr("Effect's %1 \"Level\" dial").arg(fx_slot + 1),
+                             tr("Allows you to set \"Level\" parameter of this effect"),
+                             tr("Effect's %1 \"Level\" box").arg(fx_slot + 1),
+                             tr("Allows you to precisely set \"Level\" parameter of this effect")},
+                         UIText{
+                             tr("&Dist"),
+                             tr("Effect's %1 \"Dist\" dial").arg(fx_slot + 1),
+                             tr("Allows you to set \"Dist\" parameter of this effect"),
+                             tr("Effect's %1 \"Dist\" box").arg(fx_slot + 1),
+                             tr("Allows you to precisely set \"Dist\" parameter of this effect")},
+                         UIText{
+                             tr("&Tone"),
+                             tr("Effect's %1 \"Tone\" dial").arg(fx_slot + 1),
+                             tr("Allows you to set \"Tone\" parameter of this effect"),
+                             tr("Effect's %1 \"Tone\" box").arg(fx_slot + 1),
+                             tr("Allows you to precisely set \"Tone\" parameter of this effect")},
+                         UIText{
+                             tr(""),
+                             tr("Disabled dial"),
+                             tr("This dial is disabled in this effect"),
+                             tr("Disabled box"),
+                             tr("This box is disabled in this effect")},
+                          UIText{
+                             tr(""),
+                             tr("Disabled dial"),
+                             tr("This dial is disabled in this effect"),
+                             tr("Disabled box"),
+                             tr("This box is disabled in this effect")},
+                         UIText{
+                             tr(""),
+                             tr("Disabled dial"),
+                             tr("This dial is disabled in this effect"),
+                             tr("Disabled box"),
+                             tr("This box is disabled in this effect")});		
+			break;
+	    case effects::BLACK_BOX:
+			setTexts(ui.get(),
+		  	 UIText{
+				tr("&Level"),
+				tr("Effect's %1 \"Level\" dial").arg(fx_slot + 1),
+				tr("Allows you to set \"Level\" parameter of this effect"),
+				tr("Effect's %1 \"Level\" box").arg(fx_slot + 1),
+				tr("Allows you to precisely set \"Level\" parameter of this effect")},
+			UIText{
+				tr("&Dist"),
+				tr("Effect's %1 \"Dist\" dial").arg(fx_slot + 1),
+				tr("Allows you to set \"Dist\" parameter of this effect"),
+				tr("Effect's %1 \"Dist\" box").arg(fx_slot + 1),
+				tr("Allows you to precisely set \"Dist\" parameter of this effect")},
+			UIText{
+				tr("&Filter"),
+				tr("Effect's %1 \"Filter\" dial").arg(fx_slot + 1),
+				tr("Allows you to set \"Filter\" parameter of this effect"),
+				tr("Effect's %1 \"Filter\" box").arg(fx_slot + 1),
+				tr("Allows you to precisely set \"Filter\" parameter of this effect")},
+			UIText{
+				tr(""),
+				tr("Disabled dial"),
+				tr("This dial is disabled in this effect"),
+				tr("Disabled box"),
+				tr("This box is disabled in this effect")},
+			UIText{
+				tr(""),
+				tr("Disabled dial"),
+				tr("This dial is disabled in this effect"),
+				tr("Disabled box"),
+				tr("This box is disabled in this effect")},
+			UIText{
+				tr(""),
+				tr("Disabled dial"),
+				tr("This dial is disabled in this effect"),
+				tr("Disabled box"),
+				tr("This box is disabled in this effect")});		
+			break;
+	    case effects::BIG_FUZZ:
+			setTexts(ui.get(),
+		  	 UIText{
+				tr("&Level"),
+				tr("Effect's %1 \"Level\" dial").arg(fx_slot + 1),
+				tr("Allows you to set \"Level\" parameter of this effect"),
+				tr("Effect's %1 \"Level\" box").arg(fx_slot + 1),
+				tr("Allows you to precisely set \"Level\" parameter of this effect")},
+			UIText{
+				tr("&Tone"),
+				tr("Effect's %1 \"Tone\" dial").arg(fx_slot + 1),
+				tr("Allows you to set \"Tone\" parameter of this effect"),
+				tr("Effect's %1 \"Tone\" box").arg(fx_slot + 1),
+				tr("Allows you to precisely set \"Tone\" parameter of this effect")},
+			UIText{
+				tr("&Sustain"),
+				tr("Effect's %1 \"Sustain\" dial").arg(fx_slot + 1),
+				tr("Allows you to set \"Sustain\" parameter of this effect"),
+				tr("Effect's %1 \"Sustain\" box").arg(fx_slot + 1),
+				tr("Allows you to precisely set \"Sustain\" parameter of this effect")},
+			UIText{
+				tr(""),
+				tr("Disabled dial"),
+				tr("This dial is disabled in this effect"),
+				tr("Disabled box"),
+				tr("This box is disabled in this effect")},
+			UIText{
+				tr(""),
+				tr("Disabled dial"),
+				tr("This dial is disabled in this effect"),
+				tr("Disabled box"),
+				tr("This box is disabled in this effect")},
+			UIText{
+				tr(""),
+				tr("Disabled dial"),
+				tr("This dial is disabled in this effect"),
+				tr("Disabled box"),
+				tr("This box is disabled in this effect")});	
+			break;
+
+
             case effects::SINE_CHORUS:
             case effects::TRIANGLE_CHORUS:
                 setTexts(ui.get(),
@@ -1577,13 +1790,29 @@ namespace plug
                     setDialValues(0x01, 0x00, 0x00, 0x00, 0x00, 0x00);
                     break;
                 case effects::COMPRESSOR:
-                    setDialValues(0x8d, 0x0f, 0x4f, 0x7f, 0x7f, 0x00);
-                    break;
-                case effects::SINE_CHORUS:
-                    setDialValues(0xff, 0x0e, 0x19, 0x19, 0x80, 0x00);
-                    break;
-                case effects::TRIANGLE_CHORUS:
-                    setDialValues(0x5d, 0x0e, 0x19, 0x19, 0x80, 0x00);
+		    setDialValues(0x8d, 0x0f, 0x4f, 0x7f, 0x7f, 0x00);
+		    break;
+		case effects::RANGE_BOOST:
+		    setDialValues(0x64, 0xba, 0x01, 0x9b, 0x00, 0x00);
+		    break;
+		case effects::GREEN_BOX:
+		    setDialValues(0x81, 0xb1, 0x8c, 0xff, 0x00, 0x00);
+		    break;
+		case effects::ORANGE_BOX:
+		    setDialValues(0x81, 0x81, 0x81, 0x00, 0x00, 0x00);
+		    break;
+		case effects::BLACK_BOX:
+		    setDialValues(0x81, 0x81, 0x56, 0x00, 0x00, 0x00);
+		    break;
+		case effects::BIG_FUZZ:
+		    setDialValues(0xac, 0xac, 0x73, 0x00, 0x00, 0x00);
+		    break;
+
+		case effects::SINE_CHORUS:
+		    setDialValues(0xff, 0x0e, 0x19, 0x19, 0x80, 0x00);
+		    break;
+		case effects::TRIANGLE_CHORUS:
+		    setDialValues(0x5d, 0x0e, 0x19, 0x19, 0x80, 0x00);
                     break;
                 case effects::SINE_FLANGER:
                     setDialValues(0xff, 0x0e, 0x80, 0x80, 0x80, 0x00);

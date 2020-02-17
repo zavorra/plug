@@ -444,6 +444,28 @@ namespace plug
                 model = 0x07;
                 break;
 
+	    case effects::RANGE_BOOST:
+                model =  0x03;
+                break;
+
+            case  effects::GREEN_BOX:
+                model =  0xba;
+                break;
+
+	    case effects::ORANGE_BOX:
+                model =  0x10;
+                break;
+
+	    case effects::BLACK_BOX:
+                model =  0x11;
+                break;
+
+            case effects::BIG_FUZZ:
+                model =  0x0f;
+                break;
+
+
+
             case effects::SINE_CHORUS:
                 model = 0x12;
                 break;

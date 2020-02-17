@@ -55,7 +55,11 @@ namespace plug
         FUZZ_TOUCH_WAH,
         SIMPLE_COMP,
         COMPRESSOR,
-
+        RANGE_BOOST,
+        GREEN_BOX,
+        ORANGE_BOX,
+        BLACK_BOX,
+        BIG_FUZZ,
         SINE_CHORUS,
         TRIANGLE_CHORUS,
         SINE_FLANGER,

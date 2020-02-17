@@ -82,6 +82,19 @@ namespace plug
                 return effects::SIMPLE_COMP;
             case 0x07:
                 return effects::COMPRESSOR;
+
+	        case 0x03:
+                return effects::RANGE_BOOST;
+            case 0xba:
+                return effects::GREEN_BOX;
+            case 0x10:
+                return effects::ORANGE_BOX;
+            case 0x11:
+                return effects::BLACK_BOX;
+            case 0x0f:
+                return effects::BIG_FUZZ;
+
+
             case 0x12:
                 return effects::SINE_CHORUS;
             case 0x13:

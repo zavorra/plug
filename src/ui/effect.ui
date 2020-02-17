@@ -80,6 +80,31 @@
         </item>
         <item>
          <property name="text">
+          <string>[1] V2.Ranger Boost</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>[1] V2.Green Box</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>[1] V2.Orange Box</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>[1] V2.Black Box</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>[1] V2.Big Fuzz</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
           <string>[2] Sine Chorus</string>
          </property>
         </item>

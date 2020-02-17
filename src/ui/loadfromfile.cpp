@@ -264,6 +264,26 @@ namespace plug
                         case 0x07:
                             m_fx_settings[x].effect_num = effects::COMPRESSOR;
                             break;
+                        case 0x03:
+                            m_fx_settings[x].effect_num = effects::RANGE_BOOST;
+                            break;
+
+                        case 0xba:
+                            m_fx_settings[x].effect_num = effects::GREEN_BOX;
+                            break;
+
+                        case 0x10:
+                            m_fx_settings[x].effect_num = effects::ORANGE_BOX;
+                            break;
+
+                        case 0x11:
+                            m_fx_settings[x].effect_num = effects::BLACK_BOX;
+                            break;
+
+                        case 0x0f:
+                            m_fx_settings[x].effect_num = effects::BIG_FUZZ;
+                            break;
+
 
                         case 0x12:
                             m_fx_settings[x].effect_num = effects::SINE_CHORUS;

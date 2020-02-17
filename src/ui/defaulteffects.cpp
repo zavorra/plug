@@ -553,6 +553,208 @@ namespace plug
                              tr("Disabled box"),
                              tr("This box is disabled in this effect")});
                 break;
+	    case effects::RANGE_BOOST:
+                setTexts(ui.get(),
+                         UIText{
+                             tr("&Level"),
+                             tr("Default effect's \"Level\" dial"),
+                             tr("Allows you to set \"Level\" parameter of this effect"),
+                             tr("Default effect's \"Level\" box"),
+                             tr("Allows you to precisely set \"Level\" parameter of this effect")},
+                         UIText{
+                             tr("&Gain"),
+                             tr("Default effect's \"Gain\" dial"),
+                             tr("Allows you to set \"Gain\" parameter of this effect"),
+                             tr("Default effect's \"Gain\" box"),
+                             tr("Allows you to precisely set \"Gain\" parameter of this effect")},
+                         UIText{
+                             tr("&Lo-Cut"),
+                             tr("Default effect's \"Lo-Cut\" dial"),
+                             tr("Allows you to set \"Lo-Cut\" parameter of this effect"),
+                             tr("Default effect's \"Lo-Cut\" box"),
+                             tr("Allows you to precisely set \"Lo-Cut\" parameter of this effect")},
+                         UIText{
+                             tr("&Bright"),
+                             tr("Default effect's \"Bright\" dial"),
+                             tr("Allows you to set \"Bright\" parameter of this effect"),
+                             tr("Default effect's \"Bright\" box"),
+                             tr("Allows you to precisely set \"Bright\" parameter of this effect")},
+                         UIText{
+                             tr(""),
+                             tr("Disabled dial"),
+                             tr("This dial is disabled in this effect"),
+                             tr("Disabled box"),
+                             tr("This box is disabled in this effect")},
+                        UIText{
+                             tr(""),
+                             tr("Disabled dial"),
+                             tr("This dial is disabled in this effect"),
+                             tr("Disabled box"),
+                             tr("This box is disabled in this effect")});
+ 
+		break;
+	    case effects::GREEN_BOX:
+                setTexts(ui.get(),
+                         UIText{
+                             tr("&Level"),
+                             tr("Default effect's \"Level\" dial"),
+                             tr("Allows you to set \"Level\" parameter of this effect"),
+                             tr("Default effect's \"Level\" box"),
+                             tr("Allows you to precisely set \"Level\" parameter of this effect")},
+                         UIText{
+                             tr("&Gain"),
+                             tr("Default effect's \"Gain\" dial"),
+                             tr("Allows you to set \"Gain\" parameter of this effect"),
+                             tr("Default effect's \"Gain\" box"),
+                             tr("Allows you to precisely set \"Gain\" parameter of this effect")},
+                         UIText{
+                             tr("&Tone"),
+                             tr("Default effect's \"Tone\" dial"),
+                             tr("Allows you to set \"Tone\" parameter of this effect"),
+                             tr("Default effect's \"Tone\" box"),
+                             tr("Allows you to precisely set \"Tone\" parameter of this effect")},
+                         UIText{
+                             tr("&Blend"),
+                             tr("Default effect's \"Blend\" dial"),
+                             tr("Allows you to set \"Blend\" parameter of this effect"),
+                             tr("Default effect's \"Blend\" box"),
+                             tr("Allows you to precisely set \"Blend\" parameter of this effect")},
+                         UIText{
+                             tr(""),
+                             tr("Disabled dial"),
+                             tr("This dial is disabled in this effect"),
+                             tr("Disabled box"),
+                             tr("This box is disabled in this effect")},
+                        UIText{
+                             tr(""),
+                             tr("Disabled dial"),
+                             tr("This dial is disabled in this effect"),
+                             tr("Disabled box"),
+                             tr("This box is disabled in this effect")});
+ 
+		break;
+        	    case effects::ORANGE_BOX:
+                setTexts(ui.get(),
+                         UIText{
+                             tr("&Level"),
+                             tr("Default effect's \"Level\" dial"),
+                             tr("Allows you to set \"Level\" parameter of this effect"),
+                             tr("Default effect's \"Level\" box"),
+                             tr("Allows you to precisely set \"Level\" parameter of this effect")},
+                         UIText{
+                             tr("&Dist"),
+                             tr("Default effect's \"Dist\" dial"),
+                             tr("Allows you to set \"Dist\" parameter of this effect"),
+                             tr("Default effect's \"Dist\" box"),
+                             tr("Allows you to precisely set \"Dist\" parameter of this effect")},
+                         UIText{
+                             tr("&Tone"),
+                             tr("Default effect's \"Tone\" dial"),
+                             tr("Allows you to set \"Tone\" parameter of this effect"),
+                             tr("Default effect's \"Tone\" box"),
+                             tr("Allows you to precisely set \"Tone\" parameter of this effect")},
+                         UIText{
+			     tr(""),
+                             tr("Disabled dial"),
+                             tr("This dial is disabled in this effect"),
+                             tr("Disabled box"),
+                             tr("This box is disabled in this effect")},
+                         UIText{
+                             tr(""),
+                             tr("Disabled dial"),
+                             tr("This dial is disabled in this effect"),
+                             tr("Disabled box"),
+                             tr("This box is disabled in this effect")},
+                        UIText{
+                             tr(""),
+                             tr("Disabled dial"),
+                             tr("This dial is disabled in this effect"),
+                             tr("Disabled box"),
+                             tr("This box is disabled in this effect")});
+ 
+		break;
+        	    case effects::BLACK_BOX:
+                setTexts(ui.get(),
+                         UIText{
+                             tr("&Level"),
+                             tr("Default effect's \"Level\" dial"),
+                             tr("Allows you to set \"Level\" parameter of this effect"),
+                             tr("Default effect's \"Level\" box"),
+                             tr("Allows you to precisely set \"Level\" parameter of this effect")},
+                         UIText{
+                             tr("&Dist"),
+                             tr("Default effect's \"Dist\" dial"),
+                             tr("Allows you to set \"Dist\" parameter of this effect"),
+                             tr("Default effect's \"Dist\" box"),
+                             tr("Allows you to precisely set \"Dist\" parameter of this effect")},
+                         UIText{
+                             tr("&Filter"),
+                             tr("Default effect's \"Filter\" dial"),
+                             tr("Allows you to set \"Filter\" parameter of this effect"),
+                             tr("Default effect's \"Filter\" box"),
+                             tr("Allows you to precisely set \"Filter\" parameter of this effect")},
+                         UIText{
+                             tr(""),
+                             tr("Disabled dial"),
+                             tr("This dial is disabled in this effect"),
+                             tr("Disabled box"),
+                             tr("This box is disabled in this effect")},
+                         UIText{
+                             tr(""),
+                             tr("Disabled dial"),
+                             tr("This dial is disabled in this effect"),
+                             tr("Disabled box"),
+                             tr("This box is disabled in this effect")},
+                        UIText{
+                             tr(""),
+                             tr("Disabled dial"),
+                             tr("This dial is disabled in this effect"),
+                             tr("Disabled box"),
+                             tr("This box is disabled in this effect")});
+ 
+		break;
+       	    case effects::BIG_FUZZ:
+                setTexts(ui.get(),
+                         UIText{
+                             tr("&Level"),
+                             tr("Default effect's \"Level\" dial"),
+                             tr("Allows you to set \"Level\" parameter of this effect"),
+                             tr("Default effect's \"Level\" box"),
+                             tr("Allows you to precisely set \"Level\" parameter of this effect")},
+                         UIText{
+                             tr("&Tone"),
+                             tr("Default effect's \"Tone\" dial"),
+                             tr("Allows you to set \"Tone\" parameter of this effect"),
+                             tr("Default effect's \"Tone\" box"),
+                             tr("Allows you to precisely set \"Tone\" parameter of this effect")},
+                         UIText{
+                             tr("&Sustain"),
+                             tr("Default effect's \"Sustain\" dial"),
+                             tr("Allows you to set \"Sustain\" parameter of this effect"),
+                             tr("Default effect's \"Sustain\" box"),
+                             tr("Allows you to precisely set \"Sustain\" parameter of this effect")},
+                         UIText{
+                             tr(""),
+                             tr("Disabled dial"),
+                             tr("This dial is disabled in this effect"),
+                             tr("Disabled box"),
+                             tr("This box is disabled in this effect")},
+                          UIText{
+                             tr(""),
+                             tr("Disabled dial"),
+                             tr("This dial is disabled in this effect"),
+                             tr("Disabled box"),
+                             tr("This box is disabled in this effect")},
+                        UIText{
+                             tr(""),
+                             tr("Disabled dial"),
+                             tr("This dial is disabled in this effect"),
+                             tr("Disabled box"),
+                             tr("This box is disabled in this effect")});
+ 
+		break;
+                
+
             case effects::SINE_CHORUS:
             case effects::TRIANGLE_CHORUS:
                 setTexts(ui.get(),
