@@ -445,7 +445,7 @@ namespace plug
                 break;
 
 	    case effects::RANGE_BOOST:
-                model =  0x03;
+                model =  0x0103;
                 break;
 
             case  effects::GREEN_BOX:
@@ -453,15 +453,15 @@ namespace plug
                 break;
 
 	    case effects::ORANGE_BOX:
-                model =  0x10;
+                model =  0x0110;
                 break;
 
 	    case effects::BLACK_BOX:
-                model =  0x11;
+                model =  0x0111;
                 break;
 
             case effects::BIG_FUZZ:
-                model =  0x0f;
+                model =  0x010f;
                 break;
 
 

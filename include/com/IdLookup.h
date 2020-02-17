@@ -62,7 +62,7 @@ namespace plug
     }
 
 
-    constexpr effects lookupEffectById(std::uint8_t id)
+    constexpr effects lookupEffectById(std::uint16_t id)
     {
         switch (id)
         {
@@ -83,15 +83,15 @@ namespace plug
             case 0x07:
                 return effects::COMPRESSOR;
 
-	        case 0x03:
+	        case 0x0103:
                 return effects::RANGE_BOOST;
             case 0xba:
                 return effects::GREEN_BOX;
-            case 0x10:
+            case 0x0110:
                 return effects::ORANGE_BOX;
-            case 0x11:
+            case 0x0111:
                 return effects::BLACK_BOX;
-            case 0x0f:
+            case 0x010f:
                 return effects::BIG_FUZZ;
 
 

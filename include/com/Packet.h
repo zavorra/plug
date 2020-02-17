@@ -360,14 +360,15 @@ namespace plug::com
             return bytes[2];
         }
 
-        void setModel(std::uint8_t model)
+        void setModel(std::uint16_t model)
         {
-            bytes[0] = model;
+            bytes[0] = model%256;
+            bytes[1] = model/256;
         }
 
-        std::uint8_t getModel() const
+        std::uint16_t getModel() const
         {
-            return bytes[0];
+            return bytes[0]+bytes[1]*256;
         }
 
         void setUnknown(std::uint8_t value0, std::uint8_t value1, std::uint8_t value2)
