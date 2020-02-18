@@ -267,6 +267,40 @@ namespace plug
                 setAccessibleName("Amplifier: Metal 2000");
                 break;
 
+            //V2 Only
+            //cabinets deduced thanks to mustang-midi-bridge "amp_defaults.h"
+            case amps::STUDIO_PREAMP:
+                advanced->change_cabinet(value(cabinets::OFF));
+                advanced->change_noise_gate(0);
+                setWindowTitle("Amplifier: Studio Preamp");
+                setAccessibleName("Amplifier: Studio Preamp");
+                break;
+            case amps::FENDER_57_TWIN:
+                advanced->change_cabinet(value(cabinets::cab65TWN));
+                advanced->change_noise_gate(0);
+                setWindowTitle("Amplifier: Fender '57 Twin");
+                setAccessibleName("Amplifier: Fender '57 Twin");
+                break;
+            case amps::SIXTIES_THRIFT:
+                advanced->change_cabinet(value(cabinets::cab57DLX));
+                advanced->change_noise_gate(0);
+                setWindowTitle("Amplifier: Sixties Thrift");
+                setAccessibleName("Amplifier: Sixties Thrift");
+                break;
+            case amps::BRITTISH_WATTS:
+                advanced->change_cabinet(value(cabinets::cab4x12V));
+                advanced->change_noise_gate(0);
+                setWindowTitle("Amplifier: Brittish Watts");
+                setAccessibleName("Amplifier: Brittish Watts ");
+                break;
+            case amps::BRITTISH_COLOUR:
+                advanced->change_cabinet(value(cabinets::cab4x12G));
+                advanced->change_noise_gate(1);
+                setWindowTitle("Amplifier: Brittish Colour");
+                setAccessibleName("Amplifier: Brittish Colour");
+                break;
+
+
             default:
                 break;
         }

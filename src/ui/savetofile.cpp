@@ -171,9 +171,42 @@ namespace plug
 
             case amps::METAL_2000:
                 model = 0x6d;
-                something = 0x08;
-                something2 = 0x75;
+                something = 0x08; //ControlIndex 13
+                something2 = 0x75; //COntrolIndex 22 & 0xff
                 break;
+
+            //V2 Only
+            //something and something2 taken from fuse files
+            case amps::STUDIO_PREAMP:
+                model = 0xf1;
+                something = 0x0d; //ControlIndex 13
+                something2 = 0xf6; //COntrolIndex 22 & 0xff
+                break;
+            case amps::FENDER_57_TWIN:
+                model = 0xf6;
+                something = 0x0e; //ControlIndex 13
+                something2 = 0xf9; //also 0 //COntrolIndex 22 & 0xff
+                break;
+            case amps::SIXTIES_THRIFT:
+                model = 0xf9;
+                something = 0x0f; //ControlIndex 13
+                something2 = 0xfc; //COntrolIndex 22 & 0xff
+                break;
+            case amps::BRITTISH_WATTS:
+                model = 0xff;
+                something = 0x11; //ControlIndex 13
+                something2 = 0x00; //COntrolIndex 22 & 0xff
+                break;
+            case amps::BRITTISH_COLOUR:
+                model = 0xfc;
+                something = 0x10; //ControlIndex 13
+                something2 = 0xff; //COntrolIndex 22 & 0xff
+                break;
+
+
+
+
+
         }
 
         xml->writeStartElement("Amplifier");

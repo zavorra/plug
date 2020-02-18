@@ -117,6 +117,26 @@ namespace plug
                         case 0x6d:
                             m_amp_settings->amp_num = amps::METAL_2000;
                             break;
+
+                    //V2 Only
+                        case 0xf1:
+                            m_amp_settings->amp_num =  amps::STUDIO_PREAMP;
+                            break;
+                        case 0xf6:
+                            m_amp_settings->amp_num =  amps::FENDER_57_TWIN;
+                            break;
+                        case 0xf9:
+                            m_amp_settings->amp_num =  amps::SIXTIES_THRIFT;
+                            break;
+                        case 0xff:
+                            m_amp_settings->amp_num =  amps::BRITTISH_WATTS;
+                            break;
+                        case 0xfc:
+                            m_amp_settings->amp_num =  amps::BRITTISH_COLOUR;
+                            break;
+ 
+
+
                     }
                 }
                 else if (m_xml->name() == "Param")

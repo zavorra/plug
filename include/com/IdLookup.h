@@ -56,6 +56,19 @@ namespace plug
                 return amps::AMERICAN_90S;
             case 0x6d:
                 return amps::METAL_2000;
+            
+            //V2 Only
+            case 0xf1:
+                return amps::STUDIO_PREAMP;
+            case 0xf6:
+                return amps::FENDER_57_TWIN;
+            case 0xf9:
+                return amps::SIXTIES_THRIFT;
+            case 0xff:
+                return amps::BRITTISH_WATTS;
+            case 0xfc:
+                return amps::BRITTISH_COLOUR;
+           
             default:
                 throw std::invalid_argument{"Invalid amp id: " + std::to_string(id)};
         }

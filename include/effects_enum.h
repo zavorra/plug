@@ -40,7 +40,14 @@ namespace plug
         BRITISH_70S,
         BRITISH_80S,
         AMERICAN_90S,
-        METAL_2000
+        METAL_2000,
+
+        //V2 only
+        STUDIO_PREAMP,
+        FENDER_57_TWIN,
+        SIXTIES_THRIFT,
+        BRITTISH_WATTS,
+        BRITTISH_COLOUR
     };
 
 

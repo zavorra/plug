@@ -116,6 +116,33 @@
           <string>Metal 2000</string>
          </property>
         </item>
+
+        <item>
+         <property name="text">
+          <string>V2.Studio Preamp</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>V2.Fender '57 Twin</string>
+         </property>
+        </item>
+         <item>
+         <property name="text">
+          <string>V2.Sixties Thrift</string>
+         </property>
+        </item>
+         <item>
+         <property name="text">
+          <string>V2.Brittish Watts</string>
+         </property>
+        </item>
+         <item>
+         <property name="text">
+          <string>V2.Brittish Colour</string>
+         </property>
+        </item>
+
        </widget>
       </item>
       <item>
