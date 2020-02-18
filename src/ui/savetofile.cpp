@@ -76,8 +76,8 @@ namespace plug
         xml->setAutoFormatting(true);
         xml->writeStartDocument();
         xml->writeStartElement("Preset");
-        xml->writeAttribute("amplifier", "Mustang I/II");
-        xml->writeAttribute("ProductId", "1");
+        xml->writeAttribute("amplifier", "Mustang V2 I/II");
+        xml->writeAttribute("ProductId", "13");
 
         writeAmp(amplifier_settings);
         manageWriteFX(fx_settings);
@@ -342,19 +342,19 @@ namespace plug
 
         xml->writeStartElement("Stompbox");
         xml->writeAttribute("ID", "1");
-        if ((settings[0].effect_num > effects::EMPTY) && (settings[0].effect_num <= effects::COMPRESSOR))
+        if ((settings[0].effect_num > effects::EMPTY) && (settings[0].effect_num <= effects::BIG_FUZZ))
         {
             writeFX(settings[0]);
         }
-        else if ((settings[1].effect_num > effects::EMPTY) && (settings[1].effect_num <= effects::COMPRESSOR))
+        else if ((settings[1].effect_num > effects::EMPTY) && (settings[1].effect_num <= effects::BIG_FUZZ))
         {
             writeFX(settings[1]);
         }
-        else if ((settings[2].effect_num > effects::EMPTY) && (settings[2].effect_num <= effects::COMPRESSOR))
+        else if ((settings[2].effect_num > effects::EMPTY) && (settings[2].effect_num <= effects::BIG_FUZZ))
         {
             writeFX(settings[2]);
         }
-        else if ((settings[3].effect_num > effects::EMPTY) && (settings[3].effect_num <= effects::COMPRESSOR))
+        else if ((settings[3].effect_num > effects::EMPTY) && (settings[3].effect_num <= effects::BIG_FUZZ))
         {
             writeFX(settings[3]);
         }
@@ -366,19 +366,19 @@ namespace plug
 
         xml->writeStartElement("Modulation");
         xml->writeAttribute("ID", "2");
-        if ((settings[0].effect_num >= effects::SINE_CHORUS) && (settings[0].effect_num <= effects::PITCH_SHIFTER))
+        if ((settings[0].effect_num >= effects::SINE_CHORUS) && (settings[0].effect_num <= effects::DIATONIC_PITCH_SHIFT))
         {
             writeFX(settings[0]);
         }
-        else if ((settings[1].effect_num >= effects::SINE_CHORUS) && (settings[1].effect_num <= effects::PITCH_SHIFTER))
+        else if ((settings[1].effect_num >= effects::SINE_CHORUS) && (settings[1].effect_num <= effects::DIATONIC_PITCH_SHIFT))
         {
             writeFX(settings[1]);
         }
-        else if ((settings[2].effect_num >= effects::SINE_CHORUS) && (settings[2].effect_num <= effects::PITCH_SHIFTER))
+        else if ((settings[2].effect_num >= effects::SINE_CHORUS) && (settings[2].effect_num <= effects::DIATONIC_PITCH_SHIFT))
         {
             writeFX(settings[2]);
         }
-        else if ((settings[3].effect_num >= effects::SINE_CHORUS) && (settings[3].effect_num <= effects::PITCH_SHIFTER))
+        else if ((settings[3].effect_num >= effects::SINE_CHORUS) && (settings[3].effect_num <= effects::DIATONIC_PITCH_SHIFT))
         {
             writeFX(settings[3]);
         }
