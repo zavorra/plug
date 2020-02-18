@@ -199,7 +199,7 @@ namespace plug
         while (m_xml->name() != "FX")
         {
             if (m_xml->isStartElement())
-            {
+            {   
                 if (m_xml->name() == "Stompbox")
                 {
                     x = 0;
@@ -222,14 +222,13 @@ namespace plug
 
                     if (position > 3)
                     {
-                        m_fx_settings[x].position = Position::effectsLoop;
+                        m_fx_settings[x].position = Position::effectsLoop;                        
                     }
                     else
                     {
                         m_fx_settings[x].position = Position::input;
                     }
 
-                    fx_slots[position] = x + 1;
 
                     switch (m_xml->attributes().value("ID").toString().toInt())
                     {
@@ -405,6 +404,15 @@ namespace plug
                             m_fx_settings[x].effect_num = effects::FENDER_65_SPRING_REVERB;
                             break;
                     }
+
+                    /* added this check to handle some malformed .fuse file with empty slots
+                       overriding others */
+                    if (m_fx_settings[x].effect_num != effects::EMPTY) {
+                        fx_slots[position] = x + 1;
+                    }
+                    
+
+                
                 }
                 else if (m_xml->name() == "Param")
                 {
