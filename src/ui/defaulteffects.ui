@@ -163,9 +163,28 @@
        </item>
        <item>
         <property name="text">
-         <string>[2] Pitch Schifter</string>
+         <string>[2] Pitch Shifter</string>
         </property>
        </item>
+
+
+       <item>
+        <property name="text">
+         <string>[2] V2.Wha Modulation</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>[2] V2.Touch Wha Modulation</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>[2] V2.Diatonic Pitch Shifter</string>
+        </property>
+       </item>
+
+
        <item>
         <property name="text">
          <string>[3] Mono Delay</string>

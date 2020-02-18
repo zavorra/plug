@@ -29,7 +29,7 @@ namespace plug
     // list of all amplifiers
     enum class amps
     {
-        FENDER_57_DELUXE,
+        FENDER_57_DELUXE = 0,
         FENDER_59_BASSMAN,
         FENDER_57_CHAMP,
         FENDER_65_DELUXE_REVERB,
@@ -47,7 +47,7 @@ namespace plug
     // list of all effects
     enum class effects
     {
-        EMPTY,
+        EMPTY = 0,
         OVERDRIVE,
         WAH,
         TOUCH_WAH,
@@ -55,11 +55,15 @@ namespace plug
         FUZZ_TOUCH_WAH,
         SIMPLE_COMP,
         COMPRESSOR,
+
+        //v3 only stomps
         RANGE_BOOST,
         GREEN_BOX,
-        ORANGE_BOX,
+        ORANGE_BOX, //10
         BLACK_BOX,
         BIG_FUZZ,
+
+
         SINE_CHORUS,
         TRIANGLE_CHORUS,
         SINE_FLANGER,
@@ -67,10 +71,15 @@ namespace plug
         VIBRATONE,
         VINTAGE_TREMOLO,
         SINE_TREMOLO,
-        RING_MODULATOR,
+        RING_MODULATOR, //20
         STEP_FILTER,
         PHASER,
         PITCH_SHIFTER,
+
+        //v2 only modulation
+        MOD_WHA,
+        MOD_TOUCH_WHA,
+        DIATONIC_PITCH_SHIFT,
 
         MONO_DELAY,
         MONO_ECHO_FILTER,
@@ -78,9 +87,9 @@ namespace plug
         MULTITAP_DELAY,
         PING_PONG_DELAY,
         DUCKING_DELAY,
-        REVERSE_DELAY,
+        REVERSE_DELAY, 
         TAPE_DELAY,
-        STEREO_TAPE_DELAY,
+        STEREO_TAPE_DELAY, 
 
         SMALL_HALL_REVERB,
         LARGE_HALL_REVERB,
@@ -89,9 +98,9 @@ namespace plug
         SMALL_PLATE_REVERB,
         LARGE_PLATE_REVERB,
         AMBIENT_REVERB,
-        ARENA_REVERB,
+        ARENA_REVERB, //40
         FENDER_63_SPRING_REVERB,
-        FENDER_65_SPRING_REVERB
+        FENDER_65_SPRING_REVERB 
     };
 
     // list of all cabinets

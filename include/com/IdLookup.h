@@ -83,6 +83,7 @@ namespace plug
             case 0x07:
                 return effects::COMPRESSOR;
 
+            // V2 only stomps
 	        case 0x0103:
                 return effects::RANGE_BOOST;
             case 0xba:
@@ -117,6 +118,17 @@ namespace plug
                 return effects::PHASER;
             case 0x1f:
                 return effects::PITCH_SHIFTER;
+
+            //V2 only mod
+            case 0xf4:
+                return effects::MOD_WHA;
+            case 0xf5:
+                return effects::MOD_TOUCH_WHA;
+            case 0x101f:
+                return effects::DIATONIC_PITCH_SHIFT;
+
+
+
             case 0x16:
                 return effects::MONO_DELAY;
             case 0x43:

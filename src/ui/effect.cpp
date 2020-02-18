@@ -462,6 +462,19 @@ namespace plug
                 setTitleTexts(fx_slot + 1, "Pitch Shifter");
                 break;
 
+            case effects::MOD_WHA:
+                setTitleTexts(fx_slot + 1, "Wha Modulation");
+                break;
+            case effects::MOD_TOUCH_WHA:
+                setTitleTexts(fx_slot + 1, "Touch Wha Modulation");
+                break;
+            case effects::DIATONIC_PITCH_SHIFT:
+                setTitleTexts(fx_slot + 1, "Diatonic Pitch Shift");
+                break;
+
+
+
+
             case effects::MONO_DELAY:
                 setTitleTexts(fx_slot + 1, "Mono Delay");
                 break;
@@ -1113,11 +1126,11 @@ namespace plug
                              tr("Effect's %1 \"Depth\" box").arg(fx_slot + 1),
                              tr("Allows you to precisely set \"Depth\" parameter of this effect")},
                          UIText{
-                             tr("&Feedback"),
-                             tr("Effect's %1 \"Feedback\" dial").arg(fx_slot + 1),
-                             tr("Allows you to set \"Feedback\" parameter of this effect"),
-                             tr("Effect's %1 \"Feedback\" box").arg(fx_slot + 1),
-                             tr("Allows you to precisely set \"Feedback\" parameter of this effect")},
+                             tr("&Scale"),
+                             tr("Effect's %1 \"Scale\" dial").arg(fx_slot + 1),
+                             tr("Allows you to set \"Scale\" parameter of this effect"),
+                             tr("Effect's %1 \"Scale\" box").arg(fx_slot + 1),
+                             tr("Allows you to precisely set \"Scale\" parameter of this effect")},
                          UIText{
                              tr("LR &Phase"),
                              tr("Effect's %1 \"LR Phase\" dial").arg(fx_slot + 1),
@@ -1152,11 +1165,11 @@ namespace plug
                              tr("Effect's %1 \"Depth\" box").arg(fx_slot + 1),
                              tr("Allows you to precisely set \"Depth\" parameter of this effect")},
                          UIText{
-                             tr("&Feedback"),
-                             tr("Effect's %1 \"Feedback\" dial").arg(fx_slot + 1),
-                             tr("Allows you to set \"Feedback\" parameter of this effect"),
-                             tr("Effect's %1 \"Feedback\" box").arg(fx_slot + 1),
-                             tr("Allows you to precisely set \"Feedback\" parameter of this effect")},
+                             tr("&Scale"),
+                             tr("Effect's %1 \"Scale\" dial").arg(fx_slot + 1),
+                             tr("Allows you to set \"Scale\" parameter of this effect"),
+                             tr("Effect's %1 \"Scale\" box").arg(fx_slot + 1),
+                             tr("Allows you to precisely set \"Scale\" parameter of this effect")},
                          UIText{
                              tr("LR &Phase"),
                              tr("Effect's %1 \"LR Phase\" dial").arg(fx_slot + 1),
@@ -1347,11 +1360,11 @@ namespace plug
                              tr("Effect's %1 \"Depth\" box").arg(fx_slot + 1),
                              tr("Allows you to precisely set \"Depth\" parameter of this effect")},
                          UIText{
-                             tr("&Feedback"),
-                             tr("Effect's %1 \"Feedback\" dial").arg(fx_slot + 1),
-                             tr("Allows you to set \"Feedback\" parameter of this effect"),
-                             tr("Effect's %1 \"Feedback\" box").arg(fx_slot + 1),
-                             tr("Allows you to precisely set \"Feedback\" parameter of this effect")},
+                             tr("&Scale"),
+                             tr("Effect's %1 \"Scale\" dial").arg(fx_slot + 1),
+                             tr("Allows you to set \"Scale\" parameter of this effect"),
+                             tr("Effect's %1 \"Scale\" box").arg(fx_slot + 1),
+                             tr("Allows you to precisely set \"Scale\" parameter of this effect")},
                          UIText{
                              tr("&Shape"),
                              tr("Effect's %1 \"Shape\" dial").arg(fx_slot + 1),
@@ -1380,17 +1393,17 @@ namespace plug
                              tr("Effect's %1 \"Pitch\" box").arg(fx_slot + 1),
                              tr("Allows you to precisely set \"Pitch\" parameter of this effect")},
                          UIText{
-                             tr("&Detune"),
-                             tr("Effect's %1 \"Detune\" dial").arg(fx_slot + 1),
-                             tr("Allows you to set \"Detune\" parameter of this effect"),
-                             tr("Effect's %1 \"Detune\" box").arg(fx_slot + 1),
-                             tr("Allows you to precisely set \"Detune\" parameter of this effect")},
+                             tr("min &freq."),
+                             tr("Effect's %1 \"min freq.\" dial").arg(fx_slot + 1),
+                             tr("Allows you to set \"min freq.\" parameter of this effect"),
+                             tr("Effect's %1 \"min freq.\" box").arg(fx_slot + 1),
+                             tr("Allows you to precisely set \"min freq.\" parameter of this effect")},
                          UIText{
-                             tr("&Feedback"),
-                             tr("Effect's %1 \"Feedback\" dial").arg(fx_slot + 1),
-                             tr("Allows you to set \"Feedback\" parameter of this effect"),
-                             tr("Effect's %1 \"Feedback\" box").arg(fx_slot + 1),
-                             tr("Allows you to precisely set \"Feedback\" parameter of this effect")},
+                             tr("&Scale"),
+                             tr("Effect's %1 \"Scale\" dial").arg(fx_slot + 1),
+                             tr("Allows you to set \"Scale\" parameter of this effect"),
+                             tr("Effect's %1 \"Scale\" box").arg(fx_slot + 1),
+                             tr("Allows you to precisely set \"Scale\" parameter of this effect")},
                          UIText{
                              tr("P&redelay"),
                              tr("Effect's %1 \"Predelay\" dial").arg(fx_slot + 1),
@@ -1404,6 +1417,129 @@ namespace plug
                              tr("Disabled box"),
                              tr("This box is disabled in this effect")});
                 break;
+
+
+            case effects::MOD_WHA:
+                setTexts(ui.get(),
+                         UIText{
+                             tr("&Mix"),
+                             tr("Effect's %1 \"Mix\" dial").arg(fx_slot + 1),
+                             tr("Allows you to set \"Mix\" parameter of this effect"),
+                             tr("Effect's %1 \"Mix\" box").arg(fx_slot + 1),
+                             tr("Allows you to precisely set \"Mix\" parameter of this effect")},
+                         UIText{
+                             tr("&Frequency"),
+                             tr("Effect's %1 \"Frequency\" dial").arg(fx_slot + 1),
+                             tr("Allows you to set \"Frequency\" parameter of this effect"),
+                             tr("Effect's %1 \"Frequency\" box").arg(fx_slot + 1),
+                             tr("Allows you to precisely set \"Frequency\" parameter of this effect")},
+                         UIText{
+                             tr("&Heel Freq."),
+                             tr("Effect's %1 \"Heel Freq.\" dial").arg(fx_slot + 1),
+                             tr("Allows you to set \"Heel Freq.\" parameter of this effect"),
+                             tr("Effect's %1 \"Heel Freq.\" box").arg(fx_slot + 1),
+                             tr("Allows you to precisely set \"Heel Freq.\" parameter of this effect")},
+                         UIText{
+                             tr("&TOe Freq."),
+                             tr("Effect's %1 \"TOe Freq.\" dial").arg(fx_slot + 1),
+                             tr("Allows you to set \"TOe Freq.\" parameter of this effect"),
+                             tr("Effect's %1 \"TOe Freq.\" box").arg(fx_slot + 1),
+                             tr("Allows you to precisely set \"TOe Freq.\" parameter of this effect")},
+                         UIText{
+                             tr("High &Q. (0-1)"),
+                             tr("Effect's %1 \"High Q.\" dial").arg(fx_slot + 1),
+                             tr("Allows you to set \"High Q.\" parameter of this effect"),
+                             tr("Effect's %1 \"High Q.\" box").arg(fx_slot + 1),
+                             tr("Allows you to precisely set \"High Q.\" parameter of this effect")},
+                         UIText{
+                             tr(""),
+                             tr("Disabled dial"),
+                             tr("This dial is disabled in this effect"),
+                             tr("Disabled box"),
+                             tr("This box is disabled in this effect")});
+                break;
+            case effects::MOD_TOUCH_WHA:
+                setTexts(ui.get(),
+                         UIText{
+                             tr("&Mix"),
+                             tr("Effect's %1 \"Mix\" dial").arg(fx_slot + 1),
+                             tr("Allows you to set \"Mix\" parameter of this effect"),
+                             tr("Effect's %1 \"Mix\" box").arg(fx_slot + 1),
+                             tr("Allows you to precisely set \"Mix\" parameter of this effect")},
+                         UIText{
+                             tr("&Sensitivity"),
+                             tr("Effect's %1 \"Sensitivity\" dial").arg(fx_slot + 1),
+                             tr("Allows you to set \"Sensitivity\" parameter of this effect"),
+                             tr("Effect's %1 \"Sensitivity\" box").arg(fx_slot + 1),
+                             tr("Allows you to precisely set \"Sensitivity\" parameter of this effect")},
+                         UIText{
+                             tr("&Detune"),
+                             tr("Effect's %1 \"Detune\" dial").arg(fx_slot + 1),
+                             tr("Allows you to set \"Detune\" parameter of this effect"),
+                             tr("Effect's %1 \"Detune\" box").arg(fx_slot + 1),
+                             tr("Allows you to precisely set \"Detune\" parameter of this effect")},
+                         UIText{
+                             tr("Max &Freq."),
+                             tr("Effect's %1 \"Max Freq.\" dial").arg(fx_slot + 1),
+                             tr("Allows you to set \"Max Freq.\" parameter of this effect"),
+                             tr("Effect's %1 \"Max Freq.\" box").arg(fx_slot + 1),
+                             tr("Allows you to precisely set \"Max Freq.\" parameter of this effect")},
+                         UIText{
+                             tr("High &Q. (0-1)"),
+                             tr("Effect's %1 \"High Q.\" dial").arg(fx_slot + 1),
+                             tr("Allows you to set \"High Q.\" parameter of this effect"),
+                             tr("Effect's %1 \"High Q.\" box").arg(fx_slot + 1),
+                             tr("Allows you to precisely set \"High Q.\" parameter of this effect")},
+                         UIText{
+                             tr(""),
+                             tr("Disabled dial"),
+                             tr("This dial is disabled in this effect"),
+                             tr("Disabled box"),
+                             tr("This box is disabled in this effect")});
+                break;
+            case effects::DIATONIC_PITCH_SHIFT:
+                setTexts(ui.get(),
+                         UIText{
+                             tr("&Mix"),
+                             tr("Effect's %1 \"Mix\" dial").arg(fx_slot + 1),
+                             tr("Allows you to set \"Mix\" parameter of this effect"),
+                             tr("Effect's %1 \"Mix\" box").arg(fx_slot + 1),
+                             tr("Allows you to precisely set \"Mix\" parameter of this effect")},
+                         UIText{
+                             tr("&Pitch"),
+                             tr("Effect's %1 \"Pitch\" dial").arg(fx_slot + 1),
+                             tr("Allows you to set \"Pitch\" parameter of this effect"),
+                             tr("Effect's %1 \"Pitch\" box").arg(fx_slot + 1),
+                             tr("Allows you to precisely set \"Pitch\" parameter of this effect")},
+                         UIText{
+                             tr("&Key"),
+                             tr("Effect's %1 \"Key\" dial").arg(fx_slot + 1),
+                             tr("Allows you to set \"Key\" parameter of this effect"),
+                             tr("Effect's %1 \"Key\" box").arg(fx_slot + 1),
+                             tr("Allows you to precisely set \"Key\" parameter of this effect")},
+                         UIText{
+                             tr("&Scale"),
+                             tr("Effect's %1 \"Scale\" dial").arg(fx_slot + 1),
+                             tr("Allows you to set \"Scale\" parameter of this effect"),
+                             tr("Effect's %1 \"Scale\" box").arg(fx_slot + 1),
+                             tr("Allows you to precisely set \"Scale\" parameter of this effect")},
+                         UIText{
+                             tr("&Tone"),
+                             tr("Effect's %1 \"Tone\" dial").arg(fx_slot + 1),
+                             tr("Allows you to set \"Tone\" parameter of this effect"),
+                             tr("Effect's %1 \"Tone\" box").arg(fx_slot + 1),
+                             tr("Allows you to precisely set \"Tone\" parameter of this effect")},
+                         UIText{
+                             tr(""),
+                             tr("Disabled dial"),
+                             tr("This dial is disabled in this effect"),
+                             tr("Disabled box"),
+                             tr("This box is disabled in this effect")});
+                break;
+
+
+
+            
             case effects::MONO_ECHO_FILTER:
             case effects::STEREO_ECHO_FILTER:
                 setTexts(ui.get(),
@@ -1420,11 +1556,11 @@ namespace plug
                              tr("Effect's %1 \"Delay\" box").arg(fx_slot + 1),
                              tr("Allows you to precisely set \"Delay\" parameter of this effect")},
                          UIText{
-                             tr("&Feedback"),
-                             tr("Effect's %1 \"Feedback\" dial").arg(fx_slot + 1),
-                             tr("Allows you to set \"Feedback\" parameter of this effect"),
-                             tr("Effect's %1 \"Feedback\" box").arg(fx_slot + 1),
-                             tr("Allows you to precisely set \"Feedback\" parameter of this effect")},
+                             tr("&Scale"),
+                             tr("Effect's %1 \"Scale\" dial").arg(fx_slot + 1),
+                             tr("Allows you to set \"Scale\" parameter of this effect"),
+                             tr("Effect's %1 \"Scale\" box").arg(fx_slot + 1),
+                             tr("Allows you to precisely set \"Scale\" parameter of this effect")},
                          UIText{
                              tr("Fre&quency"),
                              tr("Effect's %1 \"Frequency\" dial").arg(fx_slot + 1),
@@ -1459,11 +1595,11 @@ namespace plug
                              tr("Effect's %1 \"Delay\" box").arg(fx_slot + 1),
                              tr("Allows you to precisely set \"Delay\" parameter of this effect")},
                          UIText{
-                             tr("&Feedback"),
-                             tr("Effect's %1 \"Feedback\" dial").arg(fx_slot + 1),
-                             tr("Allows you to set \"Feedback\" parameter of this effect"),
-                             tr("Effect's %1 \"Feedback\" box").arg(fx_slot + 1),
-                             tr("Allows you to precisely set \"Feedback\" parameter of this effect")},
+                             tr("&Scale"),
+                             tr("Effect's %1 \"Scale\" dial").arg(fx_slot + 1),
+                             tr("Allows you to set \"Scale\" parameter of this effect"),
+                             tr("Effect's %1 \"Scale\" box").arg(fx_slot + 1),
+                             tr("Allows you to precisely set \"Scale\" parameter of this effect")},
                          UIText{
                              tr("&Brightness"),
                              tr("Effect's %1 \"Brightness\" dial").arg(fx_slot + 1),
@@ -1498,11 +1634,11 @@ namespace plug
                              tr("Effect's %1 \"Delay\" box").arg(fx_slot + 1),
                              tr("Allows you to precisely set \"Delay\" parameter of this effect")},
                          UIText{
-                             tr("&Feedback"),
-                             tr("Effect's %1 \"Feedback\" dial").arg(fx_slot + 1),
-                             tr("Allows you to set \"Feedback\" parameter of this effect"),
-                             tr("Effect's %1 \"Feedback\" box").arg(fx_slot + 1),
-                             tr("Allows you to precisely set \"Feedback\" parameter of this effect")},
+                             tr("&Scale"),
+                             tr("Effect's %1 \"Scale\" dial").arg(fx_slot + 1),
+                             tr("Allows you to set \"Scale\" parameter of this effect"),
+                             tr("Effect's %1 \"Scale\" box").arg(fx_slot + 1),
+                             tr("Allows you to precisely set \"Scale\" parameter of this effect")},
                          UIText{
                              tr("&Brightness"),
                              tr("Effect's %1 \"Brightness\" dial").arg(fx_slot + 1),
@@ -1537,11 +1673,11 @@ namespace plug
                              tr("Effect's %1 \"Delay\" box").arg(fx_slot + 1),
                              tr("Allows you to precisely set \"Delay\" parameter of this effect")},
                          UIText{
-                             tr("&Feedback"),
-                             tr("Effect's %1 \"Feedback\" dial").arg(fx_slot + 1),
-                             tr("Allows you to set \"Feedback\" parameter of this effect"),
-                             tr("Effect's %1 \"Feedback\" box").arg(fx_slot + 1),
-                             tr("Allows you to precisely set \"Feedback\" parameter of this effect")},
+                             tr("&Scale"),
+                             tr("Effect's %1 \"Scale\" dial").arg(fx_slot + 1),
+                             tr("Allows you to set \"Scale\" parameter of this effect"),
+                             tr("Effect's %1 \"Scale\" box").arg(fx_slot + 1),
+                             tr("Allows you to precisely set \"Scale\" parameter of this effect")},
                          UIText{
                              tr("&Brightness"),
                              tr("Effect's %1 \"Brightness\" dial").arg(fx_slot + 1),
@@ -1576,11 +1712,11 @@ namespace plug
                              tr("Effect's %1 \"Delay\" box").arg(fx_slot + 1),
                              tr("Allows you to precisely set \"Delay\" parameter of this effect")},
                          UIText{
-                             tr("&Feedback"),
-                             tr("Effect's %1 \"Feedback\" dial").arg(fx_slot + 1),
-                             tr("Allows you to set \"Feedback\" parameter of this effect"),
-                             tr("Effect's %1 \"Feedback\" box").arg(fx_slot + 1),
-                             tr("Allows you to precisely set \"Feedback\" parameter of this effect")},
+                             tr("&Scale"),
+                             tr("Effect's %1 \"Scale\" dial").arg(fx_slot + 1),
+                             tr("Allows you to set \"Scale\" parameter of this effect"),
+                             tr("Effect's %1 \"Scale\" box").arg(fx_slot + 1),
+                             tr("Allows you to precisely set \"Scale\" parameter of this effect")},
                          UIText{
                              tr("&RFDBK"),
                              tr("Effect's %1 \"RFDBK\" dial").arg(fx_slot + 1),
@@ -1615,11 +1751,11 @@ namespace plug
                              tr("Effect's %1 \"Delay\" box").arg(fx_slot + 1),
                              tr("Allows you to precisely set \"Delay\" parameter of this effect")},
                          UIText{
-                             tr("&Feedback"),
-                             tr("Effect's %1 \"Feedback\" dial").arg(fx_slot + 1),
-                             tr("Allows you to set \"Feedback\" parameter of this effect"),
-                             tr("Effect's %1 \"Feedback\" box").arg(fx_slot + 1),
-                             tr("Allows you to precisely set \"Feedback\" parameter of this effect")},
+                             tr("&Scale"),
+                             tr("Effect's %1 \"Scale\" dial").arg(fx_slot + 1),
+                             tr("Allows you to set \"Scale\" parameter of this effect"),
+                             tr("Effect's %1 \"Scale\" box").arg(fx_slot + 1),
+                             tr("Allows you to precisely set \"Scale\" parameter of this effect")},
                          UIText{
                              tr("&Release"),
                              tr("Effect's %1 \"Release\" dial").arg(fx_slot + 1),
@@ -1654,11 +1790,11 @@ namespace plug
                              tr("Effect's %1 \"Delay\" box").arg(fx_slot + 1),
                              tr("Allows you to precisely set \"Delay\" parameter of this effect")},
                          UIText{
-                             tr("&Feedback"),
-                             tr("Effect's %1 \"Feedback\" dial").arg(fx_slot + 1),
-                             tr("Allows you to set \"Feedback\" parameter of this effect"),
-                             tr("Effect's %1 \"Feedback\" box").arg(fx_slot + 1),
-                             tr("Allows you to precisely set \"Feedback\" parameter of this effect")},
+                             tr("&Scale"),
+                             tr("Effect's %1 \"Scale\" dial").arg(fx_slot + 1),
+                             tr("Allows you to set \"Scale\" parameter of this effect"),
+                             tr("Effect's %1 \"Scale\" box").arg(fx_slot + 1),
+                             tr("Allows you to precisely set \"Scale\" parameter of this effect")},
                          UIText{
                              tr("Fl&utter"),
                              tr("Effect's %1 \"Flutter\" dial").arg(fx_slot + 1),
@@ -1693,11 +1829,11 @@ namespace plug
                              tr("Effect's %1 \"Delay\" box").arg(fx_slot + 1),
                              tr("Allows you to precisely set \"Delay\" parameter of this effect")},
                          UIText{
-                             tr("&Feedback"),
-                             tr("Effect's %1 \"Feedback\" dial").arg(fx_slot + 1),
-                             tr("Allows you to set \"Feedback\" parameter of this effect"),
-                             tr("Effect's %1 \"Feedback\" box").arg(fx_slot + 1),
-                             tr("Allows you to precisely set \"Feedback\" parameter of this effect")},
+                             tr("&Scale"),
+                             tr("Effect's %1 \"Scale\" dial").arg(fx_slot + 1),
+                             tr("Allows you to set \"Scale\" parameter of this effect"),
+                             tr("Effect's %1 \"Scale\" box").arg(fx_slot + 1),
+                             tr("Allows you to precisely set \"Scale\" parameter of this effect")},
                          UIText{
                              tr("Fl&utter"),
                              tr("Effect's %1 \"Flutter\" dial").arg(fx_slot + 1),
@@ -1839,6 +1975,21 @@ namespace plug
                 case effects::PITCH_SHIFTER:
                     setDialValues(0xc7, 0x3e, 0x80, 0x00, 0x00, 0x00);
                     break;
+
+
+                case effects::MOD_WHA:
+                    setDialValues(0xff, 0x81, 0x01, 0xff, 0x00, 0x00);
+                    break;
+                case effects::MOD_TOUCH_WHA:
+                    setDialValues(0xed, 0x81, 0x07, 0xff, 0x00, 0x00);
+                    break;
+                case effects::DIATONIC_PITCH_SHIFT:
+                    setDialValues(0x56, 0x09, 0x04, 0x05, 0xc8, 0x00);
+                    break;
+
+
+
+
                 case effects::MONO_ECHO_FILTER:
                     setDialValues(0xff, 0x80, 0x80, 0x80, 0x80, 0x80);
                     break;

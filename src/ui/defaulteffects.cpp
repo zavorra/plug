@@ -1108,6 +1108,126 @@ namespace plug
                              tr("Disabled box"),
                              tr("This box is disabled in this effect")});
                 break;
+
+            case effects::MOD_WHA:
+                setTexts(ui.get(),
+                         UIText{
+                             tr("&Mix"),
+                             tr("Default effect's \"Mix\" dial"),
+                             tr("Allows you to set \"Mix\" parameter of this effect"),
+                             tr("Default effect's \"Mix\" box"),
+                             tr("Allows you to precisely set \"Mix\" parameter of this effect")},
+                         UIText{
+                             tr("&Frequency"),
+                             tr("Default effect's \"Frequency\" dial"),
+                             tr("Allows you to set \"Frequency\" parameter of this effect"),
+                             tr("Default effect's \"Frequency\" box"),
+                             tr("Allows you to precisely set \"Frequency\" parameter of this effect")},
+                         UIText{
+                             tr("&Heel Freq."),
+                             tr("Default effect's \"Heel Freq.\" dial"),
+                             tr("Allows you to set \"Heel Freq.\" parameter of this effect"),
+                             tr("Default effect's \"Heel Freq.\" box"),
+                             tr("Allows you to precisely set \"Heel Freq.\" parameter of this effect")},
+                         UIText{
+                             tr("&TOe Freq."),
+                             tr("Default effect's \"TOe Freq.\" dial"),
+                             tr("Allows you to set \"TOe Freq.\" parameter of this effect"),
+                             tr("Default effect's \"TOe Freq.\" box"),
+                             tr("Allows you to precisely set \"TOe Freq.\" parameter of this effect")},
+                         UIText{
+                             tr("High &Q (0-1)"),
+                             tr("Default effect's \"High Q.\" dial"),
+                             tr("Allows you to set \"High Q.\" parameter of this effect"),
+                             tr("Default effect's \"High Q.\" box"),
+                             tr("Allows you to precisely set \"High Q.\" parameter of this effect")},
+                         UIText{
+                             tr(""),
+                             tr("Disabled dial"),
+                             tr("This dial is disabled in this effect"),
+                             tr("Disabled box"),
+                             tr("This box is disabled in this effect")});
+                break;
+            case effects::MOD_TOUCH_WHA:
+                setTexts(ui.get(),
+                         UIText{
+                             tr("&Mix"),
+                             tr("Default effect's \"Mix\" dial"),
+                             tr("Allows you to set \"Mix\" parameter of this effect"),
+                             tr("Default effect's \"Mix\" box"),
+                             tr("Allows you to precisely set \"Mix\" parameter of this effect")},
+                         UIText{
+                             tr("&Sensitivity"),
+                             tr("Default effect's \"Sensitivity\" dial"),
+                             tr("Allows you to set \"Sensitivity\" parameter of this effect"),
+                             tr("Default effect's \"Sensitivity\" box"),
+                             tr("Allows you to precisely set \"Sensitivity\" parameter of this effect")},
+                         UIText{
+                             tr("min &freq"),
+                             tr("Default effect's \"min freq\" dial"),
+                             tr("Allows you to set \"min freq\" parameter of this effect"),
+                             tr("Default effect's \"min freq\" box"),
+                             tr("Allows you to precisely set \"min freq\" parameter of this effect")},
+                         UIText{
+                             tr("Max &Freq."),
+                             tr("Default effect's \"Max Freq.\" dial"),
+                             tr("Allows you to set \"Max Freq.\" parameter of this effect"),
+                             tr("Default effect's \"Max Freq.\" box"),
+                             tr("Allows you to precisely set \"Max Freq.\" parameter of this effect")},
+                         UIText{
+                             tr("High &Q (0-1)"),
+                             tr("Default effect's \"High Q.\" dial"),
+                             tr("Allows you to set \"High Q.\" parameter of this effect"),
+                             tr("Default effect's \"High Q.\" box"),
+                             tr("Allows you to precisely set \"High Q.\" parameter of this effect")},
+                         UIText{
+                             tr(""),
+                             tr("Disabled dial"),
+                             tr("This dial is disabled in this effect"),
+                             tr("Disabled box"),
+                             tr("This box is disabled in this effect")});
+                break;
+            case effects::DIATONIC_PITCH_SHIFT:
+                setTexts(ui.get(),
+                         UIText{
+                             tr("&Mix"),
+                             tr("Default effect's \"Mix\" dial"),
+                             tr("Allows you to set \"Mix\" parameter of this effect"),
+                             tr("Default effect's \"Mix\" box"),
+                             tr("Allows you to precisely set \"Mix\" parameter of this effect")},
+                         UIText{
+                             tr("&Pitch"),
+                             tr("Default effect's \"Pitch\" dial"),
+                             tr("Allows you to set \"Pitch\" parameter of this effect"),
+                             tr("Default effect's \"Pitch\" box"),
+                             tr("Allows you to precisely set \"Pitch\" parameter of this effect")},
+                         UIText{
+                             tr("&Key"),
+                             tr("Default effect's \"Key\" dial"),
+                             tr("Allows you to set \"Key\" parameter of this effect"),
+                             tr("Default effect's \"Key\" box"),
+                             tr("Allows you to precisely set \"Key\" parameter of this effect")},
+                         UIText{
+                             tr("&Scale"),
+                             tr("Default effect's \"Scale\" dial"),
+                             tr("Allows you to set \"Scale\" parameter of this effect"),
+                             tr("Default effect's \"Scale\" box"),
+                             tr("Allows you to precisely set \"Scale\" parameter of this effect")},
+                         UIText{
+                             tr("&Tone"),
+                             tr("Default effect's \"Tone\" dial"),
+                             tr("Allows you to set \"Tone\" parameter of this effect"),
+                             tr("Default effect's \"Tone\" box"),
+                             tr("Allows you to precisely set \"Tone\" parameter of this effect")},
+                         UIText{
+                             tr(""),
+                             tr("Disabled dial"),
+                             tr("This dial is disabled in this effect"),
+                             tr("Disabled box"),
+                             tr("This box is disabled in this effect")});
+                break;
+
+
             case effects::MONO_ECHO_FILTER:
             case effects::STEREO_ECHO_FILTER:
                 setTexts(ui.get(),

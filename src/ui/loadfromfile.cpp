@@ -328,6 +328,23 @@ namespace plug
                             m_fx_settings[x].effect_num = effects::PITCH_SHIFTER;
                             break;
 
+
+                        case 0xf4:
+                            m_fx_settings[x].effect_num = effects::MOD_WHA;
+                            break;
+
+                        case 0xf5:
+                            m_fx_settings[x].effect_num = effects::MOD_TOUCH_WHA;
+                            break;
+
+                        case 0x101f:
+                            m_fx_settings[x].effect_num = effects::DIATONIC_PITCH_SHIFT;
+                            break;
+
+
+
+
+
                         case 0x16:
                             m_fx_settings[x].effect_num = effects::MONO_DELAY;
                             break;

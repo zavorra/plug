@@ -510,6 +510,17 @@ namespace plug
                 model = 0x1f;
                 break;
 
+            case effects::MOD_WHA:
+                model = 0xf4;
+                break;
+            case effects::MOD_TOUCH_WHA:
+                model = 0xf5;
+                break;
+            case effects::DIATONIC_PITCH_SHIFT  :
+                model = 0x101f;
+                break;
+
+
             case effects::MONO_DELAY:
                 model = 0x16;
                 break;
