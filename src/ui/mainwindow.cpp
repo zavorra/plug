@@ -51,9 +51,9 @@ namespace plug
         {
             if (value == effects::EMPTY)
                 return 0;
-            if ((value >= effects::OVERDRIVE) && (value <= effects::COMPRESSOR))
+            if ((value >= effects::OVERDRIVE) && (value <= effects::BIG_FUZZ))
                 return 1;
-            if ((value >= effects::SINE_CHORUS) && (value <= effects::PITCH_SHIFTER))
+            if ((value >= effects::SINE_CHORUS) && (value <= effects::DIATONIC_PITCH_SHIFT))
                 return 2;
             if ((value >= effects::MONO_DELAY) && (value <= effects::STEREO_TAPE_DELAY))
                 return 3;
