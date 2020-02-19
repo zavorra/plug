@@ -85,7 +85,7 @@ namespace plug::com
     {
         return (handle != nullptr);
     }
-
+#if 0
     std::vector<std::uint8_t> UsbComm::receive(std::size_t recvSize)
     {
         int actualTransfered{0};
@@ -102,6 +102,7 @@ namespace plug::com
         return buffer;
     }
 
+
     std::size_t UsbComm::sendImpl(std::uint8_t* data, std::size_t size)
     {
         int actualTransfered{0};
@@ -110,6 +111,55 @@ namespace plug::com
 
         return static_cast<std::size_t>(actualTransfered);
     }
+#else
+
+    std::vector<std::uint8_t> UsbComm::receive(std::size_t recvSize)
+    {
+        int actualTransfered{0};
+        int totalTransfered{0};
+
+        std::vector<std::uint8_t> buffer(recvSize);
+        while ( actualTransfered < 64 ) {
+            const auto rtn = libusb_interrupt_transfer(handle, endpointRecv, buffer.data(), static_cast<int>(buffer.size()), &actualTransfered, timeout.count());
+            totalTransfered += actualTransfered;
+            if ( rtn!=0 ) { 
+                if (rtn != LIBUSB_ERROR_TIMEOUT)
+                {
+                    checked(rtn, "Interrupt receive failed");
+                }
+            }
+        }
+
+        buffer.resize(static_cast<std::size_t>(actualTransfered));
+
+        return buffer;
+    }
+
+    std::size_t UsbComm::sendImpl(std::uint8_t* data, std::size_t size)
+    {
+        int actualTransfered{0};
+        int totalTransfered{0};
+        int attempts{5};
+        
+        while ( actualTransfered < 64 ) {
+            const auto rtn = libusb_interrupt_transfer(handle, endpointSend, data, static_cast<int>(size), &actualTransfered, timeout.count());
+            totalTransfered += actualTransfered;
+            if ( rtn ) {
+                if ( rtn==LIBUSB_ERROR_TIMEOUT ) {
+                    // Up to five retries on timeout
+                    if ( attempts==0 ) 
+                        break;
+                    else  
+                        attempts--;
+                }        //checked(rtn, "Interrupt write failed");
+                else break;
+            }
+        }
+        if (actualTransfered < 64)
+            throw CommunicationException{"Interrupt write failed"};
+        return static_cast<std::size_t>(actualTransfered);
+    }
+#endif
 
     void UsbComm::closeAndRelease()
     {
