@@ -85,7 +85,8 @@ namespace plug::com
     {
         return (handle != nullptr);
     }
-#if 0
+    
+    
     std::vector<std::uint8_t> UsbComm::receive(std::size_t recvSize)
     {
         int actualTransfered{0};
@@ -97,12 +98,15 @@ namespace plug::com
             checked(rtn, "Interrupt receive failed");
         }
 
+	printf("received %d\n",rtn);
+
         buffer.resize(static_cast<std::size_t>(actualTransfered));
 
         return buffer;
     }
 
 
+#if 0
     std::size_t UsbComm::sendImpl(std::uint8_t* data, std::size_t size)
     {
         int actualTransfered{0};
@@ -111,7 +115,6 @@ namespace plug::com
 
         return static_cast<std::size_t>(actualTransfered);
     }
-#else
 
     std::vector<std::uint8_t> UsbComm::receive(std::size_t recvSize)
     {
@@ -131,11 +134,14 @@ namespace plug::com
                 }
             }
         }
+	printf("...\n");
 
         buffer.resize(static_cast<std::size_t>(totalTransfered));
 
         return buffer;
     }
+
+#else
 
     std::size_t UsbComm::sendImpl(std::uint8_t* data, std::size_t size)
     {
