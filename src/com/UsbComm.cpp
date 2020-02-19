@@ -121,7 +121,8 @@ namespace plug::com
         std::vector<std::uint8_t> buffer(recvSize);
         while ( actualTransfered < 64 ) {
             const auto rtn = libusb_interrupt_transfer(handle, endpointRecv, buffer.data(), static_cast<int>(buffer.size()), &actualTransfered, timeout.count());
-            totalTransfered += actualTransfered;
+		totalTransfered += actualTransfered;
+            printf("received: %d/%d\n",actualTransfered , totalTransfered); 
             if ( rtn!=0 ) { 
                 if (rtn != LIBUSB_ERROR_TIMEOUT)
                 {
@@ -144,6 +145,7 @@ namespace plug::com
         while ( actualTransfered < 64 ) {
             const auto rtn = libusb_interrupt_transfer(handle, endpointSend, data, static_cast<int>(size), &actualTransfered, timeout.count());
             totalTransfered += actualTransfered;
+            printf("transmitted: %d/%d\n",actualTransfered , totalTransfered); 
             if ( rtn ) {
                 if ( rtn==LIBUSB_ERROR_TIMEOUT ) {
                     // Up to five retries on timeout
