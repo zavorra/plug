@@ -119,18 +119,19 @@ namespace plug::com
         int totalTransfered{0};
 
         std::vector<std::uint8_t> buffer(recvSize);
-        while ( actualTransfered < 64 ) {
+        while ( totalTransfered < 64 ) {
             const auto rtn = libusb_interrupt_transfer(handle, endpointRecv, buffer.data(), static_cast<int>(buffer.size()), &actualTransfered, timeout.count());
             totalTransfered += actualTransfered;
             if ( rtn!=0 ) { 
                 if (rtn != LIBUSB_ERROR_TIMEOUT)
                 {
                     checked(rtn, "Interrupt receive failed");
+                    break;
                 }
             }
         }
 
-        buffer.resize(static_cast<std::size_t>(actualTransfered));
+        buffer.resize(static_cast<std::size_t>(totalTransfered));
 
         return buffer;
     }
@@ -141,7 +142,7 @@ namespace plug::com
         int totalTransfered{0};
         int attempts{5};
         
-        while ( actualTransfered < 64 ) {
+        while ( totalTransfered < 64 ) {
             const auto rtn = libusb_interrupt_transfer(handle, endpointSend, data, static_cast<int>(size), &actualTransfered, timeout.count());
             totalTransfered += actualTransfered;
             if ( rtn ) {
@@ -155,9 +156,9 @@ namespace plug::com
                 else break;
             }
         }
-        if (actualTransfered < 64)
+        if (totalTransfered < 64)
             throw CommunicationException{"Interrupt write failed"};
-        return static_cast<std::size_t>(actualTransfered);
+        return static_cast<std::size_t>(totalTransfered);
     }
 #endif
 
