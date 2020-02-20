@@ -595,9 +595,11 @@ namespace plug::com
                 break;
 
             default:
+                printf("unhandled value.effect_num: %d\n"
+                        ,static_cast<int>(value.effect_num));
                 break;
         }
-        printf("*serializeEffectSettings: DSP: %d, model: %02x\n"
+        printf("*serializeEffectSettings: DSP: %d, ID: %02x\n"
                 ,static_cast<int>(payload.getSlot())
                 ,static_cast<int>(payload.getModel())
                 );
