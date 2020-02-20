@@ -1,5 +1,12 @@
 # Plug
 
+This ([[GitHub](https://github.com/zavorra/plug)] ) is a fork of [Offa's fork](https://github.com/offa/plug)] of [piorekf's Plug](https://bitbucket.org/piorekf/plug/).
+
+My goal is to add support for Mustang V2 I/II effects and amps. 
+
+# Offa's README.md
+
+
 ### [[GitHub](https://github.com/offa/plug)] [[GitLab](https://gitlab.com/offa/plug)]
 
 [![Build Status](https://travis-ci.org/offa/plug.svg?branch=master)](https://travis-ci.org/offa/plug)
