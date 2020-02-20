@@ -135,6 +135,10 @@ namespace plug::com
             effects[slot].knob6 = payload.getKnob6();
             effects[slot].position = (payload.getSlot() > 0x03 ? Position::effectsLoop : Position::input);
             effects[slot].effect_num = lookupEffectById(payload.getModel());
+            printf("decodeEffectsFromData: slot: %d, effect_num: %d, id: %02x\n"
+                        ,static_cast<int>(slot)
+                        ,static_cast<int>(effects[slot].effect_num)
+                        ,static_cast<int>(payload.getModel()));
         });
 
         return effects;
