@@ -2070,7 +2070,6 @@ namespace plug
     void Effect::load(fx_pedal_settings settings)
     {
         set_changed(true);
-
         ui->comboBox->setCurrentIndex(value(settings.effect_num));
         ui->dial->setValue(settings.knob1);
         ui->dial_2->setValue(settings.knob2);
@@ -2079,6 +2078,7 @@ namespace plug
         ui->dial_5->setValue(settings.knob5);
         ui->dial_6->setValue(settings.knob6);
         ui->checkBox->setChecked(settings.position == Position::effectsLoop);
+        printf("Effect::load: effect_num: %d\n",static_cast<int>(settings.effect_num));
     }
 
     void Effect::get_settings(fx_pedal_settings& pedal)

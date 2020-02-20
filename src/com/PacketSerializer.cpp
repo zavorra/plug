@@ -122,8 +122,9 @@ namespace plug::com
     std::array<fx_pedal_settings, 4> decodeEffectsFromData(const std::array<Packet<EffectPayload>, 4>& packet)
     {
         std::array<fx_pedal_settings, 4> effects{{}};
-
-        std::for_each(packet.cbegin(), packet.cend(), [&effects](const auto& p) {
+        int i=0;
+        std::for_each(packet.cbegin(), packet.cend(), [&effects, &i](const auto& p) {
+            i++;
             const auto payload = p.getPayload();
             const auto slot = payload.getSlot() % 4;
             effects[slot].fx_slot = slot;
@@ -135,8 +136,10 @@ namespace plug::com
             effects[slot].knob6 = payload.getKnob6();
             effects[slot].position = (payload.getSlot() > 0x03 ? Position::effectsLoop : Position::input);
             effects[slot].effect_num = lookupEffectById(payload.getModel());
-            printf("decodeEffectsFromData: slot: %d, effect_num: %d, id: %02x\n"
+            printf("decodeEffectsFromData: effect:%d slot: %d, position: %d, effect_num: %d, id: %02x\n"
+                        ,i
                         ,static_cast<int>(slot)
+                        ,static_cast<int>(effects[slot].position)
                         ,static_cast<int>(effects[slot].effect_num)
                         ,static_cast<int>(payload.getModel()));
         });

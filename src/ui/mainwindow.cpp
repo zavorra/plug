@@ -543,7 +543,7 @@ namespace plug
                         default:
                             printf("unknown slot!\n");
                     }
-                }
+                } 
             }
             effect1->show();
             effect2->show();
