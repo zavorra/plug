@@ -137,7 +137,7 @@ namespace plug
 
     constexpr auto value(effects e)
     {
-        return static_cast<std::uint8_t>(e);
+        return static_cast<std::uint16_t>(e);
     }
 
     constexpr auto value(cabinets c)
