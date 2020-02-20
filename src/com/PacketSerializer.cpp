@@ -391,31 +391,31 @@ namespace plug::com
                 payload.setModel(0x07);
                 break;
 
-	    case effects::RANGE_BOOST:
+        case effects::RANGE_BOOST:
                 header.setDSP(DSP::effect0);
                 payload.setModel(0x0103);
                 payload.setUnknown(0x00, 0x08, 0x01);
                 break;
 
-	    case effects::GREEN_BOX:
+        case effects::GREEN_BOX:
                 header.setDSP(DSP::effect0);
                 payload.setModel(0xba);
                 payload.setUnknown(0x00, 0x08, 0x01);
                 break;
 
-	    case effects::ORANGE_BOX:
+        case effects::ORANGE_BOX:
                 header.setDSP(DSP::effect0);
                 payload.setModel(0x0110);
                 payload.setUnknown(0x00, 0x08, 0x01);
                 break;
 
-	    case effects::BLACK_BOX:
+        case effects::BLACK_BOX:
                 header.setDSP(DSP::effect0);
                 payload.setModel(0x0111);
                 payload.setUnknown(0x00, 0x08, 0x01);
                 break;
 
-	    case effects::BIG_FUZZ:
+        case effects::BIG_FUZZ:
                 header.setDSP(DSP::effect0);
                 payload.setModel(0x010f);
                 payload.setUnknown(0x00, 0x08, 0x01);
@@ -507,7 +507,6 @@ namespace plug::com
                 payload.setUnknown(0x00, 0x08, 0x01);
                 break;
 
-                
             case effects::MONO_DELAY:
                 header.setDSP(DSP::effect2);
                 payload.setModel(0x16);

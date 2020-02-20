@@ -477,7 +477,7 @@ namespace plug
                 model = 0x07;
                 break;
 
-	    case effects::RANGE_BOOST:
+        case effects::RANGE_BOOST:
                 model =  0x0103;
                 break;
 
@@ -485,11 +485,11 @@ namespace plug
                 model =  0xba;
                 break;
 
-	    case effects::ORANGE_BOX:
+        case effects::ORANGE_BOX:
                 model =  0x0110;
                 break;
 
-	    case effects::BLACK_BOX:
+        case effects::BLACK_BOX:
                 model =  0x0111;
                 break;
 

@@ -553,7 +553,7 @@ namespace plug
                              tr("Disabled box"),
                              tr("This box is disabled in this effect")});
                 break;
-	    case effects::RANGE_BOOST:
+        case effects::RANGE_BOOST:
                 setTexts(ui.get(),
                          UIText{
                              tr("&Level"),
@@ -592,8 +592,8 @@ namespace plug
                              tr("Disabled box"),
                              tr("This box is disabled in this effect")});
  
-		break;
-	    case effects::GREEN_BOX:
+        break;
+        case effects::GREEN_BOX:
                 setTexts(ui.get(),
                          UIText{
                              tr("&Level"),
@@ -632,8 +632,8 @@ namespace plug
                              tr("Disabled box"),
                              tr("This box is disabled in this effect")});
  
-		break;
-        	    case effects::ORANGE_BOX:
+        break;
+                case effects::ORANGE_BOX:
                 setTexts(ui.get(),
                          UIText{
                              tr("&Level"),
@@ -654,7 +654,7 @@ namespace plug
                              tr("Default effect's \"Tone\" box"),
                              tr("Allows you to precisely set \"Tone\" parameter of this effect")},
                          UIText{
-			     tr(""),
+                 tr(""),
                              tr("Disabled dial"),
                              tr("This dial is disabled in this effect"),
                              tr("Disabled box"),
@@ -672,8 +672,8 @@ namespace plug
                              tr("Disabled box"),
                              tr("This box is disabled in this effect")});
  
-		break;
-        	    case effects::BLACK_BOX:
+        break;
+                case effects::BLACK_BOX:
                 setTexts(ui.get(),
                          UIText{
                              tr("&Level"),
@@ -712,8 +712,8 @@ namespace plug
                              tr("Disabled box"),
                              tr("This box is disabled in this effect")});
  
-		break;
-       	    case effects::BIG_FUZZ:
+        break;
+               case effects::BIG_FUZZ:
                 setTexts(ui.get(),
                          UIText{
                              tr("&Level"),
@@ -752,7 +752,7 @@ namespace plug
                              tr("Disabled box"),
                              tr("This box is disabled in this effect")});
  
-		break;
+        break;
                 
 
             case effects::SINE_CHORUS:

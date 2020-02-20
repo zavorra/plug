@@ -92,14 +92,14 @@ namespace plug::com
         int actualTransfered{0};
         std::vector<std::uint8_t> buffer(recvSize);
         const auto rtn = libusb_interrupt_transfer(handle, endpointRecv, buffer.data(), 
-					static_cast<int>(buffer.size()), &actualTransfered, 1000 /*timeout.count()*/);
+                    static_cast<int>(buffer.size()), &actualTransfered, 1000 /*timeout.count()*/);
 
         if (rtn != LIBUSB_ERROR_TIMEOUT)
         {
             checked(rtn, "Interrupt receive failed");
         }
 
-	//printf("received %d\n",rtn);
+    //printf("received %d\n",rtn);
 
         buffer.resize(static_cast<std::size_t>(actualTransfered));
 
@@ -125,7 +125,7 @@ namespace plug::com
         std::vector<std::uint8_t> buffer(recvSize);
         while ( totalTransfered < 64 ) {
             const auto rtn = libusb_interrupt_transfer(handle, endpointRecv, buffer.data(), static_cast<int>(buffer.size()), &actualTransfered, timeout.count());
-		totalTransfered += actualTransfered;
+        totalTransfered += actualTransfered;
           // printf("received: %d/%d\n",actualTransfered , totalTransfered); 
             if ( rtn!=0 ) { 
                 if (rtn != LIBUSB_ERROR_TIMEOUT)
@@ -135,7 +135,7 @@ namespace plug::com
                 }
             }
         }
-	//printf("...\n");
+    //printf("...\n");
 
         buffer.resize(static_cast<std::size_t>(totalTransfered));
 

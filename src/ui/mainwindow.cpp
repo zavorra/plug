@@ -268,10 +268,10 @@ namespace plug
 
         for (int i = 0; i < 4; i++)
         {
-	        printf("eff_sect: %d, slot: %d, num:%d\n"
-			    ,i
-			    ,static_cast<int>(effects_set[i].fx_slot)
-			    ,static_cast<int>(effects_set[i].effect_num));
+            printf("eff_sect: %d, slot: %d, num:%d\n"
+                ,i
+                ,static_cast<int>(effects_set[i].fx_slot)
+                ,static_cast<int>(effects_set[i].effect_num));
             if (effects_set[i].effect_num != effects::EMPTY)
             {
                 switch (effects_set[i].fx_slot)
@@ -499,7 +499,7 @@ namespace plug
                 amp->show();
             }
 
-           	fx_pedal_settings null_effect;
+               fx_pedal_settings null_effect;
             null_effect.effect_num=effects::EMPTY;
             null_effect.fx_slot=0;
             effect1->load(null_effect);
@@ -513,10 +513,10 @@ namespace plug
             const auto effects_set = signalChain.effects();
             for (std::size_t i = 0; i < 4; i++)
             {
-		        printf("eff_sect: %d, slot: %d, num:%d\n"
-				,static_cast<int>(i)
-				,static_cast<int>(effects_set[i].fx_slot)
-				,static_cast<int>(effects_set[i].effect_num));
+                printf("eff_sect: %d, slot: %d, num:%d\n"
+                ,static_cast<int>(i)
+                ,static_cast<int>(effects_set[i].fx_slot)
+                ,static_cast<int>(effects_set[i].effect_num));
                 if (effects_set[i].effect_num != effects::EMPTY)
                 {
                     switch (effects_set[i].fx_slot)
@@ -681,60 +681,59 @@ namespace plug
             amp->show();
         }
 
- 	fx_pedal_settings null_effect;
-	null_effect.effect_num=effects::EMPTY;
-	null_effect.fx_slot=0;
-	effect1->load(null_effect);
-       	null_effect.fx_slot=1;
-	effect2->load(null_effect);
-	null_effect.fx_slot=2;
-	effect3->load(null_effect);
-	null_effect.fx_slot=3;
-	effect4->load(null_effect);
+     fx_pedal_settings null_effect;
+    null_effect.effect_num=effects::EMPTY;
+    null_effect.fx_slot=0;
+    effect1->load(null_effect);
+           null_effect.fx_slot=1;
+    effect2->load(null_effect);
+    null_effect.fx_slot=2;
+    effect3->load(null_effect);
+    null_effect.fx_slot=3;
+    effect4->load(null_effect);
        
+    for (int i = 0; i < 4; i++)
+    {
+        printf("eff_sect: %d, slot: %d, num:%d\n"
+                ,i
+                ,static_cast<int>(effects_set[i].fx_slot)
+                ,static_cast<int>(effects_set[i].effect_num));
+        if (effects_set[i].effect_num != effects::EMPTY)
+        {
+            switch (effects_set[i].fx_slot)
+            {
+                case 0x00:
+                    effect1->load(effects_set[i]);
+                    break;
 
-	for (int i = 0; i < 4; i++)
-	{
-		printf("eff_sect: %d, slot: %d, num:%d\n"
-				,i
-				,static_cast<int>(effects_set[i].fx_slot)
-				,static_cast<int>(effects_set[i].effect_num));
-		if (effects_set[i].effect_num != effects::EMPTY)
-		{
-			switch (effects_set[i].fx_slot)
-			{
-				case 0x00:
-					effect1->load(effects_set[i]);
-					break;
+                case 0x01:
+                    effect2->load(effects_set[i]);
+                    break;
 
-				case 0x01:
-					effect2->load(effects_set[i]);
-					break;
+                case 0x02:
+                    effect3->load(effects_set[i]);
+                    break;
 
-				case 0x02:
-					effect3->load(effects_set[i]);
-					break;
+                case 0x03:
+                    effect4->load(effects_set[i]);
+                    break;
+                default:
+                    printf("unknown slot!\n");
+            }
+        }
+    }
 
-				case 0x03:
-					effect4->load(effects_set[i]);
-					break;
-				default:
-					printf("unknown slot!\n");
-			}
-		}
-	}
+    if (connected) {
+        effect1->send_fx();
+        effect2->send_fx();
+        effect3->send_fx();
+        effect4->send_fx();
+    }
 
-	if (connected) {
-		effect1->send_fx();
-		effect2->send_fx();
-		effect3->send_fx();
-		effect4->send_fx();
-	}
-
-	effect1->show();
-	effect2->show();
-	effect3->show();
-	effect4->show();
+    effect1->show();
+    effect2->show();
+    effect3->show();
+    effect4->show();
     }
 
     void MainWindow::get_settings(amp_settings* amplifier_settings, fx_pedal_settings fx_settings[4])

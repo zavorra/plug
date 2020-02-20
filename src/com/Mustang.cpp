@@ -57,24 +57,24 @@ namespace plug::com
     std::array<PacketRawType, 7> loadBankData(Connection& conn, std::uint8_t slot)
     {
         std::array<PacketRawType, 7> data{{}};
-	//printf("loadBankData: \n");
+    //printf("loadBankData: \n");
 
         const auto loadCommand = serializeLoadSlotCommand(slot);
         auto n = conn.send(loadCommand.getBytes());
 
         for (std::size_t i = 0; n != 0; ++i)
-	{
-		//printf("i: %d ",static_cast<int>(i));
+    {
+        //printf("i: %d ",static_cast<int>(i));
 
-		const auto recvData = receivePacket(conn);
-		n = recvData.size();
-		//printf("n: %d ",static_cast<int>(n));
+        const auto recvData = receivePacket(conn);
+        n = recvData.size();
+        //printf("n: %d ",static_cast<int>(n));
 
-		if (i < 7)
-		{
-			std::copy(recvData.cbegin(), recvData.cend(), data[i].begin());
-		}
-	}
+        if (i < 7)
+        {
+            std::copy(recvData.cbegin(), recvData.cend(), data[i].begin());
+        }
+    }
         return data;
     }
 

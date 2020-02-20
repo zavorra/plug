@@ -97,7 +97,7 @@ namespace plug
                 return effects::COMPRESSOR;
 
             // V2 only stomps
-	        case 0x0103:
+            case 0x0103:
                 return effects::RANGE_BOOST;
             case 0xba:
                 return effects::GREEN_BOX;
