@@ -488,6 +488,21 @@ namespace plug::com
                 payload.setModel(0x1f);
                 payload.setUnknown(0x01, 0x08, 0x01);
                 break;
+        //V2 only mod
+            case effects::MOD_WHA:
+                header.setDSP(DSP::effect1);
+                payload.setModel(0xf4);
+                payload.setUnknown(0x01, 0x08, 0x01);
+
+            case effects::MOD_TOUCH_WHA:
+                header.setDSP(DSP::effect1);
+                payload.setModel(0xf5);
+                payload.setUnknown(0x01, 0x08, 0x01);
+
+            case effects::DIATONIC_PITCH_SHIFT:
+                header.setDSP(DSP::effect1);
+                payload.setModel(0x101f) ;
+                payload.setUnknown(0x00, 0x08, 0x01);
 
             case effects::MONO_DELAY:
                 header.setDSP(DSP::effect2);
