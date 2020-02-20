@@ -91,7 +91,8 @@ namespace plug::com
     {
         int actualTransfered{0};
         std::vector<std::uint8_t> buffer(recvSize);
-        const auto rtn = libusb_interrupt_transfer(handle, endpointRecv, buffer.data(), static_cast<int>(buffer.size()), &actualTransfered, timeout.count());
+        const auto rtn = libusb_interrupt_transfer(handle, endpointRecv, buffer.data(), 
+					static_cast<int>(buffer.size()), &actualTransfered, 1000 /*timeout.count()*/);
 
         if (rtn != LIBUSB_ERROR_TIMEOUT)
         {
