@@ -373,7 +373,12 @@ namespace plug::com
 
         std::uint16_t getModel() const
         {
-            return bytes[0]+bytes[1]*256;
+            uint16_t mod=bytes[0]+bytes[1]*256;
+             printf("getModel: %02x -> %02x:%02x"
+                    ,static_cast<int>(mod)
+                    ,static_cast<int>(bytes[0])
+                    ,static_cast<int>(bytes[1]));
+            return mod;
         }
 
         void setUnknown(std::uint8_t value0, std::uint8_t value1, std::uint8_t value2)

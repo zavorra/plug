@@ -128,6 +128,7 @@ namespace plug::com
 
     void Mustang::save_on_amp(std::string_view name, std::uint8_t slot)
     {
+        printf("mustang::saveonamp:\n");
         const auto data = serializeName(slot, name).getBytes();
         sendCommand(*conn, data);
         loadBankData(*conn, slot);
@@ -140,6 +141,7 @@ namespace plug::com
 
     void Mustang::save_effects(std::uint8_t slot, std::string_view name, const std::vector<fx_pedal_settings>& effects)
     {
+        printf("mustang::save_effects:\n");
         const auto saveNamePacket = serializeSaveEffectName(slot, name, effects);
         sendCommand(*conn, saveNamePacket.getBytes());
 

@@ -649,6 +649,7 @@ namespace plug::com
 
     std::vector<Packet<EffectPayload>> serializeSaveEffectPacket(std::uint8_t slot, const std::vector<fx_pedal_settings>& effects)
     {
+        printf("serializeSaveEffectPacket:\n");
         const auto fxKnob = getFxKnob(effects[0]);
         const std::size_t repeat = getSaveEffectsRepeats(effects);
 
