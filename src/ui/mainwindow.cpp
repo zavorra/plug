@@ -254,48 +254,55 @@ namespace plug
         {
             amp->show();
         }
+
+        fx_pedal_settings null_effect;
+        null_effect.effect_num=effects::EMPTY;
+        null_effect.fx_slot=0;
+        effect1->load(null_effect);
+            null_effect.fx_slot=1;
+        effect2->load(null_effect);
+        null_effect.fx_slot=2;
+        effect3->load(null_effect);
+        null_effect.fx_slot=3;
+        effect4->load(null_effect);
+
         for (int i = 0; i < 4; i++)
         {
-	    printf("eff_sect: %d, slot: %d, num:%d\n"
+	        printf("eff_sect: %d, slot: %d, num:%d\n"
 			    ,i
 			    ,static_cast<int>(effects_set[i].fx_slot)
 			    ,static_cast<int>(effects_set[i].effect_num));
-            switch (effects_set[i].fx_slot)
+            if (effects_set[i].effect_num != effects::EMPTY)
             {
-                case 0x00:
-                case 0x04:
-                    effect1->load(effects_set[i]);
-                    if (effects_set[i].effect_num != effects::EMPTY)
-                        if (settings.value("Settings/popupChangedWindows").toBool())
-                            effect1->show();
-                    break;
+                switch (effects_set[i].fx_slot)
+                {
+                    case 0x00:
+                    case 0x04:
+                        effect1->load(effects_set[i]);
+                        break;
 
-                case 0x01:
-                case 0x05:
-                    effect2->load(effects_set[i]);
-                    if (effects_set[i].effect_num != effects::EMPTY)
-                        if (settings.value("Settings/popupChangedWindows").toBool())
-                            effect2->show();
-                    break;
+                    case 0x01:
+                    case 0x05:
+                        effect2->load(effects_set[i]);
+                        break;
 
-                case 0x02:
-                case 0x06:
-                    effect3->load(effects_set[i]);
-                    if (effects_set[i].effect_num != effects::EMPTY)
-                        if (settings.value("Settings/popupChangedWindows").toBool())
-                            effect3->show();
-                    break;
+                    case 0x02:
+                    case 0x06:
+                        effect3->load(effects_set[i]);
+                        break;
 
-                case 0x03:
-                case 0x07:
-                    effect4->load(effects_set[i]);
-                    if (effects_set[i].effect_num != effects::EMPTY)
-                        if (settings.value("Settings/popupChangedWindows").toBool())
-                            effect4->show();
-                    break;
-		default:
-		    printf("unknown slot!\n");
+                    case 0x03:
+                    case 0x07:
+                        effect4->load(effects_set[i]);
+                        break;
+                    default:
+                        printf("unknown slot!\n");
+                }
             }
+            effect1->show();
+            effect2->show();
+            effect3->show();
+            effect4->show();
         }
 
         // activate buttons
@@ -495,7 +502,7 @@ namespace plug
             for (std::size_t i = 0; i < 4; i++)
             {
 		printf("eff_sect: %d, slot: %d, num:%d\n"
-				,i
+				,static_cast<int>(i)
 				,static_cast<int>(effects_set[i].fx_slot)
 				,static_cast<int>(effects_set[i].effect_num));
 	                switch (effects_set[i].fx_slot)
