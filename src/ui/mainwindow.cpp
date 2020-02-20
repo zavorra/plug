@@ -367,6 +367,7 @@ namespace plug
         }
 
         QSettings settings;
+        printf("set_effect:\n");
 
         if (!settings.value("Settings/oneSetToSetThemAll").toBool())
         {

@@ -322,6 +322,9 @@ namespace plug::com
         header.setType(Type::data);
         header.setUnknown(0x00, 0x01, 0x01);
 
+        printf("serializeEffectSettings: slot: %d, model: %02x ",
+                static_cast<int>(value.fx_slot)
+                ,static_cast<int>(value.effect_num));
         EffectPayload payload{};
         payload.setSlot(getSlot(value));
         payload.setUnknown(0x00, 0x08, 0x01);
@@ -587,6 +590,11 @@ namespace plug::com
             default:
                 break;
         }
+        printf(" DSP: %d, model: %02x\n"
+                ,static_cast<int>(payload.getSlot())
+                ,static_cast<int>(payload.getModel())
+                );
+
 
         Packet<EffectPayload> packet{};
         packet.setHeader(header);

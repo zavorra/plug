@@ -106,7 +106,7 @@ namespace plug::com
         const auto clearEffectPacket = serializeClearEffectSettings();
         sendCommand(*conn, clearEffectPacket.getBytes());
         sendApplyCommand(*conn);
-
+        printf("set_effect: \n");
         if (value.effect_num != effects::EMPTY)
         {
             const auto settingsPacket = serializeEffectSettings(value);

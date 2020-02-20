@@ -362,12 +362,13 @@ namespace plug::com
 
         void setModel(std::uint16_t model)
         {
+
+            bytes[0] = model%256;
+            bytes[1] = model/256;
             printf("setModel: %02x -> %02x:%02x"
                     ,static_cast<int>(model)
                     ,static_cast<int>(bytes[0])
                     ,static_cast<int>(bytes[1]));
-            bytes[0] = model%256;
-            bytes[1] = model/256;
         }
 
         std::uint16_t getModel() const
