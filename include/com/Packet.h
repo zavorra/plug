@@ -365,7 +365,7 @@ namespace plug::com
 
             bytes[0] = model%256;
             bytes[1] = model/256;
-            printf("setModel: %02x -> %02x:%02x"
+            printf("setModel: %02x -> %02x:%02x\n"
                     ,static_cast<int>(model)
                     ,static_cast<int>(bytes[0])
                     ,static_cast<int>(bytes[1]));
@@ -374,7 +374,7 @@ namespace plug::com
         std::uint16_t getModel() const
         {
             uint16_t mod=bytes[0]+bytes[1]*256;
-             printf("getModel: %02x -> %02x:%02x"
+             printf("getModel: %02x -> %02x:%02x\n"
                     ,static_cast<int>(mod)
                     ,static_cast<int>(bytes[0])
                     ,static_cast<int>(bytes[1]));

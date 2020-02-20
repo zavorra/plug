@@ -99,7 +99,7 @@ namespace plug::com
             checked(rtn, "Interrupt receive failed");
         }
 
-	printf("received %d\n",rtn);
+	//printf("received %d\n",rtn);
 
         buffer.resize(static_cast<std::size_t>(actualTransfered));
 
@@ -135,7 +135,7 @@ namespace plug::com
                 }
             }
         }
-	printf("...\n");
+	//printf("...\n");
 
         buffer.resize(static_cast<std::size_t>(totalTransfered));
 
