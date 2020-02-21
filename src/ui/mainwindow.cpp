@@ -685,7 +685,7 @@ namespace plug
     null_effect.effect_num=effects::EMPTY;
     null_effect.fx_slot=0;
     effect1->load(null_effect);
-           null_effect.fx_slot=1;
+    null_effect.fx_slot=1;
     effect2->load(null_effect);
     null_effect.fx_slot=2;
     effect3->load(null_effect);
@@ -759,11 +759,13 @@ namespace plug
         {
             setWindowTitle(QString(tr("PLUG: NONE")));
             setAccessibleName(QString(tr("Main window: NONE")));
+            ui->CurrPresetLabel->setText("PLUG");
         }
         else
         {
             setWindowTitle(QString(tr("PLUG: %1")).arg(current_name));
             setAccessibleName(QString(tr("Main window: %1")).arg(name));
+            ui->CurrPresetLabel->setText(current_name);
         }
     }
 
