@@ -70,7 +70,10 @@ namespace plug
         : QMainWindow(parent),
           ui(std::make_unique<Ui::MainWindow>()),
           presetNames(100, ""),
-          amp_ops(nullptr)
+          amp_ops(nullptr),
+
+          screenWidth(800),
+          screenHeight(480-PANEL_HEIGHT)
     {
         ui->setupUi(this);
 
@@ -171,11 +174,21 @@ namespace plug
         {
             connect(this, SIGNAL(started()), this, SLOT(start_amp()));
         }
-
+        
+        
+        
+        this->setGeometry(0,PANEL_HEIGHT+0,screenWidth/2,this->screenHeight*0.4);
         this->show();
         this->repaint();
 
+
+
         emit started();
+        show_amp();
+        show_fx1();
+        show_fx2();
+        show_fx3();
+        show_fx4();
     }
 
     MainWindow::~MainWindow()
@@ -771,6 +784,8 @@ namespace plug
 
     void MainWindow::show_fx1()
     {
+        effect1->setGeometry(0*screenWidth/4, PANEL_HEIGHT+screenHeight*0.4
+                            ,screenWidth/4, this->screenHeight*0.6);
         if (!effect1->isVisible())
         {
             effect1->show();
@@ -780,7 +795,9 @@ namespace plug
 
     void MainWindow::show_fx2()
     {
-        if (!effect2->isVisible())
+       effect2->setGeometry(1*screenWidth/4, PANEL_HEIGHT+screenHeight*0.4
+                            ,screenWidth/4, this->screenHeight*0.6);
+         if (!effect2->isVisible())
         {
             effect2->show();
         }
@@ -788,6 +805,8 @@ namespace plug
     }
     void MainWindow::show_fx3()
     {
+       effect3->setGeometry(2*screenWidth/4, PANEL_HEIGHT+screenHeight*0.4
+                            ,screenWidth/4, this->screenHeight*0.6);
         if (!effect3->isVisible())
         {
             effect3->show();
@@ -796,6 +815,8 @@ namespace plug
     }
     void MainWindow::show_fx4()
     {
+       effect4->setGeometry(3*screenWidth/4, PANEL_HEIGHT+screenHeight*0.4
+                            ,screenWidth/4, this->screenHeight*0.6);
         if (!effect4->isVisible())
         {
             effect4->show();
@@ -805,6 +826,8 @@ namespace plug
 
     void MainWindow::show_amp()
     {
+       amp->setGeometry(screenWidth/2, PANEL_HEIGHT+0
+                            ,screenWidth/2, this->screenHeight*0.4);
         if (!amp->isVisible())
         {
             amp->show();

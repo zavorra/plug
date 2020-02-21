@@ -2119,8 +2119,6 @@ namespace plug
             ui->label_3->setDisabled(true);
             ui->label_4->setDisabled(true);
             ui->label_5->setDisabled(true);
-            ui->label_6->setDisabled(true);
-            ui->label_7->setDisabled(true);
             effect_num = effects::EMPTY;
             temp1 = windowTitle();
             temp2 = accessibleName();
@@ -2139,7 +2137,6 @@ namespace plug
             ui->label_4->setDisabled(false);
             ui->label_5->setDisabled(false);
             ui->label_6->setDisabled(false);
-            ui->label_7->setDisabled(false);
             ui->dial->setDisabled(false);
             ui->spinBox->setDisabled(false);
 

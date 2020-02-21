@@ -24,7 +24,7 @@
 #include "data_structs.h"
 #include <QMainWindow>
 #include <memory>
-
+#define PANEL_HEIGHT 24
 namespace Ui
 {
     class MainWindow;
@@ -101,6 +101,8 @@ namespace plug
         std::unique_ptr<Library> library;
         std::unique_ptr<DefaultEffects> deffx;
         QuickPresets* quickpres;
+        int screenWidth;
+        int screenHeight;
 
     private slots:
         void about();
