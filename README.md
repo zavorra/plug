@@ -1,8 +1,25 @@
 # Plug
 
-This ([[GitHub](https://github.com/zavorra/plug)] ) is a fork of [Offa's fork](https://github.com/offa/plug)] of [piorekf's Plug](https://bitbucket.org/piorekf/plug/).
+Software for Fender Mustang Amps. 
 
-My goal is to add support for Mustang V2 I/II effects and amps. 
+This repository is a fork of [Offa's rework](https://github.com/offa/plug) of [piorekf's Plug](https://bitbucket.org/piorekf/plug/).
+
+## Goals:
+
+- Add support for Mustang V2 I/II effects and amps using [snhirsch /
+mustang-midi-bridge ](https://github.com/snhirsch/mustang-midi-bridge) as a reference.
+
+- Have it running correctly on a raspberry pi
+
+- (maybe) provide a more compact interface to fit on a cheap 320x480 LCD
+
+## Current status:
+
+- Presets with V2-only Effects and Amps can be created, loaded and saved from both amplifier and files. It's now time for some serious bug hunting...
+
+- Working fine on a raspberry pi 3 (only had to increment the timeout for USB transfers)
+
+
 
 # Offa's README.md
 
