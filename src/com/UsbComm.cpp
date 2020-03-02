@@ -102,6 +102,14 @@ namespace plug::com
     //printf("received %d\n",rtn);
 
         buffer.resize(static_cast<std::size_t>(actualTransfered));
+        
+        for ( int i=0; i<64; i++ ) {
+                if (i%16 == 0)
+                    printf("\n <" );
+                 printf( "%02x ", buffer[i] );
+       }   
+	printf("\n");
+
 
         return buffer;
     }
@@ -149,6 +157,13 @@ namespace plug::com
         int actualTransfered{0};
         int totalTransfered{0};
         int attempts{5};
+        
+	for ( int i=0; i<64; i++ ) {
+                if (i%16 == 0 )
+                    printf("\n >" );
+                 printf( "%02x ", data[i] );
+        }   
+	printf("\n");
         
         while ( totalTransfered < 64 ) {
             const auto rtn = libusb_interrupt_transfer(handle, endpointSend, data, static_cast<int>(size), &actualTransfered, timeout.count());

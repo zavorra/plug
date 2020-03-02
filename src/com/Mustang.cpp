@@ -45,21 +45,9 @@ namespace plug::com
 
     void sendCommand(Connection& conn, const PacketRawType& packet)
     {
-        for ( int i=0; i<64; i++ ) {
-                printf( "%02x ", packet[i] );
-                if (i%16 == 15)
-                    printf("\n" );
-        }   
         conn.send(packet);
 
-        std::vector<std::uint8_t> incoming = receivePacket(conn);
-        
-        for ( int i=0; i<64; i++ ) {
-                printf( "%02x ", incoming[i] );
-                if (i%16 == 15)
-                    printf("\n" );
-        }   
-
+        receivePacket(conn);
     }
 
     void sendApplyCommand(Connection& conn)
