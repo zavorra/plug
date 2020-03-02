@@ -63,18 +63,18 @@ namespace plug::com
         auto n = conn.send(loadCommand.getBytes());
 
         for (std::size_t i = 0; n != 0; ++i)
-    {
-        //printf("i: %d ",static_cast<int>(i));
-
-        const auto recvData = receivePacket(conn);
-        n = recvData.size();
-        //printf("n: %d ",static_cast<int>(n));
-
-        if (i < 7)
         {
-            std::copy(recvData.cbegin(), recvData.cend(), data[i].begin());
+            //printf("i: %d ",static_cast<int>(i));
+
+            const auto recvData = receivePacket(conn);
+            n = recvData.size();
+            //printf("n: %d ",static_cast<int>(n));
+
+            if (i < 7)
+            {
+                std::copy(recvData.cbegin(), recvData.cend(), data[i].begin());
+            }
         }
-    }
         return data;
     }
 

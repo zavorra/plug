@@ -512,11 +512,11 @@ namespace plug
                 amp->show();
             }
 
-               fx_pedal_settings null_effect;
+            fx_pedal_settings null_effect;
             null_effect.effect_num=effects::EMPTY;
             null_effect.fx_slot=0;
             effect1->load(null_effect);
-                null_effect.fx_slot=1;
+            null_effect.fx_slot=1;
             effect2->load(null_effect);
             null_effect.fx_slot=2;
             effect3->load(null_effect);
