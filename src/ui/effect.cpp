@@ -229,7 +229,7 @@ namespace plug
             case effects::SIMPLE_COMP:
                 ui->checkBox->setDisabled(false);
                 ui->dial->setMaximum(3);
-                ui->spinBox->setMaximum(3);
+                ui->spinBox->setMaximum(3); 
                 ui->dial_2->setValue(0);
                 ui->dial_3->setValue(0);
                 ui->dial_4->setValue(0);
@@ -342,6 +342,118 @@ namespace plug
                 ui->spinBox_5->setDisabled(false);
                 ui->spinBox_6->setDisabled(false);
                 break;
+
+            case effects::ORANGE_BOX:
+            case effects::BLACK_BOX:
+            case effects::BIG_FUZZ:
+                ui->checkBox->setDisabled(false);
+                ui->dial->setMaximum(255);
+                ui->spinBox->setMaximum(255); 
+                ui->dial_2->setMaximum(255);
+                ui->spinBox_2->setMaximum(255); 
+                ui->dial_3->setMaximum(255);
+                ui->spinBox_3->setMaximum(255); 
+                ui->dial_4->setValue(0);
+                ui->dial_5->setValue(0);
+                ui->dial_6->setValue(0);
+                ui->dial->setDisabled(false);
+                ui->dial_2->setDisabled(false);
+                ui->dial_3->setDisabled(false);
+                ui->dial_4->setDisabled(true);
+                ui->dial_5->setDisabled(true);
+                ui->dial_6->setDisabled(true);
+                ui->spinBox->setDisabled(false);
+                ui->spinBox_2->setDisabled(false);
+                ui->spinBox_3->setDisabled(false);
+                ui->spinBox_4->setDisabled(true);
+                ui->spinBox_5->setDisabled(true);
+                ui->spinBox_6->setDisabled(true);
+            break;
+
+            case effects::RANGE_BOOST:
+            case effects::GREEN_BOX:
+                ui->checkBox->setDisabled(false);
+                ui->dial->setMaximum(255);
+                ui->spinBox->setMaximum(255); 
+                ui->dial_2->setMaximum(255);
+                ui->spinBox_2->setMaximum(255); 
+                ui->dial_3->setMaximum(255);
+                ui->spinBox_3->setMaximum(255); 
+                ui->dial_4->setMaximum(255);
+                ui->spinBox_4->setMaximum(255);                 ui->dial_4->setValue(0);
+                ui->dial_5->setValue(0);
+                ui->dial_6->setValue(0);
+                ui->dial->setDisabled(false);
+                ui->dial_2->setDisabled(false);
+                ui->dial_3->setDisabled(false);
+                ui->dial_4->setDisabled(false);
+                ui->dial_5->setDisabled(true);
+                ui->dial_6->setDisabled(true);
+                ui->spinBox->setDisabled(false);
+                ui->spinBox_2->setDisabled(false);
+                ui->spinBox_3->setDisabled(false);
+                ui->spinBox_4->setDisabled(false);
+                ui->spinBox_5->setDisabled(true);
+                ui->spinBox_6->setDisabled(true);
+            break;
+
+
+            case effects::MOD_WHA:
+            case effects::MOD_TOUCH_WHA:
+                ui->checkBox->setDisabled(false);
+                ui->dial->setMaximum(255);
+                ui->spinBox->setMaximum(255);
+                ui->dial_2->setMaximum(255);
+                ui->spinBox_2->setMaximum(255);
+                ui->dial_3->setMaximum(255);
+                ui->spinBox_3->setMaximum(255);
+                ui->dial_4->setMaximum(255);
+                ui->spinBox_4->setMaximum(255);
+                ui->dial_5->setMaximum(1);
+                ui->spinBox_5->setMaximum(1);
+                ui->dial_6->setValue(0);
+                ui->dial->setDisabled(false);
+                ui->dial_2->setDisabled(false);
+                ui->dial_3->setDisabled(false);
+                ui->dial_4->setDisabled(false);
+                ui->dial_5->setDisabled(false);
+                ui->dial_6->setDisabled(true);
+                ui->spinBox->setDisabled(false);
+                ui->spinBox_2->setDisabled(false);
+                ui->spinBox_3->setDisabled(false);
+                ui->spinBox_4->setDisabled(false);
+                ui->spinBox_5->setDisabled(false);
+                ui->spinBox_6->setDisabled(true);
+                break;
+
+
+            case effects::DIATONIC_PITCH_SHIFT:
+                ui->checkBox->setDisabled(false);
+                ui->dial->setMaximum(255);
+                ui->spinBox->setMaximum(255);
+                ui->dial_2->setMaximum(21);
+                ui->spinBox_2->setMaximum(21);
+                ui->dial_3->setMaximum(11);
+                ui->spinBox_3->setMaximum(11);
+                ui->dial_4->setMaximum(8);
+                ui->spinBox_4->setMaximum(8);
+                ui->dial_5->setMaximum(255);
+                ui->spinBox_5->setMaximum(255);
+                ui->dial_6->setValue(0);
+                ui->dial->setDisabled(false);
+                ui->dial_2->setDisabled(false);
+                ui->dial_3->setDisabled(false);
+                ui->dial_4->setDisabled(false);
+                ui->dial_5->setDisabled(false);
+                ui->dial_6->setDisabled(true);
+                ui->spinBox->setDisabled(false);
+                ui->spinBox_2->setDisabled(false);
+                ui->spinBox_3->setDisabled(false);
+                ui->spinBox_4->setDisabled(false);
+                ui->spinBox_5->setDisabled(false);
+                ui->spinBox_6->setDisabled(true);
+                break;
+
 
             default:
                 ui->checkBox->setDisabled(false);
@@ -2210,8 +2322,8 @@ namespace plug
 
     void Effect::setTitleTexts(int slot, const QString& name)
     {
-        setWindowTitle(tr("FX%1: %2").arg(slot + 1).arg(name));
-        setAccessibleName(tr("Effect's %1 window: %2").arg(fx_slot + 1).arg(name));
+        setWindowTitle(tr("FX%1: %2").arg(slot).arg(name));
+        setAccessibleName(tr("Effect's %1 window: %2").arg(fx_slot).arg(name));
     }
 
     void Effect::setDialValues(int d1, int d2, int d3, int d4, int d5, int d6)
