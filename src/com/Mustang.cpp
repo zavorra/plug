@@ -82,7 +82,8 @@ namespace plug::com
 
 
     Mustang::Mustang(std::shared_ptr<Connection> connection)
-        : conn(connection)
+        : conn(connection),
+	stopTuner(false)
     {
     }
 
@@ -187,23 +188,26 @@ namespace plug::com
 
     void Mustang::initializeAmp()
     {
+	sendTunerCommand(false);
         const auto packets = serializeInitCommand();
         std::for_each(packets.cbegin(), packets.cend(), [this](const auto& p) { sendCommand(*conn, p.getBytes()); });
     }
     
     void Mustang::sendTunerCommand(bool tuner_on)
     {
+printf("tuner: %d\n",tuner_on);
+
+	stopTuner=!tuner_on;
+
         sendCommand(*conn, serializeTunerCommand(tuner_on).getBytes() );
         auto recvData = receivePacket(*conn);
         auto recieved = recvData.size();
         if (tuner_on)  {
-            while (recieved != 0)
+            while ((recieved != 0) && (stopTuner==false))
             {
                 recvData = receivePacket(*conn);
                 recieved = recvData.size();
             }
-            sendCommand(*conn, serializeTunerCommand(!tuner_on).getBytes() );
-            receivePacket(*conn);
         }
        //sendCommand(*conn, clearEffectPacket.getBytes());
     }

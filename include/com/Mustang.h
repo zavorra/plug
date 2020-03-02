@@ -55,5 +55,7 @@ namespace plug::com
         void initializeAmp();
 
         const std::shared_ptr<Connection> conn;
+
+	int stopTuner;
     };
 }

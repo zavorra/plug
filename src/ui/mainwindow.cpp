@@ -187,8 +187,8 @@ namespace plug
         this->repaint();
 
 
-
         emit started();
+
         show_amp();
         show_fx1();
         show_fx2();

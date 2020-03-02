@@ -86,7 +86,8 @@ namespace plug::com
         return (handle != nullptr);
     }
     
-    
+#define LOG_TRANSFERS 0
+
     std::vector<std::uint8_t> UsbComm::receive(std::size_t recvSize)
     {
         int actualTransfered{0};
@@ -102,14 +103,16 @@ namespace plug::com
     //printf("received %d\n",rtn);
 
         buffer.resize(static_cast<std::size_t>(actualTransfered));
-        
+
+
+#if  LOG_TRANSFERS       
         for ( int i=0; i<64; i++ ) {
                 if (i%16 == 0)
                     printf("\n <" );
                  printf( "%02x ", buffer[i] );
        }   
 	printf("\n");
-
+#endif
 
         return buffer;
     }
@@ -157,14 +160,14 @@ namespace plug::com
         int actualTransfered{0};
         int totalTransfered{0};
         int attempts{5};
-        
+#if LOG_TRANSFERS       
 	for ( int i=0; i<64; i++ ) {
                 if (i%16 == 0 )
                     printf("\n >" );
                  printf( "%02x ", data[i] );
         }   
 	printf("\n");
-        
+#endif        
         while ( totalTransfered < 64 ) {
             const auto rtn = libusb_interrupt_transfer(handle, endpointSend, data, static_cast<int>(size), &actualTransfered, timeout.count());
             totalTransfered += actualTransfered;
