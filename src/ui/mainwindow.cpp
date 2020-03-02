@@ -164,8 +164,11 @@ namespace plug
         connect(loadpres7, SIGNAL(activated()), this, SLOT(load_presets7()));
         connect(loadpres8, SIGNAL(activated()), this, SLOT(load_presets8()));
         connect(loadpres9, SIGNAL(activated()), this, SLOT(load_presets9()));
+
         QShortcut* runtuner = new QShortcut(QKeySequence(Qt::CTRL + Qt::Key_T), this, nullptr, nullptr, Qt::ApplicationShortcut);
         connect(runtuner, SIGNAL(activated()), this, SLOT(run_tuner()));
+        QShortcut* stoptuner = new QShortcut(QKeySequence(Qt::CTRL + Qt::SHIFT + Qt::Key_T), this, nullptr, nullptr, Qt::ApplicationShortcut);
+        connect(stoptuner, SIGNAL(activated()), this, SLOT(stop_tuner()));
 
         // shortcut to activate buttons
         QShortcut* shortcut = new QShortcut(QKeySequence(Qt::CTRL + Qt::SHIFT + Qt::Key_A), this);
@@ -1037,6 +1040,11 @@ namespace plug
     void MainWindow::run_tuner()
     {
         set_tuner(true);
+    }
+
+    void MainWindow::stop_tuner()
+    {
+        set_tuner(false);
     }
 }
 

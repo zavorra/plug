@@ -125,7 +125,7 @@ namespace plug
         void load_presets9();
         void set_tuner(bool tuner);
         void run_tuner();
-
+        void stop_tuner();
 
     signals:
         void started();

@@ -196,14 +196,15 @@ namespace plug::com
         sendCommand(*conn, serializeTunerCommand(tuner_on).getBytes() );
         auto recvData = receivePacket(*conn);
         auto recieved = recvData.size();
-
-        while (recieved != 0)
-        {
-            recvData = receivePacket(*conn);
-            recieved = recvData.size();
+        if (tuner_on)  {
+            while (recieved != 0)
+            {
+                recvData = receivePacket(*conn);
+                recieved = recvData.size();
+            }
+            sendCommand(*conn, serializeTunerCommand(!tuner_on).getBytes() );
+            receivePacket(*conn);
         }
-        sendCommand(*conn, serializeTunerCommand(!tuner_on).getBytes() );
-        receivePacket(*conn);
        //sendCommand(*conn, clearEffectPacket.getBytes());
     }
 
