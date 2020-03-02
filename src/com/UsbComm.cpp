@@ -29,7 +29,7 @@ namespace plug::com
     namespace
     {
 
-        inline constexpr std::chrono::milliseconds timeout{500};
+        inline constexpr std::chrono::milliseconds timeout{1000};
 
         inline constexpr std::uint8_t endpointSend{0x01};
         inline constexpr std::uint8_t endpointRecv{0x81};
@@ -92,7 +92,7 @@ namespace plug::com
         int actualTransfered{0};
         std::vector<std::uint8_t> buffer(recvSize);
         const auto rtn = libusb_interrupt_transfer(handle, endpointRecv, buffer.data(), 
-                    static_cast<int>(buffer.size()), &actualTransfered, 1000 /*timeout.count()*/);
+                    static_cast<int>(buffer.size()), &actualTransfered, timeout.count());
 
         if (rtn != LIBUSB_ERROR_TIMEOUT)
         {
