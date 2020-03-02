@@ -60,5 +60,6 @@ namespace plug::com
     Packet<EmptyPayload> serializeApplyCommand(fx_pedal_settings effect);
 
     std::array<Packet<EmptyPayload>, 2> serializeInitCommand();
+    Packet<EmptyPayload> serializeTunerCommand( bool tunerOn);
 
 }

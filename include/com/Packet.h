@@ -41,7 +41,8 @@ namespace plug::com
         effect3,
         opSave,
         opSaveEffectName,
-        opSelectMemBank
+        opSelectMemBank,
+        tuner
     };
 
     enum class Type
@@ -58,6 +59,7 @@ namespace plug::com
         init0,
         init1,
         ready,
+        tuner,
         unknown
     };
 
@@ -82,6 +84,8 @@ namespace plug::com
                         return 0x1a;
                     case Stage::ready:
                         return 0x1c;
+                    case Stage::tuner:
+                        return 0x0a;
                     default:
                         return 0xff;
                 }
@@ -98,6 +102,8 @@ namespace plug::com
                     return Stage::init1;
                 case 0x1c:
                     return Stage::ready;
+                case 0x0a:
+                    return Stage::tuner;
                 default:
                     return Stage::unknown;
             }
@@ -166,6 +172,7 @@ namespace plug::com
                         return 0x04;
                     case DSP::opSelectMemBank:
                         return 0x01;
+
                     default:
                         return 0xff;
                 }

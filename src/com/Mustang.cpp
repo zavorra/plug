@@ -50,6 +50,7 @@ namespace plug::com
         receivePacket(conn);
     }
 
+
     void sendApplyCommand(Connection& conn)
     {
         sendCommand(conn, serializeApplyCommand().getBytes());
@@ -189,4 +190,21 @@ namespace plug::com
         const auto packets = serializeInitCommand();
         std::for_each(packets.cbegin(), packets.cend(), [this](const auto& p) { sendCommand(*conn, p.getBytes()); });
     }
+    
+    void Mustang::sendTunerCommand(bool tuner_on)
+    {
+        sendCommand(*conn, serializeTunerCommand(tuner_on).getBytes() );
+        auto recvData = receivePacket(*conn);
+        auto recieved = recvData.size();
+
+        while (recieved != 0)
+        {
+            recvData = receivePacket(*conn);
+            recieved = recvData.size();
+        }
+        sendCommand(*conn, serializeTunerCommand(!tuner_on).getBytes() );
+        receivePacket(*conn);
+       //sendCommand(*conn, clearEffectPacket.getBytes());
+    }
+
 }

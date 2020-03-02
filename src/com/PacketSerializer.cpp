@@ -771,4 +771,22 @@ namespace plug::com
 
         return {{p0, p1}};
     }
+
+    Packet<EmptyPayload> serializeTunerCommand( bool tunerOn)
+    {
+        Header h{};
+        int x=static_cast<int>(tunerOn);
+        printf("%d",x);
+        h.setStage(Stage::tuner);
+        h.setType(Type::operation);
+        h.setDSP(tunerOn ? DSP::opSelectMemBank : DSP::none);
+        uint8_t byte_3 = (tunerOn ? 0x01 : 0x00);
+        h.setUnknown(byte_3, byte_3, byte_3);
+        h.setSlot(byte_3);
+
+        Packet<EmptyPayload> applyCommand{};
+        applyCommand.setHeader(h);
+        applyCommand.setPayload(EmptyPayload{});
+        return applyCommand;
+    }
 }

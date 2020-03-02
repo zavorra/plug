@@ -123,6 +123,8 @@ namespace plug
         void load_presets7();
         void load_presets8();
         void load_presets9();
+        void set_tuner(bool tuner);
+        void run_tuner();
 
 
     signals:
