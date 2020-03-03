@@ -129,7 +129,8 @@ namespace plug
         void set_tuner(bool tuner);
         void run_tuner();
         void stop_tuner();
-
+        void toggle_tuner();
+        
     signals:
         void started();
     };

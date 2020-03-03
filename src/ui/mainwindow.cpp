@@ -166,9 +166,11 @@ namespace plug
         connect(loadpres8, SIGNAL(activated()), this, SLOT(load_presets8()));
         connect(loadpres9, SIGNAL(activated()), this, SLOT(load_presets9()));
 
-        QShortcut* runtuner = new QShortcut(QKeySequence(Qt::CTRL + Qt::Key_T), this, nullptr, nullptr, Qt::ApplicationShortcut);
+        QShortcut* toggletuner = new QShortcut(QKeySequence(Qt::CTRL + Qt::Key_T), this, nullptr, nullptr, Qt::ApplicationShortcut);
+        connect(toggletuner, SIGNAL(activated()), this, SLOT(toggle_tuner()));
+        QShortcut* runtuner = new QShortcut(QKeySequence(Qt::Key_T), this, nullptr, nullptr, Qt::ApplicationShortcut);
         connect(runtuner, SIGNAL(activated()), this, SLOT(run_tuner()));
-        QShortcut* stoptuner = new QShortcut(QKeySequence(Qt::CTRL + Qt::SHIFT + Qt::Key_T), this, nullptr, nullptr, Qt::ApplicationShortcut);
+        QShortcut* stoptuner = new QShortcut(QKeySequence(Qt::SHIFT + Qt::Key_T), this, nullptr, nullptr, Qt::ApplicationShortcut);
         connect(stoptuner, SIGNAL(activated()), this, SLOT(stop_tuner()));
 
         // shortcut to activate buttons
@@ -1036,11 +1038,14 @@ namespace plug
 
     void MainWindow::set_tuner(bool tuner)
     {
+        if (!connected) return;
         amp_ops->sendTunerCommand(tuner);
     }
 
     void MainWindow::run_tuner()
     {
+        if (!connected) return;
+        
         tunerThread->Stop = false;
         tunerThread->start();
         set_tuner(true);
@@ -1048,9 +1053,20 @@ namespace plug
 
     void MainWindow::stop_tuner()
     {
+        if (!connected) return;
+        
         set_tuner(false);
         tunerThread->Stop = true;
         
+    }
+
+    void MainWindow::toggle_tuner() 
+    {
+        if (tunerThread->Stop)
+            run_tuner();
+        else 
+            stop_tuner();
+
     }
 }
 

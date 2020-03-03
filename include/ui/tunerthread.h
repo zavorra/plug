@@ -15,7 +15,7 @@ namespace plug
     {
         Q_OBJECT
         public:
-            explicit TunerThread(QObject *parent = 0, bool b = false);
+            explicit TunerThread(QObject *parent = 0, bool b = true);
             void setAmpOps(com::Mustang *amp_ops);
             void run();
 
