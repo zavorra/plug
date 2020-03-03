@@ -46,7 +46,8 @@ namespace plug::com
         SignalChain load_memory_bank(std::uint8_t slot);
         void save_effects(std::uint8_t slot, std::string_view name, const std::vector<fx_pedal_settings>& effects);
         void sendTunerCommand( bool tuner_on);
-
+        std::array<int8_t, 2> getTunerData();
+        void flushTunerData();
         Mustang& operator=(const Mustang&) = delete;
 
 

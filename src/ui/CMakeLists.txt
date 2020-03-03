@@ -12,6 +12,7 @@ add_library(plug-ui amp_advanced.cpp
                     saveonamp.cpp
                     savetofile.cpp
                     settings.cpp
+                    tunerthread.cpp
                     )
 
 target_link_libraries(plug-ui

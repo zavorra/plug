@@ -24,6 +24,7 @@
 #include "data_structs.h"
 #include <QMainWindow>
 #include <memory>
+#include <QThread>
 #define PANEL_HEIGHT 24
 namespace Ui
 {
@@ -42,6 +43,7 @@ namespace plug
     class Library;
     class DefaultEffects;
     class QuickPresets;
+    class TunerThread;    
 
     namespace com
     {
@@ -64,7 +66,7 @@ namespace plug
 
         MainWindow& operator=(const MainWindow&) = delete;
 
-    public slots:
+        public slots:
         void start_amp();
         void stop_amp();
         void set_effect(fx_pedal_settings);
@@ -103,6 +105,7 @@ namespace plug
         QuickPresets* quickpres;
         int screenWidth;
         int screenHeight;
+        TunerThread* tunerThread;
 
     private slots:
         void about();
@@ -130,4 +133,6 @@ namespace plug
     signals:
         void started();
     };
+
+
 }

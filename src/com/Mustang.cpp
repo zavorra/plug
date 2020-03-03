@@ -195,17 +195,29 @@ namespace plug::com
     {
         sendCommand(*conn, serializeTunerCommand(tuner_on).getBytes() );
         auto recvData = receivePacket(*conn);
-        auto recieved = recvData.size();
-        if (tuner_on)  {
-            while (recieved != 0)
-            {
-                recvData = receivePacket(*conn);
-                recieved = recvData.size();
-            }
-            sendCommand(*conn, serializeTunerCommand(!tuner_on).getBytes() );
-            receivePacket(*conn);
-        }
-       //sendCommand(*conn, clearEffectPacket.getBytes());
+    }
+
+
+    std::array<int8_t, 2> Mustang::getTunerData()
+    {
+        std::array<int8_t, 2> data{};
+        // std::array<int8_t, 10> recvData{0,1,2,3,4,5,6,7,8,9};
+
+        auto recvData = receivePacket(*conn);
+
+
+         data[0]=recvData[2]; //note
+         data[1]=recvData[3]; //distance
+
+        return data;
+    }
+
+    void Mustang::flushTunerData()
+    {
+        std::array<int8_t, 2> data{};
+        do {
+            data=getTunerData();
+        } while (data.size() != 0);
     }
 
 }

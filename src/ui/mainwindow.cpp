@@ -31,6 +31,7 @@
 #include "ui/saveonamp.h"
 #include "ui/savetofile.h"
 #include "ui/settings.h"
+#include "ui/tunerthread.h"
 #include "com/Mustang.h"
 #include "com/ConnectionFactory.h"
 #include "com/CommunicationException.h"
@@ -107,7 +108,7 @@ namespace plug
         settings_win = new Settings(this);
         saver = new SaveToFile(this);
         quickpres = new QuickPresets(this);
-
+        tunerThread = new TunerThread(this);
         connected = false;
 
         // connect buttons to slots
@@ -174,6 +175,7 @@ namespace plug
         QShortcut* shortcut = new QShortcut(QKeySequence(Qt::CTRL + Qt::SHIFT + Qt::Key_A), this);
         connect(shortcut, SIGNAL(activated()), this, SLOT(enable_buttons()));
 
+        connect(tunerThread, SIGNAL(valueChanged(QString)), this, SLOT(change_title(QString)));
         // connect the functions if needed
         if (settings.value("Settings/connectOnStartup").toBool())
         {
@@ -1039,12 +1041,16 @@ namespace plug
 
     void MainWindow::run_tuner()
     {
+        tunerThread->Stop = false;
+        tunerThread->start();
         set_tuner(true);
     }
 
     void MainWindow::stop_tuner()
     {
         set_tuner(false);
+        tunerThread->Stop = true;
+        
     }
 }
 
