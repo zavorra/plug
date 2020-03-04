@@ -1,0 +1,6 @@
+#PLUGDIR="/home/giorgio/workspace/Mustang/plug.git/"
+#sleep 1
+#devilspie -d $PLUGDIR/extra/plug.ds &
+#sleep 1
+#rxvt -title "log" -g 160x25+0+440 -e $PLUGDIR/build/src/plug &
+lxsession
