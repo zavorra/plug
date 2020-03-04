@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>480</width>
-    <height>550</height>
+    <width>482</width>
+    <height>552</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -26,6 +26,14 @@
       <layout class="QVBoxLayout" name="verticalLayout">
        <item>
         <widget class="QLabel" name="label">
+         <property name="font">
+          <font>
+           <pointsize>12</pointsize>
+           <weight>75</weight>
+           <italic>true</italic>
+           <bold>true</bold>
+          </font>
+         </property>
          <property name="text">
           <string>&amp;Amplifier:</string>
          </property>
@@ -36,6 +44,14 @@
        </item>
        <item>
         <widget class="QListWidget" name="listWidget">
+         <property name="font">
+          <font>
+           <pointsize>12</pointsize>
+           <weight>75</weight>
+           <italic>true</italic>
+           <bold>true</bold>
+          </font>
+         </property>
          <property name="accessibleName">
           <string>Presets from amplifier</string>
          </property>
@@ -50,6 +66,14 @@
       <layout class="QVBoxLayout" name="verticalLayout_2">
        <item>
         <widget class="QLabel" name="label_2">
+         <property name="font">
+          <font>
+           <pointsize>12</pointsize>
+           <weight>75</weight>
+           <italic>true</italic>
+           <bold>true</bold>
+          </font>
+         </property>
          <property name="text">
           <string>&amp;Files from:</string>
          </property>
@@ -68,6 +92,14 @@
              <verstretch>0</verstretch>
             </sizepolicy>
            </property>
+           <property name="font">
+            <font>
+             <pointsize>12</pointsize>
+             <weight>75</weight>
+             <italic>true</italic>
+             <bold>true</bold>
+            </font>
+           </property>
            <property name="text">
             <string>[choose directory]</string>
            </property>
@@ -84,6 +116,14 @@
              <verstretch>0</verstretch>
             </sizepolicy>
            </property>
+           <property name="font">
+            <font>
+             <pointsize>14</pointsize>
+             <weight>75</weight>
+             <italic>true</italic>
+             <bold>true</bold>
+            </font>
+           </property>
            <property name="accessibleName">
             <string>Choose directory</string>
            </property>
@@ -99,6 +139,14 @@
        </item>
        <item>
         <widget class="QListWidget" name="listWidget_2">
+         <property name="font">
+          <font>
+           <pointsize>12</pointsize>
+           <weight>75</weight>
+           <italic>true</italic>
+           <bold>true</bold>
+          </font>
+         </property>
          <property name="accessibleName">
           <string>Presets from files</string>
          </property>
@@ -128,6 +176,14 @@
      </item>
      <item>
       <widget class="QLabel" name="label_4">
+       <property name="font">
+        <font>
+         <pointsize>12</pointsize>
+         <weight>75</weight>
+         <italic>true</italic>
+         <bold>true</bold>
+        </font>
+       </property>
        <property name="text">
         <string>F&amp;ont</string>
        </property>
@@ -138,6 +194,20 @@
      </item>
      <item>
       <widget class="QFontComboBox" name="fontComboBox">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>12</pointsize>
+         <weight>75</weight>
+         <italic>true</italic>
+         <bold>true</bold>
+        </font>
+       </property>
        <property name="accessibleName">
         <string>Choose font</string>
        </property>
@@ -148,6 +218,20 @@
      </item>
      <item>
       <widget class="QLabel" name="label_5">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>12</pointsize>
+         <weight>75</weight>
+         <italic>true</italic>
+         <bold>true</bold>
+        </font>
+       </property>
        <property name="text">
         <string>&amp;Size</string>
        </property>
@@ -158,6 +242,20 @@
      </item>
      <item>
       <widget class="QSpinBox" name="spinBox">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>12</pointsize>
+         <weight>75</weight>
+         <italic>true</italic>
+         <bold>true</bold>
+        </font>
+       </property>
        <property name="accessibleName">
         <string>Choose font size</string>
        </property>

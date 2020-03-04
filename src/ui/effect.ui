@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>238</width>
-    <height>324</height>
+    <width>496</width>
+    <height>529</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -36,6 +36,14 @@
           <width>70</width>
           <height>0</height>
          </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+          <weight>75</weight>
+          <italic>true</italic>
+          <bold>true</bold>
+         </font>
         </property>
         <property name="maxVisibleItems">
          <number>15</number>
@@ -280,6 +288,14 @@
           <verstretch>0</verstretch>
          </sizepolicy>
         </property>
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+          <weight>75</weight>
+          <italic>true</italic>
+          <bold>true</bold>
+         </font>
+        </property>
         <property name="text">
          <string>Off</string>
         </property>
@@ -305,6 +321,11 @@
             <verstretch>0</verstretch>
            </sizepolicy>
           </property>
+          <property name="font">
+           <font>
+            <pointsize>12</pointsize>
+           </font>
+          </property>
           <property name="maximum">
            <number>255</number>
           </property>
@@ -322,10 +343,17 @@
            <bool>false</bool>
           </property>
           <property name="sizePolicy">
-           <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
+           <sizepolicy hsizetype="Minimum" vsizetype="Maximum">
             <horstretch>0</horstretch>
             <verstretch>0</verstretch>
            </sizepolicy>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>15</pointsize>
+            <weight>75</weight>
+            <bold>true</bold>
+           </font>
           </property>
           <property name="maximum">
            <number>255</number>
@@ -335,10 +363,17 @@
         <item>
          <widget class="QLabel" name="label">
           <property name="sizePolicy">
-           <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+           <sizepolicy hsizetype="Expanding" vsizetype="Maximum">
             <horstretch>0</horstretch>
             <verstretch>0</verstretch>
            </sizepolicy>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>15</pointsize>
+            <weight>75</weight>
+            <bold>true</bold>
+           </font>
           </property>
           <property name="text">
            <string/>
@@ -366,6 +401,11 @@
             <verstretch>0</verstretch>
            </sizepolicy>
           </property>
+          <property name="font">
+           <font>
+            <pointsize>12</pointsize>
+           </font>
+          </property>
           <property name="maximum">
            <number>255</number>
           </property>
@@ -383,10 +423,17 @@
            <bool>false</bool>
           </property>
           <property name="sizePolicy">
-           <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
+           <sizepolicy hsizetype="Minimum" vsizetype="Maximum">
             <horstretch>0</horstretch>
             <verstretch>0</verstretch>
            </sizepolicy>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>15</pointsize>
+            <weight>75</weight>
+            <bold>true</bold>
+           </font>
           </property>
           <property name="maximum">
            <number>255</number>
@@ -396,10 +443,17 @@
         <item>
          <widget class="QLabel" name="label_2">
           <property name="sizePolicy">
-           <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+           <sizepolicy hsizetype="Expanding" vsizetype="Maximum">
             <horstretch>0</horstretch>
             <verstretch>0</verstretch>
            </sizepolicy>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>15</pointsize>
+            <weight>75</weight>
+            <bold>true</bold>
+           </font>
           </property>
           <property name="text">
            <string/>
@@ -427,6 +481,11 @@
             <verstretch>0</verstretch>
            </sizepolicy>
           </property>
+          <property name="font">
+           <font>
+            <pointsize>12</pointsize>
+           </font>
+          </property>
           <property name="maximum">
            <number>255</number>
           </property>
@@ -444,10 +503,17 @@
            <bool>false</bool>
           </property>
           <property name="sizePolicy">
-           <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
+           <sizepolicy hsizetype="Minimum" vsizetype="Maximum">
             <horstretch>0</horstretch>
             <verstretch>0</verstretch>
            </sizepolicy>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>15</pointsize>
+            <weight>75</weight>
+            <bold>true</bold>
+           </font>
           </property>
           <property name="maximum">
            <number>255</number>
@@ -457,10 +523,17 @@
         <item>
          <widget class="QLabel" name="label_3">
           <property name="sizePolicy">
-           <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+           <sizepolicy hsizetype="Expanding" vsizetype="Maximum">
             <horstretch>0</horstretch>
             <verstretch>0</verstretch>
            </sizepolicy>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>15</pointsize>
+            <weight>75</weight>
+            <bold>true</bold>
+           </font>
           </property>
           <property name="text">
            <string/>
@@ -492,6 +565,11 @@
             <verstretch>0</verstretch>
            </sizepolicy>
           </property>
+          <property name="font">
+           <font>
+            <pointsize>12</pointsize>
+           </font>
+          </property>
           <property name="maximum">
            <number>255</number>
           </property>
@@ -509,10 +587,17 @@
            <bool>false</bool>
           </property>
           <property name="sizePolicy">
-           <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
+           <sizepolicy hsizetype="Minimum" vsizetype="Maximum">
             <horstretch>0</horstretch>
             <verstretch>0</verstretch>
            </sizepolicy>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>15</pointsize>
+            <weight>75</weight>
+            <bold>true</bold>
+           </font>
           </property>
           <property name="maximum">
            <number>255</number>
@@ -522,10 +607,17 @@
         <item>
          <widget class="QLabel" name="label_4">
           <property name="sizePolicy">
-           <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+           <sizepolicy hsizetype="Expanding" vsizetype="Maximum">
             <horstretch>0</horstretch>
             <verstretch>0</verstretch>
            </sizepolicy>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>15</pointsize>
+            <weight>75</weight>
+            <bold>true</bold>
+           </font>
           </property>
           <property name="text">
            <string/>
@@ -553,6 +645,11 @@
             <verstretch>0</verstretch>
            </sizepolicy>
           </property>
+          <property name="font">
+           <font>
+            <pointsize>12</pointsize>
+           </font>
+          </property>
           <property name="maximum">
            <number>255</number>
           </property>
@@ -570,10 +667,17 @@
            <bool>false</bool>
           </property>
           <property name="sizePolicy">
-           <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
+           <sizepolicy hsizetype="Minimum" vsizetype="Maximum">
             <horstretch>0</horstretch>
             <verstretch>0</verstretch>
            </sizepolicy>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>15</pointsize>
+            <weight>75</weight>
+            <bold>true</bold>
+           </font>
           </property>
           <property name="maximum">
            <number>255</number>
@@ -583,10 +687,17 @@
         <item>
          <widget class="QLabel" name="label_5">
           <property name="sizePolicy">
-           <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+           <sizepolicy hsizetype="Expanding" vsizetype="Maximum">
             <horstretch>0</horstretch>
             <verstretch>0</verstretch>
            </sizepolicy>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>15</pointsize>
+            <weight>75</weight>
+            <bold>true</bold>
+           </font>
           </property>
           <property name="text">
            <string/>
@@ -614,6 +725,11 @@
             <verstretch>0</verstretch>
            </sizepolicy>
           </property>
+          <property name="font">
+           <font>
+            <pointsize>12</pointsize>
+           </font>
+          </property>
           <property name="maximum">
            <number>255</number>
           </property>
@@ -631,10 +747,17 @@
            <bool>false</bool>
           </property>
           <property name="sizePolicy">
-           <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
+           <sizepolicy hsizetype="Minimum" vsizetype="Maximum">
             <horstretch>0</horstretch>
             <verstretch>0</verstretch>
            </sizepolicy>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>15</pointsize>
+            <weight>75</weight>
+            <bold>true</bold>
+           </font>
           </property>
           <property name="maximum">
            <number>255</number>
@@ -644,10 +767,17 @@
         <item>
          <widget class="QLabel" name="label_6">
           <property name="sizePolicy">
-           <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+           <sizepolicy hsizetype="Expanding" vsizetype="Maximum">
             <horstretch>0</horstretch>
             <verstretch>0</verstretch>
            </sizepolicy>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>15</pointsize>
+            <weight>75</weight>
+            <bold>true</bold>
+           </font>
           </property>
           <property name="text">
            <string/>
@@ -672,10 +802,18 @@
          <bool>false</bool>
         </property>
         <property name="sizePolicy">
-         <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+         <sizepolicy hsizetype="Expanding" vsizetype="Maximum">
           <horstretch>0</horstretch>
           <verstretch>0</verstretch>
          </sizepolicy>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>15</pointsize>
+          <weight>75</weight>
+          <italic>true</italic>
+          <bold>true</bold>
+         </font>
         </property>
         <property name="text">
          <string>&amp;after amp.</string>
@@ -688,10 +826,15 @@
          <bool>false</bool>
         </property>
         <property name="sizePolicy">
-         <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
+         <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
           <horstretch>0</horstretch>
           <verstretch>0</verstretch>
          </sizepolicy>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+         </font>
         </property>
         <property name="text">
          <string>Set</string>

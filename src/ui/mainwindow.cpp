@@ -43,6 +43,7 @@
 #include <QSettings>
 #include <QShortcut>
 #include <QDebug>
+#include <QDesktopWidget> 
 
 namespace plug
 {
@@ -184,9 +185,8 @@ namespace plug
             connect(this, SIGNAL(started()), this, SLOT(start_amp()));
         }
         
-
-
-        this->setGeometry(0,PANEL_HEIGHT+0,screenWidth/2,this->screenHeight*0.4);
+       //this->setGeometry(0,PANEL_HEIGHT+0,screenWidth/2,this->screenHeight*0.4);
+        this->setGeometry(0,PANEL_HEIGHT+screenHeight*0.4,screenWidth,screenHeight*0.6);
         this->show();
         this->repaint();
 
@@ -661,7 +661,14 @@ namespace plug
 
         if (filename.isEmpty())
         {
-            filename = QFileDialog::getOpenFileName(this, tr("Open..."), settings.value("LoadFile/lastDirectory", QDir::homePath()).toString(), tr("FUSE files (*.fuse *.xml)"));
+            this->setStyleSheet("QTreeView {font: 12pt \"Noto Sans\";}");
+
+            filename = QFileDialog::getOpenFileName(this
+                                                    , tr("Open...")
+                                                    , settings.value("LoadFile/lastDirectory"
+                                                    , QDir::homePath()).toString()
+                                                    , tr("FUSE files (*.fuse *.xml)")
+                                                        );
         }
 
         if (filename.isEmpty())
@@ -797,6 +804,7 @@ namespace plug
     {
         effect1->setGeometry(0*screenWidth/4, PANEL_HEIGHT+screenHeight*0.4
                             ,screenWidth/4, this->screenHeight*0.6);
+ 
         if (!effect1->isVisible())
         {
             effect1->show();
@@ -837,8 +845,12 @@ namespace plug
 
     void MainWindow::show_amp()
     {
-       amp->setGeometry(screenWidth/2, PANEL_HEIGHT+0
-                            ,screenWidth/2, this->screenHeight*0.4);
+       //amp->setGeometry(screenWidth/2, PANEL_HEIGHT+0
+        //                    ,screenWidth/2, this->screenHeight*0.4);
+        amp->setGeometry(0, PANEL_HEIGHT+0
+                            ,screenWidth, this->screenHeight*0.4);
+        
+        
         if (!amp->isVisible())
         {
             amp->show();

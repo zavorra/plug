@@ -25,6 +25,14 @@
      <layout class="QHBoxLayout" name="horizontalLayout_2">
       <item>
        <widget class="QLabel" name="label_6">
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+          <weight>75</weight>
+          <italic>true</italic>
+          <bold>true</bold>
+         </font>
+        </property>
         <property name="text">
          <string>&amp;Amplifier:</string>
         </property>
@@ -46,6 +54,14 @@
           <width>100</width>
           <height>0</height>
          </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+          <weight>75</weight>
+          <italic>true</italic>
+          <bold>true</bold>
+         </font>
         </property>
         <property name="accessibleName">
          <string>Amplifier</string>
@@ -116,7 +132,6 @@
           <string>Metal 2000</string>
          </property>
         </item>
-
         <item>
          <property name="text">
           <string>V2.Studio Preamp</string>
@@ -127,22 +142,21 @@
           <string>V2.Fender '57 Twin</string>
          </property>
         </item>
-         <item>
+        <item>
          <property name="text">
           <string>V2.Sixties Thrift</string>
          </property>
         </item>
-         <item>
+        <item>
          <property name="text">
           <string>V2.Brittish Watts</string>
          </property>
         </item>
-         <item>
+        <item>
          <property name="text">
           <string>V2.Brittish Colour</string>
          </property>
         </item>
-
        </widget>
       </item>
       <item>
@@ -160,6 +174,14 @@
       </item>
       <item>
        <widget class="QPushButton" name="advancedButton">
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+          <weight>75</weight>
+          <italic>true</italic>
+          <bold>true</bold>
+         </font>
+        </property>
         <property name="accessibleName">
          <string>Advanced button</string>
         </property>
@@ -181,6 +203,14 @@
           <horstretch>0</horstretch>
           <verstretch>0</verstretch>
          </sizepolicy>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+          <weight>75</weight>
+          <italic>true</italic>
+          <bold>true</bold>
+         </font>
         </property>
         <property name="accessibleName">
          <string>Set button</string>
@@ -204,6 +234,12 @@
        <layout class="QVBoxLayout" name="verticalLayout">
         <item>
          <widget class="QDial" name="dial">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
           <property name="accessibleName">
            <string>Gain dial</string>
           </property>
@@ -223,6 +259,14 @@
         </item>
         <item>
          <widget class="QSpinBox" name="spinBox">
+          <property name="font">
+           <font>
+            <pointsize>15</pointsize>
+            <weight>75</weight>
+            <italic>false</italic>
+            <bold>true</bold>
+           </font>
+          </property>
           <property name="accessibleName">
            <string>Gain box</string>
           </property>
@@ -236,6 +280,14 @@
         </item>
         <item>
          <widget class="QLabel" name="label">
+          <property name="font">
+           <font>
+            <pointsize>12</pointsize>
+            <weight>75</weight>
+            <italic>true</italic>
+            <bold>true</bold>
+           </font>
+          </property>
           <property name="text">
            <string>&amp;Gain</string>
           </property>
@@ -253,6 +305,12 @@
        <layout class="QVBoxLayout" name="verticalLayout_2">
         <item>
          <widget class="QDial" name="dial_2">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
           <property name="accessibleName">
            <string>Volume dial</string>
           </property>
@@ -272,6 +330,14 @@
         </item>
         <item>
          <widget class="QSpinBox" name="spinBox_2">
+          <property name="font">
+           <font>
+            <pointsize>15</pointsize>
+            <weight>75</weight>
+            <italic>false</italic>
+            <bold>true</bold>
+           </font>
+          </property>
           <property name="accessibleName">
            <string>Volume box</string>
           </property>
@@ -285,6 +351,14 @@
         </item>
         <item>
          <widget class="QLabel" name="label_2">
+          <property name="font">
+           <font>
+            <pointsize>12</pointsize>
+            <weight>75</weight>
+            <italic>true</italic>
+            <bold>true</bold>
+           </font>
+          </property>
           <property name="text">
            <string>&amp;Volume</string>
           </property>
@@ -299,22 +373,15 @@
        </layout>
       </item>
       <item>
-       <spacer name="horizontalSpacer">
-        <property name="orientation">
-         <enum>Qt::Horizontal</enum>
-        </property>
-        <property name="sizeHint" stdset="0">
-         <size>
-          <width>40</width>
-          <height>20</height>
-         </size>
-        </property>
-       </spacer>
-      </item>
-      <item>
        <layout class="QVBoxLayout" name="verticalLayout_3">
         <item>
          <widget class="QDial" name="dial_3">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
           <property name="accessibleName">
            <string>Treble dial</string>
           </property>
@@ -334,6 +401,14 @@
         </item>
         <item>
          <widget class="QSpinBox" name="spinBox_3">
+          <property name="font">
+           <font>
+            <pointsize>15</pointsize>
+            <weight>75</weight>
+            <italic>false</italic>
+            <bold>true</bold>
+           </font>
+          </property>
           <property name="accessibleName">
            <string>Treble box</string>
           </property>
@@ -347,6 +422,14 @@
         </item>
         <item>
          <widget class="QLabel" name="label_3">
+          <property name="font">
+           <font>
+            <pointsize>12</pointsize>
+            <weight>75</weight>
+            <italic>true</italic>
+            <bold>true</bold>
+           </font>
+          </property>
           <property name="text">
            <string>&amp;Treble</string>
           </property>
@@ -364,6 +447,12 @@
        <layout class="QVBoxLayout" name="verticalLayout_4">
         <item>
          <widget class="QDial" name="dial_4">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
           <property name="accessibleName">
            <string>Middle tones dial</string>
           </property>
@@ -383,6 +472,14 @@
         </item>
         <item>
          <widget class="QSpinBox" name="spinBox_4">
+          <property name="font">
+           <font>
+            <pointsize>15</pointsize>
+            <weight>75</weight>
+            <italic>false</italic>
+            <bold>true</bold>
+           </font>
+          </property>
           <property name="accessibleName">
            <string>Middle tones box</string>
           </property>
@@ -396,6 +493,14 @@
         </item>
         <item>
          <widget class="QLabel" name="label_4">
+          <property name="font">
+           <font>
+            <pointsize>12</pointsize>
+            <weight>75</weight>
+            <italic>true</italic>
+            <bold>true</bold>
+           </font>
+          </property>
           <property name="text">
            <string>&amp;Middle</string>
           </property>
@@ -413,6 +518,12 @@
        <layout class="QVBoxLayout" name="verticalLayout_5">
         <item>
          <widget class="QDial" name="dial_5">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
           <property name="accessibleName">
            <string>Bass dial</string>
           </property>
@@ -432,6 +543,14 @@
         </item>
         <item>
          <widget class="QSpinBox" name="spinBox_5">
+          <property name="font">
+           <font>
+            <pointsize>15</pointsize>
+            <weight>75</weight>
+            <italic>false</italic>
+            <bold>true</bold>
+           </font>
+          </property>
           <property name="accessibleName">
            <string>Bass box</string>
           </property>
@@ -445,6 +564,14 @@
         </item>
         <item>
          <widget class="QLabel" name="label_5">
+          <property name="font">
+           <font>
+            <pointsize>12</pointsize>
+            <weight>75</weight>
+            <italic>true</italic>
+            <bold>true</bold>
+           </font>
+          </property>
           <property name="text">
            <string>&amp;Bass</string>
           </property>

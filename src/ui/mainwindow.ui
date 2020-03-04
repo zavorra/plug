@@ -6,9 +6,14 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>365</width>
-    <height>216</height>
+    <width>452</width>
+    <height>240</height>
    </rect>
+  </property>
+  <property name="font">
+   <font>
+    <kerning>true</kerning>
+   </font>
   </property>
   <property name="windowTitle">
    <string>PLUG</string>
@@ -30,34 +35,9 @@
     <item>
      <layout class="QVBoxLayout" name="verticalLayout_2">
       <item>
-       <widget class="QPushButton" name="Amplifier">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="minimumSize">
-         <size>
-          <width>0</width>
-          <height>0</height>
-         </size>
-        </property>
-        <property name="accessibleName">
-         <string>Amplifier</string>
-        </property>
-        <property name="accessibleDescription">
-         <string>This button opens window to set amplifier</string>
-        </property>
-        <property name="text">
-         <string>&amp;Amplifier</string>
-        </property>
-       </widget>
-      </item>
-      <item>
        <widget class="QLabel" name="CurrPresetLabel">
         <property name="sizePolicy">
-         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+         <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
           <horstretch>0</horstretch>
           <verstretch>0</verstretch>
          </sizepolicy>
@@ -70,16 +50,23 @@
         </property>
         <property name="font">
          <font>
-          <pointsize>14</pointsize>
+          <family>Noto Sans</family>
+          <pointsize>40</pointsize>
           <weight>75</weight>
           <bold>true</bold>
          </font>
         </property>
         <property name="frameShape">
-         <enum>QFrame::Panel</enum>
+         <enum>QFrame::StyledPanel</enum>
         </property>
         <property name="frameShadow">
          <enum>QFrame::Plain</enum>
+        </property>
+        <property name="lineWidth">
+         <number>6</number>
+        </property>
+        <property name="midLineWidth">
+         <number>3</number>
         </property>
         <property name="text">
          <string>...</string>
@@ -93,11 +80,44 @@
        </widget>
       </item>
       <item>
+       <widget class="QPushButton" name="Amplifier">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Expanding" vsizetype="Maximum">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+          <weight>75</weight>
+          <italic>true</italic>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="accessibleName">
+         <string>Amplifier</string>
+        </property>
+        <property name="accessibleDescription">
+         <string>This button opens window to set amplifier</string>
+        </property>
+        <property name="text">
+         <string>&amp;Amplifier</string>
+        </property>
+       </widget>
+      </item>
+      <item>
        <layout class="QHBoxLayout" name="horizontalLayout_2">
         <item>
          <widget class="QPushButton" name="EffectButton1">
           <property name="sizePolicy">
-           <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+           <sizepolicy hsizetype="Expanding" vsizetype="Maximum">
             <horstretch>0</horstretch>
             <verstretch>0</verstretch>
            </sizepolicy>
@@ -107,6 +127,14 @@
             <width>75</width>
             <height>25</height>
            </size>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>12</pointsize>
+            <weight>75</weight>
+            <italic>true</italic>
+            <bold>true</bold>
+           </font>
           </property>
           <property name="accessibleName">
            <string>Effect 1</string>
@@ -122,7 +150,7 @@
         <item>
          <widget class="QPushButton" name="EffectButton2">
           <property name="sizePolicy">
-           <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+           <sizepolicy hsizetype="Expanding" vsizetype="Maximum">
             <horstretch>0</horstretch>
             <verstretch>0</verstretch>
            </sizepolicy>
@@ -132,6 +160,14 @@
             <width>75</width>
             <height>25</height>
            </size>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>12</pointsize>
+            <weight>75</weight>
+            <italic>true</italic>
+            <bold>true</bold>
+           </font>
           </property>
           <property name="accessibleName">
            <string>Effect 2</string>
@@ -147,7 +183,7 @@
         <item>
          <widget class="QPushButton" name="EffectButton3">
           <property name="sizePolicy">
-           <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+           <sizepolicy hsizetype="Expanding" vsizetype="Maximum">
             <horstretch>0</horstretch>
             <verstretch>0</verstretch>
            </sizepolicy>
@@ -157,6 +193,14 @@
             <width>75</width>
             <height>25</height>
            </size>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>12</pointsize>
+            <weight>75</weight>
+            <italic>true</italic>
+            <bold>true</bold>
+           </font>
           </property>
           <property name="accessibleName">
            <string>Effect 3</string>
@@ -172,7 +216,7 @@
         <item>
          <widget class="QPushButton" name="EffectButton4">
           <property name="sizePolicy">
-           <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+           <sizepolicy hsizetype="Expanding" vsizetype="Maximum">
             <horstretch>0</horstretch>
             <verstretch>0</verstretch>
            </sizepolicy>
@@ -182,6 +226,14 @@
             <width>75</width>
             <height>25</height>
            </size>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>12</pointsize>
+            <weight>75</weight>
+            <italic>true</italic>
+            <bold>true</bold>
+           </font>
           </property>
           <property name="accessibleName">
            <string>Effect 4</string>
@@ -205,9 +257,14 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>365</width>
-     <height>26</height>
+     <width>452</width>
+     <height>28</height>
     </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>12</pointsize>
+    </font>
    </property>
    <property name="accessibleName">
     <string>Menu bar</string>
@@ -216,6 +273,14 @@
     <string>Bar holding different menus</string>
    </property>
    <widget class="QMenu" name="menuFile">
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+      <weight>75</weight>
+      <italic>true</italic>
+      <bold>true</bold>
+     </font>
+    </property>
     <property name="accessibleName">
      <string>File menu</string>
     </property>
@@ -239,6 +304,14 @@
     <addaction name="actionExit"/>
    </widget>
    <widget class="QMenu" name="menuHelp">
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+      <weight>75</weight>
+      <italic>true</italic>
+      <bold>true</bold>
+     </font>
+    </property>
     <property name="accessibleName">
      <string>Help menu</string>
     </property>
@@ -251,6 +324,14 @@
     <addaction name="actionAbout"/>
    </widget>
    <widget class="QMenu" name="menuConnection">
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+      <weight>75</weight>
+      <italic>true</italic>
+      <bold>true</bold>
+     </font>
+    </property>
     <property name="accessibleName">
      <string>Connection menu</string>
     </property>
@@ -264,6 +345,11 @@
     <addaction name="actionDisconnect"/>
    </widget>
    <widget class="QMenu" name="menuSettings">
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
     <property name="accessibleName">
      <string>Settings menu</string>
     </property>
@@ -283,6 +369,14 @@
    <addaction name="menuHelp"/>
   </widget>
   <widget class="QStatusBar" name="statusBar">
+   <property name="font">
+    <font>
+     <pointsize>12</pointsize>
+     <weight>75</weight>
+     <italic>true</italic>
+     <bold>true</bold>
+    </font>
+   </property>
    <property name="accessibleName">
     <string>Status bar</string>
    </property>
@@ -304,6 +398,14 @@
   <action name="actionConnect">
    <property name="text">
     <string>&amp;Connect</string>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>14</pointsize>
+     <weight>75</weight>
+     <italic>true</italic>
+     <bold>true</bold>
+    </font>
    </property>
    <property name="shortcut">
     <string>Ctrl+C</string>
@@ -381,6 +483,14 @@
    <property name="text">
     <string>L&amp;oad from file</string>
    </property>
+   <property name="font">
+    <font>
+     <pointsize>14</pointsize>
+     <weight>75</weight>
+     <italic>true</italic>
+     <bold>true</bold>
+    </font>
+   </property>
    <property name="shortcut">
     <string>Ctrl+Shift+L</string>
    </property>
@@ -435,6 +545,14 @@
   <action name="action_Quick_presets">
    <property name="text">
     <string>Quick &amp;presets</string>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>14</pointsize>
+     <weight>75</weight>
+     <italic>true</italic>
+     <bold>true</bold>
+    </font>
    </property>
    <property name="shortcut">
     <string>Ctrl+P</string>
