@@ -89,7 +89,9 @@ namespace plug
         QString current_name;
         std::vector<std::string> presetNames;
         bool connected;
-        std::unique_ptr<com::Mustang> amp_ops;
+        //std::unique_ptr<com::Mustang> amp_ops;
+
+        std::shared_ptr<com::Mustang> amp_ops;
         Amplifier* amp;
         Effect* effect1;
         Effect* effect2;
@@ -130,7 +132,8 @@ namespace plug
         void run_tuner();
         void stop_tuner();
         void toggle_tuner();
-        
+        void update_label(QString s); 
+
     signals:
         void started();
     };

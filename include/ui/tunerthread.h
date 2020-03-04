@@ -16,14 +16,14 @@ namespace plug
         Q_OBJECT
         public:
             explicit TunerThread(QObject *parent = 0, bool b = true);
-            void setAmpOps(com::Mustang *amp_ops);
+            void setAmpOps(std::shared_ptr<com::Mustang>amp_ops);
             void run();
 
             // if Stop = true, the thread will break
             // out of the loop, and will be disposed
             bool Stop;
         private:
-            com::Mustang *amp_ops;
+            std::shared_ptr<com::Mustang>amp_ops;
         signals:
             // To communicate with Gui Thread
             // we need to emit a signal
