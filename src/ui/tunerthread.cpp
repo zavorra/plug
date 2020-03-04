@@ -27,21 +27,23 @@ void TunerThread::run()
         if(this->Stop) break;
 
         data = amp_ops->getTunerData();
+       // printf("data.size: %d\n", static_cast<int>(data.size()));
+        if (data[0] != -1 ) {
         note=  (data[0] > 12 ? 12 : data[0]);
         distance=static_cast<int8_t>(data[1]);
 
         // emit the signal for the count label
         emit valueChanged(QString("%1 %2 %3").arg(
-            (distance < 0 ? "" : ">>")
+            (distance > 3 || note == 12 ? "" : ">>")
             ,notes[note]
-            ,(distance > 0 ? "" : "<<"))
+            ,(distance < -3  || note == 12 ? "" : "<<"))
             );
         printf(":%d %d:\n",data[0],data[1]);
-
+        }
         // slowdown the count change, msec
         this->msleep(5);
     }
-    amp_ops->flushTunerData();
+   // amp_ops->flushTunerData();
     printf("TunerThread:run() exit\n");
 }
 
@@ -51,7 +53,7 @@ void TunerThread::setStop(bool b)
         this->Stop = b;
 }
 
-void TunerThread::setAmpOps(com::Mustang *a) 
+void TunerThread::setAmpOps(std::shared_ptr<com::Mustang>a) 
 {
     amp_ops=a;
 }

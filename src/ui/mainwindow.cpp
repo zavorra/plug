@@ -177,15 +177,15 @@ namespace plug
         QShortcut* shortcut = new QShortcut(QKeySequence(Qt::CTRL + Qt::SHIFT + Qt::Key_A), this);
         connect(shortcut, SIGNAL(activated()), this, SLOT(enable_buttons()));
 
-        connect(tunerThread, SIGNAL(valueChanged(QString)), this, SLOT(change_title(QString)));
+        connect(tunerThread, SIGNAL(valueChanged(QString)), this, SLOT(update_label(QString)));
         // connect the functions if needed
         if (settings.value("Settings/connectOnStartup").toBool())
         {
             connect(this, SIGNAL(started()), this, SLOT(start_amp()));
         }
         
-        
-        
+
+
         this->setGeometry(0,PANEL_HEIGHT+0,screenWidth/2,this->screenHeight*0.4);
         this->show();
         this->repaint();
@@ -198,6 +198,7 @@ namespace plug
         show_fx2();
         show_fx3();
         show_fx4();
+
     }
 
     MainWindow::~MainWindow()
@@ -240,7 +241,7 @@ namespace plug
 
         try
         {
-            amp_ops = std::make_unique<com::Mustang>(com::createUsbConnection());
+            amp_ops = std::make_shared<com::Mustang>(com::createUsbConnection());
             const auto [signalChain, presets] = amp_ops->start_amp();
             name = QString::fromStdString(signalChain.name());
             amplifier_set = signalChain.amp();
@@ -341,6 +342,7 @@ namespace plug
         ui->action_Library_view->setDisabled(false);
         ui->statusBar->showMessage(tr("Connected"), 3000);
 
+        tunerThread->setAmpOps(amp_ops);
         connected = true;
     }
 
@@ -1054,10 +1056,12 @@ namespace plug
     void MainWindow::stop_tuner()
     {
         if (!connected) return;
+
         
-        set_tuner(false);
         tunerThread->Stop = true;
-        
+        set_tuner(false);
+        //tunerThread->wait(ULONG_MAX);
+        update_label(current_name);
     }
 
     void MainWindow::toggle_tuner() 
@@ -1067,6 +1071,11 @@ namespace plug
         else 
             stop_tuner();
 
+    }
+    void MainWindow::update_label(QString s) 
+    {
+        //printf("update_label: %s\n",s.toUtf8().constData());
+        ui->CurrPresetLabel->setText(s);
     }
 }
 

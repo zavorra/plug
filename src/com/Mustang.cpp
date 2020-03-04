@@ -204,11 +204,19 @@ namespace plug::com
         // std::array<int8_t, 10> recvData{0,1,2,3,4,5,6,7,8,9};
 
         auto recvData = receivePacket(*conn);
-
+        if ((recvData[0] == 0x0b)
+            && (recvData[1] == 0x01)
+            && (recvData[4] == 0x01)
+        )
+        {
 
          data[0]=recvData[2]; //note
          data[1]=recvData[3]; //distance
-
+        } else {
+         data[0]=-1; //note
+         data[1]=-1; //distance
+        } 
+        
         return data;
     }
 
@@ -217,7 +225,7 @@ namespace plug::com
         std::array<int8_t, 2> data{};
         do {
             data=getTunerData();
-        } while (data.size() != 0);
+        } while (data[0] != -1);
     }
 
 }
