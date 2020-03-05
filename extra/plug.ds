@@ -1,43 +1,44 @@
-(
- if (contains (window_name) "PLUG") 
- (begin
-  (set_workspace 1)
-  (geometry "800x223+0+15")
+(begin
+ (
+  if (contains (window_name) "PLUG") 
+  (begin
+   (set_workspace 1)
+   (geometry "800x223+0+15")
+  )
+ ) 
+ (
+  if (contains (window_name) "Amplifier: ") 
+  (begin
+   (set_workspace 1)
+   (geometry "800x223+-1-0")
+  )
+ ) 
+ (
+  if (contains (window_name) "FX1: ") 
+  (begin
+   (geometry "400x460+0+20")
+   (set_workspace 2)
+  )
+ ) 
+ (
+  if (contains (window_name) "FX2: ") 
+  (begin
+   (set_workspace 2)
+   (geometry "400x460+400+20")
+  )
+ ) 
+ (
+  if (contains (window_name) "FX3: ") 
+  (begin
+   (set_workspace 3)
+   (geometry "400x460+0+20")
+  )
+ ) 
+ (
+  if (contains (window_name) "FX4: ") 
+  (begin
+   (set_workspace 3)
+   (geometry "400x460+400+20")
+  )
+ ) 
  )
-) 
-(
- if (contains (window_name) "Amplifier: ") 
- (begin
-  (set_workspace 1)
-  (geometry "800x223+-1-0")
- )
-) 
-(
- if (contains (window_name) "FX1: ") 
- (begin
-  (geometry "400x460+0+20")
-  (set_workspace 2)
- )
-) 
-(
- if (contains (window_name) "FX2: ") 
- (begin
-  (set_workspace 2)
-  (geometry "400x460+400+20")
- )
-) 
-(
- if (contains (window_name) "FX3: ") 
- (begin
-  (set_workspace 3)
-  (geometry "400x460+0+20")
- )
-) 
-(
- if (contains (window_name) "FX4: ") 
- (begin
-  (set_workspace 3)
-  (geometry "400x460+400+20")
- )
-) 
-
