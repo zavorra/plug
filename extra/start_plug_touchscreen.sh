@@ -10,7 +10,7 @@ DISPLAY=:1
 lxsession &
 sleep 1
 #xfce4-panel &
-devilspie -d $PLUGDIR/plug.ds &
+devilspie -d $PLUGDIR/extra/plug.ds &
 sleep 1
 rxvt -title "log" -g 160x25+0+440 -e $PLUGDIR/build/src/plug &
 sleep 1
