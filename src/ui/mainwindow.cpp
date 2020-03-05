@@ -179,7 +179,9 @@ namespace plug
         connect(shortcut, SIGNAL(activated()), this, SLOT(enable_buttons()));
 
         connect(tunerThread, SIGNAL(valueChanged(QString)), this, SLOT(update_label(QString)));
+
         // connect the functions if needed
+        
         if (settings.value("Settings/connectOnStartup").toBool())
         {
             connect(this, SIGNAL(started()), this, SLOT(start_amp()));
@@ -1089,6 +1091,37 @@ namespace plug
         //printf("update_label: %s\n",s.toUtf8().constData());
         ui->CurrPresetLabel->setText(s);
     }
+
+
+    void MainWindow::setEffectButtonText(const QString &s, int slot, effects e)
+    {
+        QPushButton *b[] = {   ui->EffectButton1
+                            ,ui->EffectButton2 
+                            ,ui->EffectButton3 
+                            ,ui->EffectButton4 };
+ 
+        QColor colors[] = {
+                             QColor(53, 53, 53) //OFF or EMPTY
+                            ,QColor(100, 00, 00) //STOMP
+                            ,QColor(100, 100, 00) //MOD
+                            ,QColor(00, 100, 00) //DELAY
+                            ,QColor(00, 00, 100) //REVERB
+        };
+
+        int  family = check_fx_family(e);
+
+        b[slot]->setText(s);
+        QPalette pal =  b[slot]->palette();
+        pal.setColor(QPalette::Button, colors[family]);
+        b[slot]->setAutoFillBackground(true);
+        b[slot]->setPalette(pal);
+        b[slot]->update();
+        
+ 
+    }
+    
+
 }
+
 
 #include "ui/moc_mainwindow.moc"

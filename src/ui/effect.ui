@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>496</width>
-    <height>529</height>
+    <width>498</width>
+    <height>531</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -350,8 +350,9 @@
           </property>
           <property name="font">
            <font>
-            <pointsize>15</pointsize>
+            <pointsize>14</pointsize>
             <weight>75</weight>
+            <italic>true</italic>
             <bold>true</bold>
            </font>
           </property>
@@ -430,8 +431,9 @@
           </property>
           <property name="font">
            <font>
-            <pointsize>15</pointsize>
+            <pointsize>14</pointsize>
             <weight>75</weight>
+            <italic>true</italic>
             <bold>true</bold>
            </font>
           </property>
@@ -510,8 +512,9 @@
           </property>
           <property name="font">
            <font>
-            <pointsize>15</pointsize>
+            <pointsize>14</pointsize>
             <weight>75</weight>
+            <italic>true</italic>
             <bold>true</bold>
            </font>
           </property>
@@ -594,8 +597,9 @@
           </property>
           <property name="font">
            <font>
-            <pointsize>15</pointsize>
+            <pointsize>14</pointsize>
             <weight>75</weight>
+            <italic>true</italic>
             <bold>true</bold>
            </font>
           </property>
@@ -674,8 +678,9 @@
           </property>
           <property name="font">
            <font>
-            <pointsize>15</pointsize>
+            <pointsize>14</pointsize>
             <weight>75</weight>
+            <italic>true</italic>
             <bold>true</bold>
            </font>
           </property>
@@ -754,8 +759,9 @@
           </property>
           <property name="font">
            <font>
-            <pointsize>15</pointsize>
+            <pointsize>14</pointsize>
             <weight>75</weight>
+            <italic>true</italic>
             <bold>true</bold>
            </font>
           </property>
@@ -809,7 +815,7 @@
         </property>
         <property name="font">
          <font>
-          <pointsize>15</pointsize>
+          <pointsize>14</pointsize>
           <weight>75</weight>
           <italic>true</italic>
           <bold>true</bold>
@@ -817,6 +823,30 @@
         </property>
         <property name="text">
          <string>&amp;after amp.</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="slotLabel">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Expanding" vsizetype="Maximum">
+          <horstretch>6</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>14</pointsize>
+          <weight>75</weight>
+          <italic>true</italic>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="text">
+         <string>TextLabel</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
         </property>
        </widget>
       </item>

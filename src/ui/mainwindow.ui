@@ -143,7 +143,7 @@
            <string>This button opens window to set effect 1</string>
           </property>
           <property name="text">
-           <string>Effect &amp;1</string>
+           <string>FX&amp;1:</string>
           </property>
          </widget>
         </item>
@@ -176,7 +176,7 @@
            <string>This button opens window to set effect 2</string>
           </property>
           <property name="text">
-           <string>Effect &amp;2</string>
+           <string>FX&amp;2:</string>
           </property>
          </widget>
         </item>
@@ -209,7 +209,7 @@
            <string>This button opens window to set effect 3</string>
           </property>
           <property name="text">
-           <string>Effect &amp;3</string>
+           <string>FX&amp;3:</string>
           </property>
          </widget>
         </item>
@@ -242,7 +242,7 @@
            <string>This button opens window to set effect 4</string>
           </property>
           <property name="text">
-           <string>Effect &amp;4</string>
+           <string>FX&amp;4:</string>
           </property>
          </widget>
         </item>

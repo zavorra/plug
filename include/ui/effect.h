@@ -50,8 +50,10 @@ namespace plug
 
     private:
         void setTitleTexts(int slot, const QString& name);
+        void setSlotLabel(const QString& name);
         void setDialValues(int d1, int d2, int d3, int d4, int d5, int d6);
-
+        void updateMainWindowButton(const QString& name) ;
+        
         const std::unique_ptr<Ui::Effect> ui;
         std::uint8_t fx_slot;
         effects effect_num;
@@ -65,6 +67,7 @@ namespace plug
         bool changed;
         QString temp1;
         QString temp2;
+        QString temp3;
 
     public slots:
         // functions to set variables
@@ -87,5 +90,7 @@ namespace plug
         void load_default_fx();
 
         void showAndActivate();
+    signals:
+        void nameChanged(const QString &);
     };
 }

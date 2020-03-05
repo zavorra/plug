@@ -103,7 +103,8 @@ namespace plug
 
         // set window title
         setWindowTitle(tr("FX%1: EMPTY").arg(fx_slot + 1));
-
+        updateMainWindowButton(tr("FX&%1: EMPTY").arg(fx_slot + 1));
+        setSlotLabel(tr("#%1").arg(fx_slot + 1));
         setAccessibleName(tr("Effect's %1 window: EMPTY").arg(fx_slot + 1));
         setAccessibleDescription(tr("Here you can choose which effect should be emulated on this slot and it's parameters"));
         ui->checkBox->setAccessibleName(tr("Put effect %1 after amplifier").arg(fx_slot + 1));
@@ -380,7 +381,7 @@ namespace plug
                 ui->dial_3->setMaximum(255);
                 ui->spinBox_3->setMaximum(255); 
                 ui->dial_4->setMaximum(255);
-                ui->spinBox_4->setMaximum(255);                 ui->dial_4->setValue(0);
+                ui->spinBox_4->setMaximum(255);                 
                 ui->dial_5->setValue(0);
                 ui->dial_6->setValue(0);
                 ui->dial->setDisabled(false);
@@ -2234,7 +2235,10 @@ namespace plug
             effect_num = effects::EMPTY;
             temp1 = windowTitle();
             temp2 = accessibleName();
+            temp3 = ui->slotLabel->text();
             setWindowTitle(tr("FX%1: OFF").arg(fx_slot + 1));
+            updateMainWindowButton(tr("FX&%1: OFF").arg(fx_slot + 1));
+            setSlotLabel(tr("#%1").arg(fx_slot + 1));
             setAccessibleName(tr("Effect's %1 window: OFF").arg(fx_slot + 1));
         }
         else
@@ -2270,7 +2274,9 @@ namespace plug
             }
 
             setWindowTitle(temp1);
+            updateMainWindowButton(temp1);
             setAccessibleName(temp2);
+            setSlotLabel(temp3);
             activateWindow();
         }
         set_changed(true);
@@ -2316,6 +2322,7 @@ namespace plug
 
     void Effect::showAndActivate()
     {
+        raise();
         show();
         activateWindow();
     }
@@ -2323,8 +2330,16 @@ namespace plug
     void Effect::setTitleTexts(int slot, const QString& name)
     {
         setWindowTitle(tr("FX%1: %2").arg(slot).arg(name));
+        updateMainWindowButton(tr("FX&%1: %2").arg(slot).arg(name));
         setAccessibleName(tr("Effect's %1 window: %2").arg(fx_slot).arg(name));
+        setSlotLabel(tr("#%1").arg(slot));
     }
+
+    void Effect::setSlotLabel(const QString& name)
+    {
+        ui->slotLabel->setText(name);
+    }
+
 
     void Effect::setDialValues(int d1, int d2, int d3, int d4, int d5, int d6)
     {
@@ -2334,6 +2349,35 @@ namespace plug
         ui->dial_4->setValue(d4);
         ui->dial_5->setValue(d5);
         ui->dial_6->setValue(d6);
+    }
+
+    void Effect::updateMainWindowButton(const QString& name) {
+        dynamic_cast<MainWindow*>(parent())->setEffectButtonText(name,fx_slot, effect_num);
+        QColor colors2[] = {
+                             QColor(53, 53, 53) //OFF or EMPTY
+                            ,QColor(100, 00, 00) //STOMP
+                            ,QColor(100, 100, 00) //MOD
+                            ,QColor(00, 100, 00) //DELAY
+                            ,QColor(00, 00, 100) //REVERB      
+        };
+        int  family = 0;
+
+            if ((effect_num >= effects::OVERDRIVE) && (effect_num <= effects::BIG_FUZZ))
+                family = 1;
+            if ((effect_num >= effects::SINE_CHORUS) && (effect_num <= effects::DIATONIC_PITCH_SHIFT))
+                family = 2;
+            if ((effect_num >= effects::MONO_DELAY) && (effect_num <= effects::STEREO_TAPE_DELAY))
+                family = 3;
+            if ((effect_num >= effects::SMALL_HALL_REVERB) && (effect_num <= effects::FENDER_65_SPRING_REVERB))
+                family = 4;
+
+        QPalette pal2 =  ui->centralwidget->palette();
+        pal2.setColor(QPalette::Window, colors2[family]);
+
+        ui->centralwidget->setAutoFillBackground(true);
+        ui->centralwidget->setPalette(pal2);
+        ui->centralwidget->update();
+
     }
 
 }

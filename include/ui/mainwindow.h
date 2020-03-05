@@ -82,7 +82,7 @@ namespace plug
         void change_title(const QString&);
         void update_firmware();
         void empty_other(int, Effect*);
-
+        void setEffectButtonText(const QString &s, int slot, effects e);
     private:
         const std::unique_ptr<Ui::MainWindow> ui;
 
