@@ -119,15 +119,6 @@ namespace plug::com
 
 
 #if 0
-    std::size_t UsbComm::sendImpl(std::uint8_t* data, std::size_t size)
-    {
-        int actualTransfered{0};
-        const auto rtn = libusb_interrupt_transfer(handle, endpointSend, data, static_cast<int>(size), &actualTransfered, timeout.count());
-        checked(rtn, "Interrupt write failed");
-
-        return static_cast<std::size_t>(actualTransfered);
-    }
-
     std::vector<std::uint8_t> UsbComm::receive(std::size_t recvSize)
     {
         int actualTransfered{0};
@@ -152,10 +143,7 @@ namespace plug::com
 
         return buffer;
     }
-
-#else
-
-    std::size_t UsbComm::sendImpl(std::uint8_t* data, std::size_t size)
+   std::size_t UsbComm::sendImpl(std::uint8_t* data, std::size_t size)
     {
         int actualTransfered{0};
         int totalTransfered{0};
@@ -187,6 +175,27 @@ namespace plug::com
             throw CommunicationException{"Interrupt write failed"};
         return static_cast<std::size_t>(totalTransfered);
     }
+
+#else
+
+     std::size_t UsbComm::sendImpl(std::uint8_t* data, std::size_t size)
+     {
+	     int actualTransfered{0};
+
+#if LOG_TRANSFERS       
+	     for ( int i=0; i<64; i++ ) {
+		     if (i%16 == 0 )
+			     printf("\n >" );
+		     printf( "%02x ", data[i] );
+	     }   
+	     printf("\n");
+#endif        
+	     const auto rtn = libusb_interrupt_transfer(handle, endpointSend, data, static_cast<int>(size), &actualTransfered, timeout.count());
+	     checked(rtn, "Interrupt write failed");
+
+	     return static_cast<std::size_t>(actualTransfered);
+     }
+
 #endif
 
     void UsbComm::closeAndRelease()

@@ -19,6 +19,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+#include <sys/time.h>
 #include "com/Mustang.h"
 #include "com/PacketSerializer.h"
 #include "com/CommunicationException.h"
@@ -56,28 +57,45 @@ namespace plug::com
         sendCommand(conn, serializeApplyCommand().getBytes());
     }
 
+
+
+    long long current_timestamp() {
+	    struct timeval te; 
+	    gettimeofday(&te, NULL); // get current time
+	    long long milliseconds = te.tv_sec*1000LL + te.tv_usec/1000; // calculate milliseconds
+	    // printf("milliseconds: %lld\n", milliseconds);
+	    return milliseconds;
+    }
+
     std::array<PacketRawType, 7> loadBankData(Connection& conn, std::uint8_t slot)
     {
+	long long ts1 =  current_timestamp();
+
         std::array<PacketRawType, 7> data{{}};
-    //printf("loadBankData: \n");
+    printf("loadBankData: \n");
 
         const auto loadCommand = serializeLoadSlotCommand(slot);
         auto n = conn.send(loadCommand.getBytes());
 
-        for (std::size_t i = 0; n != 0; ++i)
+        for (std::size_t i = 0; i<8 ; ++i)
         {
-            //printf("i: %d ",static_cast<int>(i));
+            printf("i: %d ",static_cast<int>(i));
 
             const auto recvData = receivePacket(conn);
             n = recvData.size();
-            //printf("n: %d ",static_cast<int>(n));
+	    if (n==0) break;
+            printf("n: %d ",static_cast<int>(n));
 
             if (i < 7)
             {
-                std::copy(recvData.cbegin(), recvData.cend(), data[i].begin());
+              std::copy(recvData.cbegin(), recvData.cend(), data[i].begin());
             }
         }
-        return data;
+
+	long long ts2 =  current_timestamp();
+        
+	printf("loadBankData: %lld msec\n",ts2-ts1);
+	return data;
     }
 
 
