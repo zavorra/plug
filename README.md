@@ -11,50 +11,25 @@ mustang-midi-bridge ](https://github.com/snhirsch/mustang-midi-bridge) as a refe
 
 - Have it running correctly on a raspberry pi
 
-- (maybe) provide a more compact interface to fit on a cheap 320x480 LCD
+- Provide a more compact interface to fit on a cheap LCD
 
 ## Current status:
 
 - Presets with V2-only Effects and Amps can be created, loaded and saved from both amplifier and files. It's now time for some serious bug hunting...
 
-- Working fine on a raspberry pi 3 (only had to increment the timeout for USB transfers)
+- Working fine on a raspberry pi 3, but I had to increment the timeout for USB transfers. 
 
+- The UI has been changed to fit an 800x480 touch screen. Using [devilspie](https://wiki.gnome.org/action/show/Projects/DevilsPie?action=show&redirect=DevilsPie). 
+    - The Main window and the Amp are opened on workspace 1
+    - effect windows 1 and 2 on workspace 2, 
+    - effect windows 3 and 4 on workspace 3
 
+- It is now possible to toggle the tuner from the application (Ctrl-t)
 
-# Offa's README.md
+- Effect toggling is now performed using the dedicated message instead of setting a null effect.
 
-
-### [[GitHub](https://github.com/offa/plug)] [[GitLab](https://gitlab.com/offa/plug)]
-
-[![Build Status](https://travis-ci.org/offa/plug.svg?branch=master)](https://travis-ci.org/offa/plug)
-[![Pipeline Status](https://gitlab.com/offa/plug/badges/master/pipeline.svg)](https://gitlab.com/offa/plug/commits/master)
-[![Coverage Report](https://gitlab.com/offa/plug/badges/master/coverage.svg)](https://gitlab.com/offa/plug/commits/master)
-[![GitHub release](https://img.shields.io/github/release/offa/plug.svg)](https://github.com/offa/plug/releases)
-[![License](https://img.shields.io/badge/license-GPLv3-yellow.svg)](LICENSE)
-[![C++](https://img.shields.io/badge/c++-17-green.svg)]()
-
-Software for Fender Mustang Amps. This is a fork of [piorekf's Plug](https://bitbucket.org/piorekf/plug/).
-
-Please see [Contributing](CONTRIBUTING.md) for how to contribute to this project.
-
-
-## Goals
-
-- Port to *Modern C++*
-- Port to Qt5
-- CMake support
-- Modernization and Improvements
-- Unit Test Suite
-- Moving to Git
-
-
-## Requirements
-
-- [**CMake**](https://www.cmake.org/)
-- [**Qt5**](https://www.qt.io/)
-- [**libusb-1.0**](http://libusb.info/)
-
-
+Some major work will be needed to read from the amp on a separate thread as in [snhirsch /
+mustang-midi-bridge ](https://github.com/snhirsch/mustang-midi-bridge). It would allow to use the amp dials and buttons, and it would redice the chance to have unflushed messages from the amp.
 
 ## Building
 
@@ -78,6 +53,7 @@ make install
 
 The *udev* rule allows the USB access without *root* for the users of the `plugdev` group.
 
+If you want to run on a small screen (e.g. on a Raspberry pi) edit the stuff in the *extra/\_config* folder and copy it  on $HOME/.config 
 
 ## Documentation
 
@@ -87,7 +63,7 @@ Visit the [Plug Website](https://bitbucket.org/piorekf/plug/) for documentation 
 ## Credits
 
 Thanks to [piorekf and all Plug contributors](https://bitbucket.org/piorekf/plug/).
-
+Thanks to [Offa's rework](https://github.com/offa/plug) 
 
 ## License
 
