@@ -2180,6 +2180,25 @@ namespace plug
         dynamic_cast<MainWindow*>(parent())->set_effect(pedal);
     }
 
+
+    void Effect::toggle_fx(bool effectOn)
+    {
+        fx_pedal_settings pedal{};
+
+        pedal.effect_num = effect_num;
+        pedal.fx_slot = fx_slot;
+        pedal.position = position;
+        pedal.knob1 = knob1;
+        pedal.knob2 = knob2;
+        pedal.knob3 = knob3;
+        pedal.knob4 = knob4;
+        pedal.knob5 = knob5;
+        pedal.knob6 = knob6;
+
+        dynamic_cast<MainWindow*>(parent())->toggle_effect(pedal, effectOn);
+    }
+
+
     void Effect::load(fx_pedal_settings settings)
     {
         set_changed(true);
@@ -2191,6 +2210,7 @@ namespace plug
         ui->dial_5->setValue(settings.knob5);
         ui->dial_6->setValue(settings.knob6);
         ui->checkBox->setChecked(settings.position == Position::effectsLoop);
+	off_switch_ui(settings.disabled);
         printf("Effect::load: effect_num: %d\n",static_cast<int>(settings.effect_num));
     }
 
@@ -2207,7 +2227,8 @@ namespace plug
         pedal.knob6 = knob6;
     }
 
-    void Effect::off_switch(bool value)
+
+    void Effect::off_switch_ui(bool value)
     {
         if (value)
         {
@@ -2232,7 +2253,9 @@ namespace plug
             ui->label_3->setDisabled(true);
             ui->label_4->setDisabled(true);
             ui->label_5->setDisabled(true);
-            effect_num = effects::EMPTY;
+            //temp_num = effect_num;
+	    //effect_num = effects::EMPTY;
+
             temp1 = windowTitle();
             temp2 = accessibleName();
             temp3 = ui->slotLabel->text();
@@ -2255,7 +2278,6 @@ namespace plug
             ui->label_6->setDisabled(false);
             ui->dial->setDisabled(false);
             ui->spinBox->setDisabled(false);
-
             if (effect_num != effects::SIMPLE_COMP)
             {
                 ui->dial_2->setDisabled(false);
@@ -2272,16 +2294,22 @@ namespace plug
                     ui->spinBox_6->setDisabled(false);
                 }
             }
-
             setWindowTitle(temp1);
             updateMainWindowButton(temp1);
             setAccessibleName(temp2);
             setSlotLabel(temp3);
             activateWindow();
         }
-        set_changed(true);
-        send_fx();
+	//toggle_fx(value);
+        //set_changed(true);
+        //send_fx();
     }
+
+    void Effect::off_switch(bool value) {
+    	off_switch_ui(value);
+	toggle_fx(value);
+    }
+
 
     void Effect::set_changed(bool value)
     {
@@ -2352,33 +2380,35 @@ namespace plug
     }
 
     void Effect::updateMainWindowButton(const QString& name) {
-        dynamic_cast<MainWindow*>(parent())->setEffectButtonText(name,fx_slot, effect_num);
-        QColor colors2[] = {
-                             QColor(53, 53, 53) //OFF or EMPTY
-                            ,QColor(100, 00, 00) //STOMP
-                            ,QColor(100, 100, 00) //MOD
-                            ,QColor(00, 100, 00) //DELAY
-                            ,QColor(00, 00, 100) //REVERB      
-        };
-        int  family = 0;
+        
+		printf("eff_num: %d\n", static_cast<int>(effect_num));
+	dynamic_cast<MainWindow*>(parent())->setEffectButtonText(name,fx_slot, effect_num);
+	QColor colors2[] = {
+			QColor(53, 53, 53) //OFF or EMPTY
+					,QColor(100, 00, 00) //STOMP
+					,QColor(100, 100, 00) //MOD
+					,QColor(00, 100, 00) //DELAY
+					,QColor(00, 00, 100) //REVERB      
+	};
+	int  family = 0;
 
-            if ((effect_num >= effects::OVERDRIVE) && (effect_num <= effects::BIG_FUZZ))
-                family = 1;
-            if ((effect_num >= effects::SINE_CHORUS) && (effect_num <= effects::DIATONIC_PITCH_SHIFT))
-                family = 2;
-            if ((effect_num >= effects::MONO_DELAY) && (effect_num <= effects::STEREO_TAPE_DELAY))
-                family = 3;
-            if ((effect_num >= effects::SMALL_HALL_REVERB) && (effect_num <= effects::FENDER_65_SPRING_REVERB))
-                family = 4;
+	if ((effect_num >= effects::OVERDRIVE) && (effect_num <= effects::BIG_FUZZ))
+			family = 1;
+	if ((effect_num >= effects::SINE_CHORUS) && (effect_num <= effects::DIATONIC_PITCH_SHIFT))
+			family = 2;
+	if ((effect_num >= effects::MONO_DELAY) && (effect_num <= effects::STEREO_TAPE_DELAY))
+			family = 3;
+	if ((effect_num >= effects::SMALL_HALL_REVERB) && (effect_num <= effects::FENDER_65_SPRING_REVERB))
+			family = 4;
 
-        QPalette pal2 =  ui->centralwidget->palette();
-        pal2.setColor(QPalette::Window, colors2[family]);
+	QPalette pal2 =  ui->centralwidget->palette();
+	pal2.setColor(QPalette::Window, colors2[family]);
 
-        ui->centralwidget->setAutoFillBackground(true);
-        ui->centralwidget->setPalette(pal2);
-        ui->centralwidget->update();
+	ui->centralwidget->setAutoFillBackground(true);
+	ui->centralwidget->setPalette(pal2);
+	ui->centralwidget->update();
 
-    }
+	}
 
 }
 

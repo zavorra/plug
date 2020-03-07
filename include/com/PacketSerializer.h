@@ -62,4 +62,5 @@ namespace plug::com
     std::array<Packet<EmptyPayload>, 2> serializeInitCommand();
     Packet<EmptyPayload> serializeTunerCommand( bool tunerOn);
 
+    Packet<EmptyPayload> serializeToggleEffectCommand( int dsp_family, int slot, bool effectOn);
 }

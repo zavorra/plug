@@ -60,6 +60,7 @@ namespace plug::com
         init1,
         ready,
         tuner,
+	toggle,
         unknown
     };
 
@@ -86,6 +87,8 @@ namespace plug::com
                         return 0x1c;
                     case Stage::tuner:
                         return 0x0a;
+		    case Stage::toggle:
+			return 0x19;
                     default:
                         return 0xff;
                 }
@@ -146,6 +149,12 @@ namespace plug::com
                     throw std::domain_error("Invalid Type: " + std::to_string(bytes[1]));
             }
         }
+        
+	void setDSP(int dsp)
+        {
+            bytes[2] = static_cast<uint8_t>(dsp);
+        }
+
 
         void setDSP(DSP dsp)
         {
@@ -217,6 +226,11 @@ namespace plug::com
         {
             return bytes[4];
         }
+
+	void setStatus(std::uint8_t status) 
+	{
+		bytes[3] = status;
+	}
 
         void setUnknown(std::uint8_t value0, std::uint8_t value1, std::uint8_t value2)
         {
@@ -387,6 +401,11 @@ namespace plug::com
                     ,static_cast<int>(bytes[1]));
             return mod;
         }
+
+	bool getDisabled()  const
+	{
+		return (bytes[6] == 0x01);
+	}
 
         void setUnknown(std::uint8_t value0, std::uint8_t value1, std::uint8_t value2)
         {

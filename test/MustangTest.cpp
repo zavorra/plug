@@ -204,10 +204,10 @@ TEST_F(MustangTest, startRequestsCurrentAmp)
 
 TEST_F(MustangTest, startRequestsCurrentEffects)
 {
-    constexpr fx_pedal_settings e0{0x00, effects::TRIANGLE_FLANGER, 10, 20, 30, 40, 50, 0, Position::effectsLoop};
-    constexpr fx_pedal_settings e1{0x01, effects::TRIANGLE_CHORUS, 0, 0, 0, 1, 1, 1, Position::input};
-    constexpr fx_pedal_settings e2{0x02, effects::EMPTY, 0, 0, 0, 0, 0, 0, Position::input};
-    constexpr fx_pedal_settings e3{0x03, effects::TAPE_DELAY, 1, 2, 3, 4, 5, 6, Position::effectsLoop};
+    constexpr fx_pedal_settings e0{0x00, effects::TRIANGLE_FLANGER, 10, 20, 30, 40, 50, 0, Position::effectsLoop,false};
+    constexpr fx_pedal_settings e1{0x01, effects::TRIANGLE_CHORUS, 0, 0, 0, 1, 1, 1, Position::input,false};
+    constexpr fx_pedal_settings e2{0x02, effects::EMPTY, 0, 0, 0, 0, 0, 0, Position::input,false};
+    constexpr fx_pedal_settings e3{0x03, effects::TAPE_DELAY, 1, 2, 3, 4, 5, 6, Position::effectsLoop,false};
     const auto recvData0 = asBuffer(serializeEffectSettings(e0).getBytes());
     const auto recvData1 = asBuffer(serializeEffectSettings(e1).getBytes());
     const auto recvData2 = asBuffer(serializeEffectSettings(e2).getBytes());
@@ -425,10 +425,10 @@ TEST_F(MustangTest, loadMemoryBankReceivesAmpValues)
 
 TEST_F(MustangTest, loadMemoryBankReceivesEffectValues)
 {
-    constexpr fx_pedal_settings e0{0x00, effects::TRIANGLE_FLANGER, 10, 20, 30, 40, 50, 0, Position::effectsLoop};
-    constexpr fx_pedal_settings e1{0x01, effects::TRIANGLE_CHORUS, 0, 0, 0, 1, 1, 0, Position::input};
-    constexpr fx_pedal_settings e2{0x02, effects::EMPTY, 0, 0, 0, 0, 0, 0, Position::input};
-    constexpr fx_pedal_settings e3{0x03, effects::TAPE_DELAY, 1, 2, 3, 4, 5, 6, Position::effectsLoop};
+    constexpr fx_pedal_settings e0{0x00, effects::TRIANGLE_FLANGER, 10, 20, 30, 40, 50, 0, Position::effectsLoop,false};
+    constexpr fx_pedal_settings e1{0x01, effects::TRIANGLE_CHORUS, 0, 0, 0, 1, 1, 0, Position::input,false};
+    constexpr fx_pedal_settings e2{0x02, effects::EMPTY, 0, 0, 0, 0, 0, 0, Position::input,false};
+    constexpr fx_pedal_settings e3{0x03, effects::TAPE_DELAY, 1, 2, 3, 4, 5, 6, Position::effectsLoop,false};
     const auto recvData0 = asBuffer(serializeEffectSettings(e0).getBytes());
     const auto recvData1 = asBuffer(serializeEffectSettings(e1).getBytes());
     const auto recvData2 = asBuffer(serializeEffectSettings(e2).getBytes());
@@ -489,7 +489,7 @@ TEST_F(MustangTest, setAmpSendsValues)
 
 TEST_F(MustangTest, setEffectSendsValue)
 {
-    constexpr fx_pedal_settings settings{3, effects::OVERDRIVE, 8, 7, 6, 5, 4, 3, Position::input};
+    constexpr fx_pedal_settings settings{3, effects::OVERDRIVE, 8, 7, 6, 5, 4, 3, Position::input,false};
     const auto data = serializeEffectSettings(settings).getBytes();
 
 
@@ -516,7 +516,7 @@ TEST_F(MustangTest, setEffectSendsValue)
 
 TEST_F(MustangTest, setEffectClearsEffectIfEmptyEffect)
 {
-    constexpr fx_pedal_settings settings{2, effects::EMPTY, 0, 0, 0, 0, 0, 0, Position::input};
+    constexpr fx_pedal_settings settings{2, effects::EMPTY, 0, 0, 0, 0, 0, 0, Position::input,false};
 
 
     InSequence s;
@@ -534,8 +534,8 @@ TEST_F(MustangTest, setEffectClearsEffectIfEmptyEffect)
 
 TEST_F(MustangTest, saveEffectsSendsValues)
 {
-    const std::vector<fx_pedal_settings> settings{fx_pedal_settings{1, effects::MONO_DELAY, 0, 1, 2, 3, 4, 5, Position::input},
-                                                  fx_pedal_settings{2, effects::SINE_FLANGER, 6, 7, 8, 0, 0, 0, Position::effectsLoop}};
+    const std::vector<fx_pedal_settings> settings{fx_pedal_settings{1, effects::MONO_DELAY, 0, 1, 2, 3, 4, 5, Position::input,false},
+                                                  fx_pedal_settings{2, effects::SINE_FLANGER, 6, 7, 8, 0, 0, 0, Position::effectsLoop,false}};
     const std::string name = "abcd";
     const auto dataName = serializeSaveEffectName(slot, name, settings).getBytes();
     const auto cmdExecute = serializeApplyCommand(settings[0]).getBytes();
@@ -567,9 +567,9 @@ TEST_F(MustangTest, saveEffectsSendsValues)
 
 TEST_F(MustangTest, saveEffectsLimitsNumberOfValues)
 {
-    const std::vector<fx_pedal_settings> settings{fx_pedal_settings{1, effects::MONO_DELAY, 0, 1, 2, 3, 4, 5, Position::input},
-                                                  fx_pedal_settings{2, effects::SINE_FLANGER, 6, 7, 8, 0, 0, 0, Position::effectsLoop},
-                                                  fx_pedal_settings{3, effects::SINE_FLANGER, 1, 2, 2, 1, 0, 4, Position::effectsLoop}};
+    const std::vector<fx_pedal_settings> settings{fx_pedal_settings{1, effects::MONO_DELAY, 0, 1, 2, 3, 4, 5, Position::input,false},
+                                                  fx_pedal_settings{2, effects::SINE_FLANGER, 6, 7, 8, 0, 0, 0, Position::effectsLoop,false},
+                                                  fx_pedal_settings{3, effects::SINE_FLANGER, 1, 2, 2, 1, 0, 4, Position::effectsLoop,false}};
     const std::string name = "abcd";
     const auto dataName = serializeSaveEffectName(slot, name, settings).getBytes();
     const auto cmdExecute = serializeApplyCommand(settings[0]).getBytes();
@@ -595,7 +595,7 @@ TEST_F(MustangTest, saveEffectsLimitsNumberOfValues)
 
 TEST_F(MustangTest, saveEffectsDoesNothingOnInvalidEffect)
 {
-    const std::vector<fx_pedal_settings> settings{fx_pedal_settings{1, effects::COMPRESSOR, 0, 1, 2, 3, 4, 5, Position::input}};
+    const std::vector<fx_pedal_settings> settings{fx_pedal_settings{1, effects::COMPRESSOR, 0, 1, 2, 3, 4, 5, Position::input,false}};
 
     EXPECT_THROW(m->save_effects(slot, "abcd", settings), std::invalid_argument);
 }

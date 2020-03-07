@@ -68,6 +68,7 @@ namespace plug
         QString temp1;
         QString temp2;
         QString temp3;
+        effects temp_num;
 
     public slots:
         // functions to set variables
@@ -80,11 +81,13 @@ namespace plug
         void set_knob6(int);
         void choose_fx(int);
         void off_switch(bool);
+        void off_switch_ui(bool);
         void enable_set_button(bool);
 
         // send settings to the amplifier
         void send_fx();
 
+        void toggle_fx(bool);
         void load(fx_pedal_settings);
         void get_settings(fx_pedal_settings&);
         void load_default_fx();

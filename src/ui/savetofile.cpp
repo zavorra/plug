@@ -336,7 +336,7 @@ namespace plug
 
     void SaveToFile::manageWriteFX(fx_pedal_settings settings[4])
     {
-        fx_pedal_settings empty{0, effects::EMPTY, 0, 0, 0, 0, 0, 0, Position::input};
+        fx_pedal_settings empty{0, effects::EMPTY, 0, 0, 0, 0, 0, 0, Position::input, false};
 
         xml->writeStartElement("FX");
 

@@ -136,12 +136,15 @@ namespace plug::com
             effects[slot].knob6 = payload.getKnob6();
             effects[slot].position = (payload.getSlot() > 0x03 ? Position::effectsLoop : Position::input);
             effects[slot].effect_num = lookupEffectById(payload.getModel());
-            printf("decodeEffectsFromData: effect:%d slot: %d, position: %d, effect_num: %d, id: %02x\n"
+	    effects[slot].disabled = payload.getDisabled();
+            printf("decodeEffectsFromData: effect:%d slot: %d, position: %d, effect_num: %d, id: %02x, disabled: %d\n"
                         ,i
                         ,static_cast<int>(slot)
                         ,static_cast<int>(effects[slot].position)
                         ,static_cast<int>(effects[slot].effect_num)
-                        ,static_cast<int>(payload.getModel()));
+                        ,static_cast<int>(payload.getModel())
+                        ,static_cast<int>(effects[slot].disabled)
+			);
         });
 
         return effects;
@@ -789,4 +792,23 @@ namespace plug::com
         applyCommand.setPayload(EmptyPayload{});
         return applyCommand;
     }
+
+    Packet<EmptyPayload> serializeToggleEffectCommand( int dsp_family, int slot, bool effectOn)
+    {
+        Header h{};
+        int x=static_cast<int>(effectOn);
+        printf("%d",x);
+        h.setStage(Stage::toggle);
+        h.setType(Type::init0);
+        h.setDSP(dsp_family + 2);
+        uint8_t byte_3 = (effectOn ? 0x01 : 0x00);
+        h.setStatus(byte_3);
+        h.setSlot(slot);
+
+        Packet<EmptyPayload> applyCommand{};
+        applyCommand.setHeader(h);
+        applyCommand.setPayload(EmptyPayload{});
+        return applyCommand;
+    }
+
 }

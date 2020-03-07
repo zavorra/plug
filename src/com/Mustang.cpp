@@ -246,4 +246,16 @@ namespace plug::com
         } while (data[0] != -1);
     }
 
+    void Mustang::toggleEffect(int dsp_family, int slot, bool effectOn)
+    {
+        sendCommand(*conn
+			, serializeToggleEffectCommand(dsp_family
+				, slot, effectOn).getBytes() );
+        
+	for (int i = 0 ; i < 2 ; i++) {
+		//flush the ack and  more packets whose purpose is unknown
+		auto recvData = receivePacket(*conn);
+	}
+     }
+
 }

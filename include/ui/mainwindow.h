@@ -83,6 +83,8 @@ namespace plug
         void update_firmware();
         void empty_other(int, Effect*);
         void setEffectButtonText(const QString &s, int slot, effects e);
+	void toggle_effect(fx_pedal_settings pedal, bool effectOn) ; 
+
     private:
         const std::unique_ptr<Ui::MainWindow> ui;
 

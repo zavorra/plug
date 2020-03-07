@@ -50,6 +50,7 @@ namespace plug::com
         void flushTunerData();
         Mustang& operator=(const Mustang&) = delete;
 
+	void toggleEffect(int dsp_family, int slot, bool effectOn);
 
     private:
         InitalData loadData();

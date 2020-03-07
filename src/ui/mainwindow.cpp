@@ -411,6 +411,33 @@ namespace plug
         amp->send_amp();
     }
 
+    // pass the message to the amp
+    void MainWindow::toggle_effect(fx_pedal_settings pedal, bool effectOn)
+    {
+	    if (!connected)
+	    {
+		    return;
+	    }
+
+	    printf("toggle_effect:\n");
+
+	    try
+	    {
+		    amp_ops->toggleEffect( 
+				    check_fx_family(pedal.effect_num)
+				    , pedal.fx_slot + ( pedal.position == Position::effectsLoop ? 4 : 0)
+				  , effectOn  
+				    	 );
+	    }
+	    catch (const std::exception& ex)
+	    {
+		    qWarning() << "ERROR: " << ex.what();
+		    ui->statusBar->showMessage(QString(tr("Error: %1")).arg(ex.what()), 5000);
+		    return;
+	    }
+	    amp->send_amp();
+    }
+
     void MainWindow::set_amplifier(amp_settings amp_settings)
     {
 
