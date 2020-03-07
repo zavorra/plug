@@ -1,4 +1,3 @@
 @lxpanel --profile LXDE
-@devilspie -d /home/giorgio/workspace/Mustang/plug.git/extra/plug.ds 
-@rxvt -title "log" -g 160x25+0+440 -e /home/giorgio/workspace/Mustang/plug.git/build/src/plug &
-
+@rxvt -title "log" -g 160x25+0+440 -e /home/pi/plug/build/src/plug 
+@devilspie -a-d  /home/pi/plug/extra/plug.ds 

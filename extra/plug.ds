@@ -7,10 +7,10 @@
   )
  ) 
  (
-  if (contains (window_name) "Amplifier: ") 
+  if (contains (window_name) "Amplifier:") 
   (begin
    (set_workspace 1)
-   (geometry "800x223+-1-0")
+   (geometry "800x223+0+240")
   )
  ) 
  (
